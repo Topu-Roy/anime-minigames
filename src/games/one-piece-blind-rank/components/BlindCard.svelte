@@ -14,10 +14,10 @@
         src={character.imageURL}
       />
       <p
-        class="absolute top-2 right-2 rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 text-[11px] font-bold tracking-[0.16px] text-cocoa uppercase md:top-3 md:right-3 md:border-[3px] md:px-3 md:py-1 md:text-xs"
+        class="absolute top-2 right-2 rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 font-bold tracking-[0.16px] text-cocoa uppercase md:top-3 md:right-3 md:border-[3px] md:px-3 md:py-1 md:text-xs"
       >
         <span class="sm:hidden">{round}/10</span>
-        <span class="hidden sm:inline">Round {round} of 10</span>
+        <span class="hidden sm:inline">Round {round}</span>
       </p>
     </div>
     <div class="flex min-w-0 flex-1 flex-col justify-center px-4 py-3 md:items-center md:px-4 md:text-center">
