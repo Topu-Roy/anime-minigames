@@ -4,19 +4,19 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## `/`
 
-- Title: Anime Draft — Free Anime Minigames
+- Title: Free Anime Minigames — Play in Browser | Anime Draft
 - H1: Anime Draft
-- Body: 170 words
+- Body: 1006 words
 - P1: "one piece draft game" ×2
-- Hub: "anime draft" ×5, "anime minigames" ×2, "free anime minigames" ×2
-- P1F: "one piece games" ×1, "naruto" ×3
-- P4: "haki" ×1
+- Hub: "anime draft" ×11, "anime minigames" ×5, "free anime minigames" ×3
+- P1F: "one piece games" ×6, "naruto" ×7
+- P4: "devil fruit" ×2, "haki" ×3
 
 ## `/one-piece`
 
 - Title: One Piece Games — Free Minigames | Anime Draft
 - H1: One Piece Games
-- Body: 1002 words
+- Body: 999 words
 - P1: "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "anime draft" ×3
 - P1F: "one piece games" ×4
@@ -27,7 +27,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Draft Game — Build Your Strongest Pirate
 - H1: One Piece Draft Game
-- Body: 1009 words
+- Body: 1008 words
 - P1: "one piece draft game" ×3, "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "anime draft" ×2
 - P4: "luffy" ×3, "devil fruit" ×7, "haki" ×11
@@ -36,7 +36,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: How to Play the One Piece Draft Game — Rules &amp; Rounds
 - H1: How to play
-- Body: 362 words
+- Body: 361 words
 - P1: "one piece draft game" ×2
 - Hub: "anime draft" ×2
 - P4: "devil fruit" ×4, "haki" ×8
@@ -45,7 +45,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Characters — All 184 by Tier, Powers &amp; Ranks
 - H1: One Piece characters
-- Body: 1062 words
+- Body: 1061 words
 - P1: "one piece draft game" ×1
 - Hub: "anime draft" ×2
 - P3: "does zoro have conqueror" ×1

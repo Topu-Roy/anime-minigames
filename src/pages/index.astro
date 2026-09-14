@@ -2,28 +2,44 @@
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.svelte";
 
-// Brand hub: franchise-neutral. Sells anime minigames, routes to franchises.
-// Lore FAQ moved to /one-piece — this page keeps brand questions only.
+// Brand hub: targets "free anime games". Deep SEO content like /one-piece hub.
+// Lore FAQ stays on /one-piece - this page keeps brand + franchise questions only.
 const faqs = [
   {
     q: "What is Anime Draft?",
-    a: "A free anime minigame hub. Play quick browser games — no download, no account — starting with the One Piece draft game. Naruto games are next.",
+    a: "A free anime games hub in yer browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next.",
   },
   {
     q: "Is it really free?",
-    a: "Yes — every game is free forever. No accounts, no paywalls. Your progress lives in the browser.",
+    a: "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when ye close the tab.",
+  },
+  {
+    q: "Which anime game is live right now?",
+    a: "One Piece: the 8-round draft game with 184 canon-graded characters plus blind top-10 ranking. Open the One Piece games hub and start drafting in under a minute.",
   },
   {
     q: "Which anime are coming next?",
-    a: "Naruto games are on the map after One Piece. One hub, many crews — same draft-and-rank formula, new worlds.",
+    a: "Naruto, Hunter x Hunter and Jujutsu Kaisen - each with the same effort as One Piece: a full draft game, live rankings and character guides. One hub, many crews.",
+  },
+  {
+    q: "What will the Naruto, HxH and JJK games play like?",
+    a: "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank yer custom build against the full roster of that verse.",
+  },
+  {
+    q: "Can I play on my phone?",
+    a: "Yes - every game is touch-first and mobile-sized. Draft on the bus, argue about the rank everywhere else.",
+  },
+  {
+    q: "What does the final rank mean?",
+    a: "Yer custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive.",
   },
 ];
 ---
 
 <Layout
   canonicalPath="/"
-  description="Anime Draft — free anime minigames in your browser. Play the One Piece draft game, rank pirates, and watch for Naruto games next."
-  title="Anime Draft — Free Anime Minigames"
+  description="Anime Draft — free anime minigames in your browser. Play One Piece games now; Naruto, Hunter x Hunter and Jujutsu Kaisen minigames next. No download, no account."
+  title="Free Anime Minigames — Play in Browser | Anime Draft"
 >
   <NavBar showRestart={false} />
   <script type="application/ld+json">
@@ -36,7 +52,7 @@ const faqs = [
           "name": "What is Anime Draft?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A free anime minigame hub. Play quick browser games with no download and no account, starting with the One Piece draft game."
+            "text": "A free anime games hub in your browser. Play quick anime minigames with no download and no account, starting with the One Piece draft game and blind ranking."
           }
         },
         {
@@ -44,7 +60,15 @@ const faqs = [
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — every game is free forever. No accounts, no paywalls."
+            "text": "Yes - every game is free forever. No accounts, no paywalls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which anime game is live right now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One Piece: the 8-round draft game with 184 canon-graded characters plus blind top-10 ranking."
           }
         },
         {
@@ -52,7 +76,31 @@ const faqs = [
           "name": "Which anime are coming next?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Naruto games are on the map after One Piece."
+            "text": "Naruto, Hunter x Hunter and Jujutsu Kaisen - each with the same effort as One Piece."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What will the Naruto, HxH and JJK games play like?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same draft-and-rank formula, new worlds: jutsu, nen types, cursed techniques - then a live rank against the full roster."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - every game is touch-first and mobile-sized."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the final rank mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your custom build is scored by the same feat-graded model as every roster character in that verse."
           }
         }
       ]
@@ -61,7 +109,7 @@ const faqs = [
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl space-y-12 px-6 pt-12">
-      <!-- Hero: banner pill, Peralta H1, sticker button. -->
+      <!-- Hero: banner pill, Peralta H1, lede with target keyword. -->
       <section class="text-center">
         <p
           class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
@@ -70,13 +118,14 @@ const faqs = [
         </p>
         <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">Anime Draft</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
-          Quick anime games in yer browser — draft pirates today, ninjas tomorrow. No download, no account, five
-          minutes a game.
+          Anime Draft is free anime minigames in yer browser - quick anime minigames with no download, no account,
+          five minutes a game. Play the live One Piece games today, with Naruto, Hunter x Hunter and Jujutsu Kaisen
+          minigames charted next.
         </p>
       </section>
 
-      <!-- Franchise cards: One Piece live, Naruto soon. -->
-      <section class="pb-12">
+      <!-- Franchise cards: One Piece live, Naruto + HxH + JJK same-effort soon. -->
+      <section>
         <h2 class="text-center font-hand text-4xl">Pick yer verse</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           <div
@@ -84,7 +133,7 @@ const faqs = [
           >
             <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Live now</p>
             <h3 class="mt-2 font-hand text-4xl">One Piece</h3>
-            <p class="mt-2 text-sm">Draft game · rankings · Straw Hats · haki answers.</p>
+            <p class="mt-2 text-sm">Draft game · blind ranking · 184 characters · Straw Hats · haki answers.</p>
             <a
               class="mt-5 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-6 py-3 font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
               href="/one-piece"
@@ -93,15 +142,145 @@ const faqs = [
             </a>
           </div>
           <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
             <h3 class="mt-2 font-hand text-4xl">Naruto</h3>
-            <p class="mt-2 text-sm">Draft yer shinobi. Jutsu, tailed beasts, live ranks.</p>
+            <p class="mt-2 text-sm">
+              Draft yer shinobi. Jutsu, kekkei genkai, tailed beasts, live ranks - same depth as One Piece.
+            </p>
+          </div>
+          <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
+            <h3 class="mt-2 font-hand text-4xl">Hunter x Hunter</h3>
+            <p class="mt-2 text-sm">
+              Draft yer hunter. Nen types, conditions, restrictions, live ranks - same depth as One Piece.
+            </p>
+          </div>
+          <div class="rotate-[-0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
+            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
+            <h3 class="mt-2 font-hand text-4xl">Jujutsu Kaisen</h3>
+            <p class="mt-2 text-sm">
+              Draft yer sorcerer. Cursed techniques, domains, live ranks - same depth as One Piece.
+            </p>
           </div>
         </div>
       </section>
 
+      <!-- What: hub explainer for "free anime games" intent. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">What is Anime Draft?</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Anime Draft is a free anime games hub: quick browser minigames where ye build original fighters and
+            rank them against canon rosters. No download, no account, no paywall - open a page, draft for five
+            minutes, argue about the result everywhere else. Every verse gets the same treatment: a draft game, a
+            ranking game, character guides and honest feat-graded numbers.
+          </p>
+          <p>
+            One hub, many crews. The formula never changes - draft traits from canon donors, resolve them into
+            stats, rank the build against the full roster - but each world brings its own powers, guarantees and
+            debates. Pirates today means haki, Devil Fruits and swords; tomorrow it means jutsu, nen and domains
+            under the same fair scoring.
+          </p>
+        </div>
+      </section>
+
+      <!-- Live: One Piece proof + internal links. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Live now: One Piece games</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            The <a class="font-bold text-coral underline" href="/one-piece">One Piece games</a> are live and set the
+            bar every future verse must clear. The
+            <a class="font-bold text-coral underline" href="/one-piece/draft">draft game</a>
+            harvests one trait per round from 4 donors over 8 rounds - body, three haki, Devil Fruit, weapon, intelligence,
+            battle IQ - from 184 hand-graded characters, then deals a live rank out of 185. The <a
+              class="font-bold text-coral underline"
+              href="/one-piece/blind-rank">blind ranking</a
+            > seats 10 mystery donors and locks every placement forever.
+          </p>
+          <p>
+            Study before ye sail: the
+            <a class="font-bold text-coral underline" href="/one-piece/draft/characters">184 characters</a>
+            break down every donor stat by stat, and the
+            <a class="font-bold text-coral underline" href="/one-piece/draft/how-to-play">how to play guide</a>
+            teaches rounds, rarity and rerolls in two minutes. That depth - full roster, public numbers, real strategy
+            - is what Naruto, Hunter x Hunter and Jujutsu Kaisen each receive next.
+          </p>
+        </div>
+      </section>
+
+      <!-- How: shared formula across verses. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">How draft-and-rank works</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Every Anime Draft game follows one loop: pick a body, harvest powers from canon donors, close with
+            mind-round multipliers, then take a live rank. Donor options roll by rarity - basics common, gods rare
+            - with guarantees so no round ever blanks. Two rerolls cover the whole draft, usable anywhere including
+            the final pick.
+          </p>
+          <p>
+            Scoring stays honest across verses. Yer build resolves to stats with the same model that grades every
+            roster character, so a rank means the same thing on draft one and draft one hundred. Learn the safety
+            nets, spend rerolls late, and never trust a pretty face over numbers - the rank at the end is the
+            receipt.
+          </p>
+        </div>
+      </section>
+
+      <!-- Next: equal-effort promise per verse, keyword-targeted. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Coming next, same effort</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            <strong>Naruto games</strong> draft yer shinobi: five natures, kekkei genkai, sage mode and tailed beasts,
+            with jonin-to-god donors graded from canon feats. Expect draft game, rankings and full character guides —
+            not a quiz reskin.
+          </p>
+          <p>
+            <strong>Hunter x Hunter games</strong> draft yer hunter: six nen types, conditions and restrictions, with
+            specialists and Chimera Ants priced like the monsters they are. Same depth as One Piece - same 8-round tension,
+            same honest ranks.
+          </p>
+          <p>
+            <strong>Jujutsu Kaisen games</strong> draft yer sorcerer: cursed techniques, reversals and domains, with
+            grades that respect what the manga actually shows. Draft it, rank it, settle every domain-clash debate with
+            numbers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Why: conversion block. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Why this hub hooks ye</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Most free anime games ask what ye remember. Anime Draft asks what ye understand: which power carries
+            attack, when to burn a reroll, why a rare technique beats raw muscle. Every pick is a powerscaling
+            decision, and the final rank grades it against a canon-graded roster.
+          </p>
+          <p>
+            No two drafts play alike, yet scoring never moves - so ranks stay honest across hundreds of runs. Five
+            minutes a draft, free forever, touch-first on mobile. Play the One Piece games now while the next three
+            verses muster their crews.
+          </p>
+        </div>
+      </section>
+
+      <!-- Canon note. -->
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-4xl">Fan-made, feat-graded</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Anime Draft is an unofficial fan project - but every number is graded from canon feats, and unconfirmed
+            powers stay unconfirmed in the data. Disagree with a grade? Good. Draft the version ye believe in and
+            see where it ranks.
+          </p>
+        </div>
+      </section>
+
       <!-- Brand FAQ. -->
-      <section class="mx-auto max-w-3xl pb-12">
+      <section class="mx-auto max-w-3xl">
         <h2 class="text-center font-hand text-4xl">Fair questions</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
@@ -113,6 +292,25 @@ const faqs = [
             ))
           }
         </div>
+      </section>
+
+      <!-- Spokes. -->
+      <section class="flex flex-wrap justify-center gap-3 pb-12">
+        <a class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold" href="/one-piece">
+          One Piece games
+        </a>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft/how-to-play"
+        >
+          How to play
+        </a>
+        <a
+          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          href="/one-piece/draft/characters"
+        >
+          Characters
+        </a>
       </section>
     </main>
   </div>
