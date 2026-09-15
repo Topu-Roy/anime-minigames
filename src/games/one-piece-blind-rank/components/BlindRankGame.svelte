@@ -53,7 +53,7 @@
 <div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
   {#if state.phase === "ranking"}
     <div class="flex w-full flex-col items-stretch justify-center gap-4 md:flex-row md:items-start">
-      <div class="order-2 w-full md:order-1 md:w-[55%]">
+      <div class="order-2 mx-auto flex w-full items-center justify-center md:order-1 md:max-w-[55%]">
         <SlotList lineup={state.lineup} onSelect={placeIn} placements={state.placements} />
       </div>
       <div class="order-1 w-full md:sticky md:top-4 md:order-2 md:w-auto md:flex-1 md:self-start">

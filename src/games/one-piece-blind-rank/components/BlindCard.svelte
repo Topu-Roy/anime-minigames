@@ -4,27 +4,54 @@
   let { character, round }: { character: RankedCharacter; round: number } = $props();
 </script>
 
-<div class="w-full overflow-hidden rounded-3xl border-4 border-cocoa bg-white shadow-sticker-lg">
-  <div class="flex flex-row-reverse items-stretch md:block">
-    <div class="relative w-24 shrink-0 sm:w-28 md:w-full">
+<div class="w-full md:overflow-hidden md:rounded-3xl md:border-4 md:border-cocoa md:bg-white md:shadow-sticker-lg">
+  <!-- Mobile: verbatim draft CharacterCard look — square button-shape,
+       top-left chip, full-bleed art, name overlaid on the art. -->
+  <div class="mx-auto max-w-70 md:hidden">
+    <div
+      class="relative flex aspect-square w-full flex-col overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-sticker-sm"
+    >
+      <div
+        class="relative flex aspect-square w-full items-center justify-center overflow-hidden bg-paper font-hand text-4xl text-cocoa"
+      >
+        <img
+          src={character.imageURL}
+          alt={character.displayName}
+          class="h-full w-full object-cover"
+          loading="eager"
+          draggable="false"
+        />
+        <div
+          class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 line-clamp-2 px-2 pb-2 text-center font-hand text-3xl leading-[1.1] font-normal text-yellow sm:text-2xl"
+        >
+          {character.displayName}
+        </div>
+      </div>
+
+      <!-- No below-art labels: name overlays the art, info lives in the
+           top-left chip. Card height is art + padding, always stable. -->
+    </div>
+  </div>
+
+  <!-- Desktop: unchanged stacked layout (art top, name below). -->
+  <div class="hidden md:block">
+    <div class="relative w-full">
       <img
         alt={character.displayName}
-        class="aspect-square h-full w-full object-cover object-top md:h-auto"
+        class="aspect-square w-full object-cover object-top"
         draggable="false"
         src={character.imageURL}
       />
       <p
-        class="absolute top-2 right-2 rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 font-bold tracking-wide text-cocoa uppercase md:top-3 md:right-3 md:border-3 md:px-3 md:py-1 md:text-xs"
+        class="absolute top-3 right-3 rounded-lg border-3 border-cocoa bg-yellow px-3 py-1 text-xs font-bold tracking-wide text-cocoa uppercase"
       >
-        <span class="sm:hidden">{round}/10</span>
-        <span class="hidden sm:inline">Round {round}</span>
+        Round {round}
       </p>
     </div>
-    <div class="flex min-w-0 flex-1 flex-col justify-center px-4 py-3 md:items-center md:px-4 md:text-center">
+    <div class="flex min-w-0 flex-col items-center justify-center px-4 py-3 text-center">
       <p class="truncate font-hand text-2xl leading-tight text-cocoa md:text-3xl md:whitespace-normal">
         {character.displayName}
       </p>
-      <p class="text-xs font-bold text-cocoa/50 md:hidden">Tap a slot below ↓</p>
     </div>
   </div>
 </div>

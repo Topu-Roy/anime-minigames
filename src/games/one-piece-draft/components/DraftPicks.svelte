@@ -44,7 +44,7 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-lg rounded-2xl border-4 border-cocoa bg-white shadow-sticker-sm">
+<div class="w-full max-w-lg rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm">
   <div class="mb-2 flex items-baseline justify-between px-4 pt-4">
     <h2 class="font-hand text-2xl leading-[1.35] font-normal text-cocoa">Draft Picks</h2>
     <span class="text-xs font-bold tracking-wider text-cocoa/60 uppercase">
