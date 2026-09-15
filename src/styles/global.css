@@ -34,6 +34,13 @@
   --color-yellow: #f4d35e;
   --color-mustard: #d9a441;
 
+  /* Hard offset sticker shadows — rem so they scale with root font size.
+     sm 4px cards/pills, md 6px buttons, lg 8px signature panels. */
+  --shadow-sticker-sm: 0.25rem 0.25rem 0 var(--color-cocoa);
+  --shadow-sticker-md: 0.375rem 0.375rem 0 var(--color-cocoa);
+  --shadow-sticker-lg: 0.5rem 0.5rem 0 var(--color-cocoa);
+  --shadow-sticker-soft: 0.25rem 0.25rem 0 rgb(58 42 24 / 0.25);
+
   /* Semantic */
   --color-link: #1b61c9;
   --color-on-dark: #ffffff;
@@ -59,7 +66,7 @@
 @keyframes round-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(0.375rem);
   }
   to {
     opacity: 1;
@@ -89,9 +96,12 @@ html,
 body {
   margin: 0;
   /* Parchment page floor: last-section bottom margins collapse through
-     wrappers - white canvas here showed as a pale band above the footer. */
+     wrappers — white canvas here showed as a pale band above the footer. */
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   min-height: 100%;
+  /* Tilted badges and offset stamps intentionally bleed past their boxes —
+     clip the page instead of scrolling horizontally on mobile. */
+  overflow-x: clip;
 }

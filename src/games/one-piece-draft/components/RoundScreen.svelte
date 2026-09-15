@@ -111,7 +111,7 @@
        Desktop: single row, title centered. -->
   <div class="flex w-full flex-col gap-3 pb-6 sm:pb-8">
     <div class="flex w-full items-center justify-between gap-3">
-      <p class="shrink-0 text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+      <p class="shrink-0 text-xs font-bold tracking-wide text-cocoa/60 uppercase">
         Round {round} of 8
       </p>
       <div class="shrink-0">
@@ -120,7 +120,7 @@
     </div>
 
     <h1
-      class="w-full text-center font-hand text-3xl leading-[1.15] font-normal text-balance text-cocoa sm:mt-1 sm:text-2xl md:text-3xl"
+      class="w-full text-center font-hand text-2xl leading-[1.15] font-normal text-balance text-cocoa sm:mt-1 md:text-3xl"
     >
       {label}
     </h1>

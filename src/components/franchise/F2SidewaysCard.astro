@@ -29,15 +29,14 @@ const Tag = href ? "a" : "div";
     "flex items-stretch gap-4 rounded-3xl border-4 p-4",
     tiltClass,
     {
-      "border-cocoa bg-white shadow-[8px_8px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none":
-        live,
+      "border-cocoa bg-white shadow-sticker-lg active:translate-x-1 active:translate-y-1 active:shadow-none": live,
       "border-cocoa/40 bg-white": !live,
     },
   ]}
 >
   <div
     class:list={[
-      "relative w-2/5 shrink-0 self-center overflow-hidden rounded-2xl border-[3px]",
+      "relative w-2/5 shrink-0 self-center overflow-hidden rounded-2xl border-3",
       { "border-cocoa": live, "border-cocoa/40": !live },
     ]}
   >
@@ -49,7 +48,7 @@ const Tag = href ? "a" : "div";
     />
     <p
       class:list={[
-        "absolute top-2 -right-2 rotate-12 rounded-lg border-[3px] px-2 py-1 font-hand text-base tracking-widest",
+        "absolute top-2 right-2 rotate-12 rounded-lg border-3 px-2 py-1 font-hand text-base tracking-widest",
         { "border-cocoa bg-coral text-white": live, "border-cocoa/40 bg-white text-cocoa/50": !live },
       ]}
     >
@@ -61,7 +60,7 @@ const Tag = href ? "a" : "div";
     <div class="flex-1">
       <p
         class:list={[
-          "text-xs font-bold tracking-[0.3em] uppercase",
+          "text-xs font-bold tracking-[0.2em] uppercase",
           { "text-coral": live, "text-cocoa/50": !live },
         ]}
       >
@@ -73,9 +72,9 @@ const Tag = href ? "a" : "div";
 
     <span
       class:list={[
-        "mt-3 inline-block w-fit rounded-2xl border-[3px] px-6 py-2 text-base font-bold",
+        "mt-3 inline-block w-fit rounded-2xl border-3 px-6 py-2 text-base font-bold",
         {
-          "border-cocoa bg-yellow text-cocoa shadow-[4px_4px_0_#3a2a18]": live,
+          "border-cocoa bg-yellow text-cocoa shadow-sticker-sm": live,
           "border-cocoa/40 bg-white text-cocoa/50": !live,
         },
       ]}

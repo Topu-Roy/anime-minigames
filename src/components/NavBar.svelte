@@ -25,11 +25,23 @@
 
     {#if showRestart}
       <button
-        class="shrink-0 rounded-2xl border-[3px] border-cocoa bg-coral px-3 py-1 text-[11px] font-bold tracking-wider text-white uppercase shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none sm:px-4 sm:py-1.5 sm:text-xs"
+        class="shrink-0 rounded-2xl border-3 border-cocoa bg-coral px-3 py-2 text-xs font-bold tracking-wider text-white uppercase shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none sm:px-4 sm:py-1.5 sm:text-xs"
         on:click={handleNewDraft}
       >
         New Draft
       </button>
     {/if}
+  </div>
+
+  <!-- Mobile section nav: compact scroll row, no JS toggle needed. -->
+  <div class="border-t-2 border-cocoa/20 sm:hidden">
+    <div
+      class="mx-auto flex w-full max-w-5xl items-center gap-5 overflow-x-auto px-4 py-2 text-sm font-bold text-cocoa/70"
+    >
+      <a class="shrink-0" href="/one-piece">One Piece</a>
+      <a class="shrink-0" href="/one-piece/draft">Draft</a>
+      <a class="shrink-0" href="/one-piece/draft/characters">Characters</a>
+      <a class="shrink-0" href="/one-piece/draft/how-to-play">Guides</a>
+    </div>
   </div>
 </nav>

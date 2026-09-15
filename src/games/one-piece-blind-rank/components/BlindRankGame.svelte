@@ -52,27 +52,27 @@
 
 <div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
   {#if state.phase === "ranking"}
-    <div class="flex w-full items-center justify-center gap-4 md:gap-4">
-      <div class="order-2 w-[55%] md:order-1 md:col-span-3">
+    <div class="flex w-full flex-col items-stretch justify-center gap-4 md:flex-row md:items-start">
+      <div class="order-2 w-full md:order-1 md:w-[55%]">
         <SlotList lineup={state.lineup} onSelect={placeIn} placements={state.placements} />
       </div>
-      <div class="order-1 flex-1 md:sticky md:top-4 md:order-2 md:col-span-2 md:self-start">
+      <div class="order-1 w-full md:sticky md:top-4 md:order-2 md:w-auto md:flex-1 md:self-start">
         {#key current.id}
           <div class="animate-round">
             <BlindCard character={current} round={state.currentRound + 1} />
           </div>
         {/key}
-        <p class="mt-3 hidden text-center text-sm font-bold text-cocoa/60 md:block">
+        <p class="mt-3 text-center text-sm font-bold text-cocoa/60">
           {placedCount} of {TOTAL_SLOTS} placed - slots lock forever.
         </p>
       </div>
     </div>
   {:else if result}
     <div
-      class="w-full max-w-xl rounded-3xl border-4 border-cocoa bg-white p-6 text-center shadow-[8px_8px_0_#3a2a18] sm:p-8"
+      class="w-full max-w-xl rounded-3xl border-4 border-cocoa bg-white p-6 text-center shadow-sticker-lg sm:p-8"
     >
       <p
-        class="inline-block -rotate-2 rounded-lg border-[3px] border-cocoa bg-yellow px-4 py-1 text-sm font-bold tracking-[0.2em] text-cocoa uppercase"
+        class="inline-block -rotate-2 rounded-lg border-3 border-cocoa bg-yellow px-4 py-1 text-sm font-bold tracking-[0.2em] text-cocoa uppercase"
       >
         Final score
       </p>
@@ -83,7 +83,7 @@
           {@const user = byId(detail.userId)}
           {@const truth = byId(detail.truthId)}
           <div
-            class={`flex items-center gap-3 rounded-2xl border-[3px] px-3 py-2 shadow-[4px_4px_0_#3a2a18] ${detail.bracketDistance <= 1 ? "border-cocoa bg-yellow text-cocoa" : "border-cocoa bg-coral text-white"}`}
+            class={`flex items-center gap-3 rounded-2xl border-3 px-3 py-2 shadow-sticker-sm ${detail.bracketDistance <= 1 ? "border-cocoa bg-yellow text-cocoa" : "border-cocoa bg-coral text-white"}`}
           >
             <span class="w-7 shrink-0 text-center font-hand text-2xl">{detail.slot + 1}</span>
             <img
@@ -96,7 +96,7 @@
               <span class="block text-xs font-bold tracking-widest uppercase opacity-60">
                 {detail.bracketDistance === 0 ? "Perfect" : "Incorrect"}
               </span>
-              <span class="hidden text-[11px] opacity-60 sm:block">Correct: {truth.displayName}</span>
+              <span class="hidden text-xs opacity-60 sm:block">Correct: {truth.displayName}</span>
             </span>
           </div>
         {/each}
@@ -104,7 +104,7 @@
       <p class="mt-3 text-xs font-bold text-cocoa/50">These rankings are fan-made, not official canon!</p>
 
       <button
-        class="mt-6 rounded-2xl border-4 border-cocoa bg-coral px-8 py-3 text-lg font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        class="mt-6 rounded-2xl border-4 border-cocoa bg-coral px-8 py-3 text-lg font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
         onclick={restart}
         type="button"
       >

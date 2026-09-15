@@ -13,7 +13,7 @@
 
 <!-- White sticker button: ink outline, hard shadow, squish on press. -->
 <button
-  class="flex items-center gap-1.5 rounded-2xl border-[3px] border-cocoa bg-white px-3 py-1.5 text-xs font-bold text-cocoa shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-40 sm:px-4 sm:py-2 sm:text-sm"
+  class="flex items-center gap-1.5 rounded-2xl border-3 border-cocoa bg-white px-3 py-2.5 text-xs font-bold text-cocoa shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-40 sm:px-4 sm:py-2 sm:text-sm"
   on:click={handleReroll}
   disabled={!canReroll}
   title={canReroll ? "Replace these 4 options" : "No rerolls left"}

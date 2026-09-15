@@ -163,11 +163,11 @@ const faqs = [
       <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
       <section class="text-center">
         <p
-          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+          class="inline-block -rotate-2 rounded-lg border-3 border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
         >
           ★ Free One Piece minigame ★
         </p>
-        <h1 class="mx-auto mt-6 max-w-3xl font-hand text-6xl leading-[1.05]">One Piece Draft Game</h1>
+        <h1 class="mx-auto mt-6 max-w-3xl font-hand text-5xl leading-[1.05] sm:text-6xl">One Piece Draft Game</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
           Build your own pirate and make him the strongest: draft a body, three haki, a Devil Fruit and a weapon
           from 184 canon-graded characters - then rank your custom build against the full roster. Free, no account,
@@ -176,13 +176,13 @@ const faqs = [
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            class="rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
             href="/one-piece/draft"
           >
             ⚓ Play now
           </a>
           <a
-            class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+            class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
             href="/one-piece/draft/how-to-play"
           >
             How to play
@@ -192,11 +192,11 @@ const faqs = [
 
       <!-- How it works: 4 steps. -->
       <section>
-        <h2 class="text-center font-hand text-4xl">How a draft works</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">How a draft works</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-4">
           {
             steps.map((s, i) => (
-              <div class="rounded-2xl border-[3px] border-cocoa bg-white p-5 shadow-[4px_4px_0_#3a2a18]">
+              <div class="rounded-2xl border-3 border-cocoa bg-white p-5 shadow-sticker-sm">
                 <p class="font-hand text-3xl text-coral">Step {i + 1}</p>
                 <p class="mt-1 font-bold">{s.t}</p>
                 <p class="mt-1 text-sm text-cocoa/70">{s.d}</p>
@@ -208,8 +208,8 @@ const faqs = [
 
       <!-- Characters teaser: top 5 cards, links to the P2 magnet page. -->
       <section>
-        <div class="mb-4 flex items-baseline justify-between">
-          <h2 class="font-hand text-4xl">Strongest right now</h2>
+        <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+          <h2 class="font-hand text-3xl sm:text-4xl">Strongest right now</h2>
           <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/characters">
             All 184 characters
           </a>
@@ -222,7 +222,7 @@ const faqs = [
           {
             top5cards.map((c) => (
               <a
-                class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
                 href="/one-piece/draft/characters"
               >
                 <img alt={c.name} class="aspect-square w-full object-cover" loading="lazy" src={c.imageURL} />
@@ -235,7 +235,7 @@ const faqs = [
 
       <!-- Strategy: how drafts are actually won. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Draft like a Yonko</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Draft like a Yonko</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Most drafts are decided in rounds 2, 4 and 5. Armament and Conqueror's Haki feed your attack, defense
@@ -273,11 +273,11 @@ const faqs = [
 
       <!-- FAQ: play-flavored (hub keeps the lore questions - no duplication). -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Before ye play</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Before ye play</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
             faqs.map((f) => (
-              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+              <details class="rounded-2xl border-3 border-cocoa bg-white px-5 py-4 shadow-sticker-sm">
                 <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
                 <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
               </details>
@@ -289,20 +289,20 @@ const faqs = [
       <!-- Spokes + final CTA. -->
       <section class="text-center">
         <a
-          class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+          class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
           href="/one-piece/draft"
         >
           ⚓ Start drafting
         </a>
         <div class="mt-6 flex flex-wrap justify-center gap-3">
           <a
-            class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+            class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
             href="/one-piece/draft/how-to-play"
           >
             How to play
           </a>
           <a
-            class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+            class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
             href="/one-piece/draft/characters"
           >
             Characters
@@ -312,7 +312,7 @@ const faqs = [
 
       <!-- About: the audit promise, kept on the ranking page. -->
       <section class="mx-auto max-w-3xl pb-12 text-center">
-        <h2 class="font-hand text-4xl">Fair winds, pirate</h2>
+        <h2 class="font-hand text-3xl sm:text-4xl">Fair winds, pirate</h2>
         <p class="mt-4 leading-relaxed text-cocoa/70">
           Every donor stat is hand-graded from manga and anime feats - grades follow demonstrated powers,
           unconfirmed ones stay unconfirmed, and the audit trail behind every number is public. No download, no

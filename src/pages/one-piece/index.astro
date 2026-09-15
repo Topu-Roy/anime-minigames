@@ -132,11 +132,11 @@ const faqs = [
       <!-- Hero: banner pill, Peralta H1, sticker button pair. -->
       <section class="pt-8 text-center">
         <p
-          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+          class="inline-block -rotate-2 rounded-lg border-3 border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
         >
           ★ Free One Piece games ★
         </p>
-        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">One Piece Games</h1>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-5xl leading-[1.05] sm:text-6xl">One Piece Games</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
           The best One Piece game collection in yer browser - free One Piece mini games, no download. Start with
           the draft game: build your own pirate from 184 characters and rank him against the full roster.
@@ -166,7 +166,7 @@ const faqs = [
             title="Blind Top 10 Ranking"
           />
           <div class="flex flex-col justify-center rounded-3xl border-4 border-cocoa bg-white p-6 opacity-70">
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <p class="text-xs font-bold tracking-wide text-cocoa/50 uppercase">Soon</p>
             <h3 class="mt-2 font-hand text-3xl">Guess the Devil Fruit</h3>
             <p class="mt-2 text-sm">Name the fruit from hints. Daily challenge.</p>
           </div>
@@ -174,7 +174,7 @@ const faqs = [
           <div
             class="flex rotate-[0.5deg] flex-col justify-center rounded-3xl border-4 border-cocoa bg-white p-6 opacity-70"
           >
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Soon</p>
+            <p class="text-xs font-bold tracking-wide text-cocoa/50 uppercase">Soon</p>
             <h3 class="mt-2 font-hand text-3xl">Haki Quiz</h3>
             <p class="mt-2 text-sm">Who holds what? Armament to Conqueror's.</p>
           </div>
@@ -183,8 +183,8 @@ const faqs = [
 
       <!-- Characters: face cards, no ranks - full list lives on characters. -->
       <section>
-        <div class="mb-4 flex items-baseline justify-between">
-          <h2 class="font-hand text-4xl">Characters</h2>
+        <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+          <h2 class="font-hand text-3xl sm:text-4xl">Characters</h2>
           <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/characters">
             All 184 characters
           </a>
@@ -196,7 +196,7 @@ const faqs = [
           {
             top5.map((c) => (
               <a
-                class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
                 href="/one-piece/draft/characters"
               >
                 <img alt={c.name} class="aspect-square w-full object-cover" loading="lazy" src={c.imageURL} />
@@ -208,7 +208,7 @@ const faqs = [
       </section>
 
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">What can ye draft?</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">What can ye draft?</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             All 184 roster characters are draftable, from god-tier monsters like Imu and Joy Boy down to loveable
@@ -227,7 +227,7 @@ const faqs = [
       </section>
 
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">How the draft game plays</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">How the draft game plays</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             You draft across eight rounds with four donors each. Round one sets the body - looks, name and base
@@ -246,7 +246,7 @@ const faqs = [
       </section>
 
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Why this one hooks ye</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Why this one hooks ye</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Most One Piece games ask what you remember. The draft game asks what you understand: which haki type
@@ -269,7 +269,7 @@ const faqs = [
       </section>
 
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Is this canon?</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Is this canon?</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             The game is an unofficial fan project - but every number in it is graded from canon. Base stats follow
@@ -287,11 +287,11 @@ const faqs = [
 
       <!-- Lore FAQ at the bottom: the P3 net. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">One Piece powers, answered</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">One Piece powers, answered</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
             faqs.map((f) => (
-              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+              <details class="rounded-2xl border-3 border-cocoa bg-white px-5 py-4 shadow-sticker-sm">
                 <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
                 <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
               </details>
@@ -303,13 +303,13 @@ const faqs = [
       <!-- Spokes. -->
       <section class="flex flex-wrap justify-center gap-3 pb-12">
         <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
           href="/one-piece/draft/how-to-play"
         >
           How to play
         </a>
         <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
           href="/one-piece/draft/characters"
         >
           Characters

@@ -162,31 +162,31 @@ const byTier = (rarity: string) =>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
-      <p class="text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+      <p class="text-xs font-bold tracking-wide text-cocoa/60 uppercase">
         <a class="text-coral underline" href="/one-piece/draft">One Piece draft game</a> · Characters
       </p>
-      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">One Piece characters</h1>
+      <h1 class="mt-2 font-hand text-4xl leading-[1.05] sm:text-5xl">One Piece characters</h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed">
         All 184 draftable characters, grouped strongest-first: god, legend, epic, basic. Straw Hat powers graded
         stat by stat below - then the full roster, every one of them draftable:
         <a class="font-bold text-coral underline" href="/one-piece/draft">play the draft game</a>.
       </p>
 
-      <h2 class="mt-12 mb-4 font-hand text-4xl">Straw Hats</h2>
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Straw Hats</h2>
       <div class="grid gap-6 md:grid-cols-2">
         {
           guides.map((g) => {
             const c = Characters.find((x) => x.id === g.id)!;
             return (
               <section
-                class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]"
+                class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm"
                 id={g.id}
               >
                 <div class="flex gap-4 p-5">
                   {c.imageURL && (
                     <img
                       alt={c.displayName}
-                      class="h-20 w-20 shrink-0 rounded-full border-[3px] border-cocoa object-cover"
+                      class="h-20 w-20 shrink-0 rounded-full border-3 border-cocoa object-cover"
                       loading="lazy"
                       src={c.imageURL}
                     />
@@ -197,7 +197,7 @@ const byTier = (rarity: string) =>
                     <p class="mt-2 leading-relaxed text-cocoa/80">{g.blurb}</p>
                   </div>
                 </div>
-                <dl class="border-t-[3px] border-t-cocoa bg-white px-5 py-3 text-sm">
+                <dl class="border-t-3 border-t-cocoa bg-white px-5 py-3 text-sm">
                   <div class="flex gap-2 py-1">
                     <dt class="w-20 shrink-0 font-bold text-cocoa/50">Haki</dt>
                     <dd class="text-cocoa/80">{hakiLine(g.id)}</dd>
@@ -211,7 +211,7 @@ const byTier = (rarity: string) =>
                     <dd class="text-cocoa/80">{weaponOf(g.id)}</dd>
                   </div>
                 </dl>
-                <details class="border-t-[3px] border-t-cocoa px-5 py-3">
+                <details class="border-t-3 border-t-cocoa px-5 py-3">
                   <summary class="cursor-pointer font-bold">{g.qa.q}</summary>
                   <p class="mt-1.5 leading-relaxed text-cocoa/80">{g.qa.a}</p>
                 </details>
@@ -227,13 +227,13 @@ const byTier = (rarity: string) =>
           return (
             <section class="mt-12">
               <div class="mb-4 flex items-baseline justify-between">
-                <h2 class="font-hand text-4xl">{t.title}</h2>
+                <h2 class="font-hand text-3xl sm:text-4xl">{t.title}</h2>
                 <span class="text-sm font-bold text-cocoa/60">{members.length} characters</span>
               </div>
               <p class="mb-4 max-w-2xl text-cocoa/80">{t.blurb}</p>
               <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6">
                 {members.map((m) => (
-                  <div class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+                  <div class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm">
                     {m.imageURL && (
                       <img
                         alt={m.name}
@@ -252,7 +252,7 @@ const byTier = (rarity: string) =>
       }
 
       <a
-        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
         href="/one-piece/draft"
       >
         ⚓ Draft them yourself

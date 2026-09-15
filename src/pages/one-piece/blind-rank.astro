@@ -18,18 +18,18 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
       <section>
         <div class="pt-8 text-center">
           <p
-            class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+            class="inline-block -rotate-2 rounded-lg border-3 border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
           >
             ★ New game ★
           </p>
-          <h1 class="mx-auto max-w-2xl pt-4 font-hand text-6xl leading-[1.05]">Blind Rank</h1>
+          <h1 class="mx-auto max-w-2xl pt-4 font-hand text-5xl leading-[1.05] sm:text-6xl">Blind Rank</h1>
         </div>
 
         <BlindRankGame client:only="svelte" />
       </section>
 
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">How blind ranking works</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">How blind ranking works</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Each run draws 10 unique donors from all 184 roster characters - god-tier monsters or loveable
@@ -45,12 +45,12 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
 
       <section class="flex flex-wrap justify-center gap-3 pb-12">
         <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
           href="/one-piece/draft"
         >
           Draft game
         </a>
-        <a class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold" href="/one-piece">
+        <a class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold" href="/one-piece">
           All One Piece games
         </a>
       </section>

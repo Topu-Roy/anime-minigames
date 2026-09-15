@@ -24,23 +24,23 @@ const rounds = [
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
-      <p class="text-xs font-bold tracking-[0.16px] text-cocoa/60 uppercase">
+      <p class="text-xs font-bold tracking-wide text-cocoa/60 uppercase">
         <a class="text-coral underline" href="/one-piece/draft">One Piece draft game</a> · Guide
       </p>
-      <h1 class="mt-2 font-hand text-5xl leading-[1.05]">How to play</h1>
+      <h1 class="mt-2 font-hand text-4xl leading-[1.05] sm:text-5xl">How to play</h1>
       <p class="mt-4 text-lg leading-relaxed">
         Build an original pirate by harvesting one trait per round from 4 donor characters. Eight rounds, two
         shared rerolls, then a live rank against all 184 roster characters.
       </p>
       <a
-        class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
         href="/one-piece/draft"
       >
         ⚓ Play now - it's free
       </a>
 
-      <h2 class="mt-12 mb-4 font-hand text-4xl">The 8 rounds</h2>
-      <div class="overflow-hidden rounded-2xl border-[3px] border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">The 8 rounds</h2>
+      <div class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm">
         {
           rounds.map((r) => (
             <div class="border-b border-cocoa/20 px-4 py-3 last:border-b-0">
@@ -55,7 +55,7 @@ const rounds = [
         }
       </div>
 
-      <h2 class="mt-12 mb-4 font-hand text-4xl">Rarity & rerolls</h2>
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Rarity & rerolls</h2>
       <div class="flex flex-col gap-3 leading-relaxed">
         <p>
           Each option rolls rarity independently: 40% basic, 30% epic, 20% legend, 10% god. The body round rolls
@@ -68,7 +68,7 @@ const rounds = [
         </p>
       </div>
 
-      <h2 class="mt-12 mb-4 font-hand text-4xl">How stats work</h2>
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">How stats work</h2>
       <div class="flex flex-col gap-3 leading-relaxed">
         <p>
           Builds resolve to 7 stats: strength and durability come from the body only; attack and defense start at
@@ -83,7 +83,7 @@ const rounds = [
       </div>
 
       <a
-        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-8 py-4 text-xl font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-8 py-4 text-xl font-bold text-cocoa shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
         href="/one-piece/draft"
       >
         Start your draft →

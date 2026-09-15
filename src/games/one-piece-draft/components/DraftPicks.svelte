@@ -44,7 +44,7 @@
   let pickImageErrors: Record<number, boolean> = {};
 </script>
 
-<div class="w-full max-w-lg rounded-2xl border-4 border-cocoa bg-white shadow-[4px_4px_0_#3a2a18]">
+<div class="w-full max-w-lg rounded-2xl border-4 border-cocoa bg-white shadow-sticker-sm">
   <div class="mb-2 flex items-baseline justify-between px-4 pt-4">
     <h2 class="font-hand text-2xl leading-[1.35] font-normal text-cocoa">Draft Picks</h2>
     <span class="text-xs font-bold tracking-wider text-cocoa/60 uppercase">
@@ -58,11 +58,13 @@
       {#if pick}
         <!-- Zones: round name left, avatar+name centered, tier right. -->
         <div class="flex items-center gap-2.5 border-b border-cocoa/20 py-1.5 last:border-b-0">
-          <span class="w-28 shrink-0 text-center text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
+          <span
+            class="w-20 shrink-0 text-center text-[0.625rem] font-bold tracking-wider text-cocoa/60 uppercase sm:w-28"
+          >
             {roundName(pick.roundType)}
           </span>
           <div class="flex min-w-0 flex-1 items-center justify-center">
-            <div class="flex w-30 justify-start gap-2">
+            <div class="flex min-w-0 flex-1 items-center justify-start gap-2">
               <div class="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border-2 border-cocoa bg-paper">
                 {#if getCharImage(pick.characterId) && !pickImageErrors[pick.round]}
                   <img
@@ -85,7 +87,8 @@
           </div>
           <!-- Picked rows always show their tier, basic included. -->
           <span
-            class="w-14 shrink-0 text-right text-[10px] font-bold tracking-wider uppercase {pick.rarity === 'basic'
+            class="w-12 shrink-0 text-right text-[0.625rem] font-bold tracking-wider uppercase sm:w-14 {pick.rarity ===
+            'basic'
               ? 'text-cocoa/60'
               : rarityText(pick.rarity)}"
           >
@@ -95,11 +98,13 @@
       {:else}
         <!-- Upcoming pick: ghost row doubles as draft progress. -->
         <div class="flex items-center gap-2.5 border-b border-cocoa/20 py-1.5 opacity-60 last:border-b-0">
-          <span class="w-28 shrink-0 text-center text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
+          <span
+            class="w-20 shrink-0 text-center text-[0.625rem] font-bold tracking-wider text-cocoa/60 uppercase sm:w-28"
+          >
             {roundName(roundType)}
           </span>
           <div class="flex min-w-0 flex-1 items-center justify-center">
-            <div class="flex w-30 justify-start gap-2">
+            <div class="flex min-w-0 flex-1 items-center justify-start gap-2">
               <div
                 class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-cocoa/40 text-xs font-bold text-cocoa/60"
               >
@@ -108,7 +113,9 @@
               <span class="min-w-0 truncate text-sm text-cocoa/60"> Awaiting pick </span>
             </div>
           </div>
-          <span class="w-14 shrink-0 text-right text-[10px] font-bold tracking-wider text-cocoa/60 uppercase">
+          <span
+            class="w-12 shrink-0 text-right text-[0.625rem] font-bold tracking-wider text-cocoa/60 uppercase sm:w-14"
+          >
             --
           </span>
         </div>
@@ -119,7 +126,7 @@
 
 {#if picks.length > 0}
   <button
-    class="mt-3 rounded-2xl border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold text-cocoa shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+    class="mt-3 rounded-2xl border-3 border-cocoa bg-white px-4 py-3 text-sm font-bold text-cocoa shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
     on:click={handleReset}
   >
     ↺ Restart draft

@@ -26,11 +26,11 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-6 pt-6">
+<div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-4 pt-6 sm:px-6">
   <!-- Hero: the drafted body, face + name overlaid (no text header). -->
   {#if bodyChar?.imageURL && !heroError}
     <div
-      class="relative mb-8 aspect-square w-full max-w-80 overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-[6px_6px_0_#3a2a18]"
+      class="relative mb-8 aspect-square w-full max-w-80 overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-sticker-md"
     >
       <img
         src={bodyChar.imageURL}
@@ -48,7 +48,7 @@
         </div>
       {/if}
       <div
-        class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 pb-3 text-center font-hand text-4xl leading-[1.1] font-normal text-yellow"
+        class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-3 text-center font-hand text-3xl leading-[1.1] font-normal text-yellow sm:text-4xl"
       >
         {bodyChar.fullName}
       </div>
@@ -57,7 +57,7 @@
 
   <!-- Coral sticker CTA with the toy squish. -->
   <button
-    class="rounded-2xl border-4 border-cocoa bg-coral px-6 py-4 text-base font-bold text-white shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
+    class="rounded-2xl border-4 border-cocoa bg-coral px-6 py-4 text-base font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
     on:click={handleNewDraft}
   >
     Try Again
@@ -67,7 +67,7 @@
     {#if buildRank}
       <!-- Rank panel: forest signature card, gold numeral, ladder pills. -->
       <div
-        class="my-8 w-full max-w-lg rounded-3xl border-4 border-cocoa bg-forest p-6 text-center shadow-[8px_8px_0_#3a2a18] md:p-8"
+        class="my-8 w-full max-w-lg rounded-3xl border-4 border-cocoa bg-forest p-6 text-center shadow-sticker-lg md:p-8"
       >
         <div class="flex items-baseline justify-center gap-2">
           <span class="font-hand text-6xl leading-none font-normal text-yellow md:text-7xl">
@@ -106,7 +106,7 @@
           {/if}
         </div>
         <!-- All 8 round donors, smaller, under the ladder faces. -->
-        <div class="mt-4 flex items-center justify-center gap-1.5">
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-1.5">
           {#each picks as pick (pick.round)}
             {#if pickFace(pick.characterId)}
               <img
@@ -122,21 +122,21 @@
         <div class="mx-auto mt-5 flex max-w-xs flex-col gap-1.5">
           {#if buildRank.above}
             <div
-              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-[11px] font-bold tracking-wider text-white/70 uppercase"
+              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-xs font-bold tracking-wider text-white/70 uppercase"
             >
               <span aria-hidden="true">▲</span>
               {buildRank.above.name}
             </div>
           {/if}
           <div
-            class="flex items-center justify-center gap-2 rounded-full border-2 border-cocoa bg-mustard px-4 py-1.5 text-[11px] font-bold tracking-wider text-ink uppercase"
+            class="flex items-center justify-center gap-2 rounded-full border-2 border-cocoa bg-mustard px-4 py-1.5 text-xs font-bold tracking-wider text-ink uppercase"
           >
             <span aria-hidden="true">●</span>
             You
           </div>
           {#if buildRank.below}
             <div
-              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-[11px] font-bold tracking-wider text-white/70 uppercase"
+              class="flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-4 py-1.5 text-xs font-bold tracking-wider text-white/70 uppercase"
             >
               <span aria-hidden="true">▼</span>
               {buildRank.below.name}

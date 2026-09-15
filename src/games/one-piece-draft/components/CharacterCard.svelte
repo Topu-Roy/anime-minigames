@@ -171,7 +171,7 @@
 </script>
 
 <button
-  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-[4px_4px_0_#3a2a18] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none {waiting
+  class="relative flex aspect-square w-full flex-col overflow-hidden rounded-2xl border-4 border-cocoa bg-white shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none {waiting
     ? 'opacity-60'
     : ''}"
   on:click={handleClick}
@@ -180,14 +180,14 @@
     <span class="absolute top-3 left-3 z-10 flex max-w-[70%] flex-col items-start gap-1">
       {#if infoChip}
         <span
-          class="rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 text-[10px] font-bold tracking-widest text-cocoa uppercase"
+          class="max-w-full truncate rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 text-[0.625rem] font-bold tracking-widest text-cocoa uppercase"
         >
           {infoChip}
         </span>
       {/if}
       {#if nameChip}
         <span
-          class="max-w-full truncate rounded-lg border-2 border-cocoa bg-white px-2 py-0.5 text-[10px] font-bold tracking-wider text-cocoa"
+          class="max-w-full truncate rounded-lg border-2 border-cocoa bg-white px-2 py-0.5 text-[0.625rem] font-bold tracking-wider text-cocoa"
           title={nameChip}
         >
           {nameChip}
@@ -233,7 +233,7 @@
       <span>{shuffling ? "?" : character.displayName.charAt(0)}</span>
     {/if}
     <div
-      class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 pb-2 text-center font-hand text-xl leading-[1.1] font-normal text-yellow sm:text-2xl"
+      class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 line-clamp-2 px-2 pb-2 text-center font-hand text-lg leading-[1.1] font-normal text-yellow sm:text-2xl"
     >
       {#if shuffling || waiting}
         ?

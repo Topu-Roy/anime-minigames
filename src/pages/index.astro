@@ -166,11 +166,11 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
       <!-- Hero: banner pill, Peralta H1, lede with target keyword. -->
       <section class="text-center">
         <p
-          class="inline-block -rotate-2 rounded-lg border-[3px] border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
+          class="inline-block -rotate-2 rounded-lg border-3 border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
         >
           ★ Free anime minigames ★
         </p>
-        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-6xl leading-[1.05]">Anime Draft</h1>
+        <h1 class="mx-auto mt-6 max-w-2xl font-hand text-5xl leading-[1.05] sm:text-6xl">Anime Draft</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
           Anime Draft is free anime minigames in yer browser - quick anime minigames with no download, no account,
           five minutes a game. Play the live One Piece games today, with Naruto, Hunter x Hunter and Jujutsu Kaisen
@@ -180,7 +180,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Franchise cards: F2 sideways MC cards, mapped from one verses array. -->
       <section>
-        <h2 class="text-center font-hand text-4xl">Pick yer verse</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Pick yer verse</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
           {
             verses.map((verse, index) => (
@@ -196,7 +196,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- What: hub explainer for "free anime games" intent. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">What is Anime Draft?</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">What is Anime Draft?</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Anime Draft is a free anime games hub: quick browser minigames where ye build original fighters and
@@ -215,7 +215,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Live: One Piece proof + internal links. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Live now: One Piece games</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Live now: One Piece games</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             The <a class="font-bold text-coral underline" href="/one-piece">One Piece games</a> are live and set the
@@ -240,7 +240,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- How: shared formula across verses. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">How draft-and-rank works</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">How draft-and-rank works</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Every Anime Draft game follows one loop: pick a body, harvest powers from canon donors, close with
@@ -259,7 +259,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Next: equal-effort promise per verse, keyword-targeted. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Coming next, same effort</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Coming next, same effort</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             <strong>Naruto games</strong> draft yer shinobi: five natures, kekkei genkai, sage mode and tailed beasts,
@@ -281,7 +281,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Why: conversion block. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Why this hub hooks ye</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Why this hub hooks ye</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Most free anime games ask what ye remember. Anime Draft asks what ye understand: which power carries
@@ -298,7 +298,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Canon note. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Fan-made, feat-graded</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Fan-made, feat-graded</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Anime Draft is an unofficial fan project - but every number is graded from canon feats, and unconfirmed
@@ -310,11 +310,11 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Brand FAQ. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-4xl">Fair questions</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Fair questions</h2>
         <div class="mt-6 flex flex-col gap-4">
           {
             faqs.map((f) => (
-              <details class="rounded-2xl border-[3px] border-cocoa bg-white px-5 py-4 shadow-[4px_4px_0_#3a2a18]">
+              <details class="rounded-2xl border-3 border-cocoa bg-white px-5 py-4 shadow-sticker-sm">
                 <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
                 <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
               </details>
@@ -325,17 +325,17 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Spokes. -->
       <section class="flex flex-wrap justify-center gap-3 pb-12">
-        <a class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold" href="/one-piece">
+        <a class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold" href="/one-piece">
           One Piece games
         </a>
         <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
           href="/one-piece/draft/how-to-play"
         >
           How to play
         </a>
         <a
-          class="rounded-full border-[3px] border-cocoa bg-white px-4 py-2 text-sm font-bold"
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
           href="/one-piece/draft/characters"
         >
           Characters

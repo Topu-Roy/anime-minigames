@@ -4,9 +4,9 @@
   let { character, round }: { character: RankedCharacter; round: number } = $props();
 </script>
 
-<div class="w-full overflow-hidden rounded-3xl border-4 border-cocoa bg-white shadow-[8px_8px_0_#3a2a18]">
+<div class="w-full overflow-hidden rounded-3xl border-4 border-cocoa bg-white shadow-sticker-lg">
   <div class="flex flex-row-reverse items-stretch md:block">
-    <div class="relative w-28 shrink-0 md:w-full">
+    <div class="relative w-24 shrink-0 sm:w-28 md:w-full">
       <img
         alt={character.displayName}
         class="aspect-square h-full w-full object-cover object-top md:h-auto"
@@ -14,7 +14,7 @@
         src={character.imageURL}
       />
       <p
-        class="absolute top-2 right-2 rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 font-bold tracking-[0.16px] text-cocoa uppercase md:top-3 md:right-3 md:border-[3px] md:px-3 md:py-1 md:text-xs"
+        class="absolute top-2 right-2 rounded-lg border-2 border-cocoa bg-yellow px-2 py-0.5 font-bold tracking-wide text-cocoa uppercase md:top-3 md:right-3 md:border-3 md:px-3 md:py-1 md:text-xs"
       >
         <span class="sm:hidden">{round}/10</span>
         <span class="hidden sm:inline">Round {round}</span>
