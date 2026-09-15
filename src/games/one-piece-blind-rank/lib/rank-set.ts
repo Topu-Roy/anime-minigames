@@ -1,4 +1,4 @@
-// Lineup sampling — own implementation, no imports from other modes.
+// Lineup sampling - own implementation, no imports from other modes.
 // Input donors must already be slimmed to RankedCharacter by the caller.
 
 import { TOTAL_SLOTS, type BlindRarity, type RankedCharacter } from "./types";
@@ -25,7 +25,7 @@ function rollRarity(): BlindRarity {
 /**
  * Draw TOTAL_SLOTS unique donors: each slot rolls rarity at
  * 10/20/30/40, then takes a random unpicked donor of that rarity.
- * Exhausted rarities spill to whatever remains — uniqueness always wins.
+ * Exhausted rarities spill to whatever remains - uniqueness always wins.
  */
 export function sampleLineup(donors: RankedCharacter[]): RankedCharacter[] {
   const remaining = [...donors];

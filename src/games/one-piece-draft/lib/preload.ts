@@ -5,7 +5,7 @@ export const REAL_ART_CAP_MS = 1000;
 
 /**
  * Warm the browser (HTTP disk) cache for a URL set.
- * Resolves only after EVERY url settles (load or error) — the round
+ * Resolves only after EVERY url settles (load or error) - the round
  * does not start until then. Failures just mean that face may pop in
  * late; existing fallbacks cover it. Never rejects.
  */
@@ -48,7 +48,7 @@ export function preloadImages(
 /**
  * Fixed decoy cast: 15 recognizable mid-tier faces, no god-tier
  * (decoys shouldn't imply the option). Cycled every round.
- * Overlap with real options is allowed — a decoy may flash a real face.
+ * Overlap with real options is allowed - a decoy may flash a real face.
  */
 export const FIXED_DECOY_IDS = [
   "portgas-d-ace",
@@ -74,7 +74,7 @@ export function getFixedDecoyURLs(): string[] {
   return FIXED_DECOY_IDS.map((id) => byId.get(id)?.imageURL).filter((u): u is string => Boolean(u));
 }
 
-/** Every roster face — background-warmed once so later rounds open instantly. */
+/** Every roster face - background-warmed once so later rounds open instantly. */
 export function getAllImageURLs(): string[] {
   return Characters.map((c) => c.imageURL).filter((u): u is string => Boolean(u));
 }

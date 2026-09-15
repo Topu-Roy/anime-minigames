@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Design tokens — see design.md ("Wanted Poster" system).
+  Design tokens - see design.md ("Wanted Poster" system).
   Tailwind v4 exposes these as utilities, e.g. bg-canvas, text-ink.
   Haas Grotesk substitute: system grotesk stack (Inter/system-ui per spec note).
 */
@@ -54,7 +54,7 @@
 }
 
 /* Round transition: quick rise-and-fade on mount. The 1s beat before
-   shuffling lives in RoundScreen (revealReady), not here — hiding the
+   shuffling lives in RoundScreen (revealReady), not here - hiding the
    wrapper would run card timers invisibly underneath. */
 @keyframes round-in {
   from {
@@ -89,7 +89,7 @@ html,
 body {
   margin: 0;
   /* Parchment page floor: last-section bottom margins collapse through
-     wrappers — white canvas here showed as a pale band above the footer. */
+     wrappers - white canvas here showed as a pale band above the footer. */
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);

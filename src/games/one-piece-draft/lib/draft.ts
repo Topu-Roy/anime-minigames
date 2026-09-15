@@ -12,7 +12,7 @@ function rollRarity(): Rarity {
 
 /**
  * Round 1 body odds (rolls): 30% basic, 40% epic, 30% legend, 0% god.
- * No god bodies — the body sets the base, gods are earned through donor
+ * No god bodies - the body sets the base, gods are earned through donor
  * rounds. The big-race guarantee backfills ~1 slot per round from a pool
  * with no gods (5 legend / 5 epic).
  */
@@ -32,7 +32,7 @@ function pickRandom<T>(arr: T[]): T {
  * Body soft-cap (knee 500 × 0.5): compresses the stretched top end of R1
  * bodies so donor rounds decide more. Below the knee values pass through
  * untouched (weak bodies byte-identical); above it, every point counts half.
- * Monotonic — never flips peer order. MUST stay in sync between
+ * Monotonic - never flips peer order. MUST stay in sync between
  * calculateFinalStats (Step 1) and calculateCharacterBST or ranks break.
  */
 const BODY_KNEE = 500;
@@ -44,7 +44,7 @@ export function softCapBody(value: number): number {
 
 /**
  * Display label for a character's weapon. Unnamed-but-held weapons (Imu's
- * polearm, Harald's greatsword, ...) must NOT render as "None" — that means
+ * polearm, Harald's greatsword, ...) must NOT render as "None" - that means
  * unarmed. Falls back to "Unnamed {type}".
  */
 export function weaponLabel(char: Character): string {
@@ -139,7 +139,7 @@ function drawOption(roundType: RoundType, taken: Set<string>, excludedIds: Set<s
  * and never re-offer picked donors.
  */
 function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = new Set()): Character[] {
-  // Round 1 body uses the standard rarity-weighted path — race plays
+  // Round 1 body uses the standard rarity-weighted path - race plays
   // no part in selection except the big-race variety guarantee below.
   const taken = new Set<string>();
   const options: Character[] = [];
@@ -154,7 +154,7 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
     const freshBig = (list: Character[]) => list.filter((c) => !taken.has(c.id) && !excludedIds.has(c.id));
     const bigOfRarity = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race) && c.rarity === rarity));
     const anyBigFresh = freshBig(Characters.filter((c) => BIG_RACES.includes(c.race)));
-    // Last resort still respects taken/excluded — a duplicate or re-offered
+    // Last resort still respects taken/excluded - a duplicate or re-offered
     // donor is worse than a softened guarantee.
     const lastResortBig = Characters.filter(
       (c) => BIG_RACES.includes(c.race) && !taken.has(c.id) && !excludedIds.has(c.id),
@@ -226,7 +226,7 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
 
   // Safety net: options must be unique within the round and must never
   // re-offer an already-picked donor. Fallback ladders above can leak a
-  // picked id when thin rarity slices exhaust (mostly on rerolls) — swap
+  // picked id when thin rarity slices exhaust (mostly on rerolls) - swap
   // any offender for a fresh face from the round's full pool.
   const seen = new Set<string>();
   options.forEach((option, index) => {
@@ -238,7 +238,7 @@ function generateRoundOptions(roundType: RoundType, excludedIds: Set<string> = n
     const uniquePool = freshPool.length > 0 ? freshPool : getFullPool(roundType).filter((c) => !seen.has(c.id));
     if (uniquePool.length === 0) {
       seen.add(option.id);
-      return; // pool truly exhausted — keep as-is
+      return; // pool truly exhausted - keep as-is
     }
     taken.delete(option.id);
     const replacement = pickRandom(uniquePool);
@@ -283,7 +283,7 @@ export function getRoundLabel(round: number): string {
   return labels[round] ?? "Unknown";
 }
 
-/** IDs of already-picked donors — excluded from future option sets */
+/** IDs of already-picked donors - excluded from future option sets */
 function pickedIds(picks: DraftPick[]): Set<string> {
   return new Set(picks.map((p) => p.characterId));
 }
@@ -336,7 +336,7 @@ export function pickOption(state: DraftState, characterIndex: number): DraftStat
 
   const newPicks = [...state.picks, pick];
 
-  // Set base stats from body pick (Round 1) — per-character base, not race table
+  // Set base stats from body pick (Round 1) - per-character base, not race table
   let baseStats = state.baseStats;
   if (roundType === "body") {
     const b = character.baseStats;
@@ -374,11 +374,11 @@ function resolveChar(pick: DraftPick | undefined): Character | null {
 }
 
 /**
- * Calculate final stats from all picks — V2 additive system (7 stats).
+ * Calculate final stats from all picks - V2 additive system (7 stats).
  *
  * Formula: finalStat = characterBase + hakiBonus + dfBonus + weaponBonus,
  * then intelligence boosts awareness and battle IQ boosts strength (%).
- * Race is identity only (chip/label + R1 variety) — never a stat.
+ * Race is identity only (chip/label + R1 variety) - never a stat.
  *
  * Routing (attack/defense are distinct from strength/durability):
  *   STR = base.strength only (+ battleIQ %)
@@ -397,7 +397,7 @@ export function calculateFinalStats(picks: DraftPick[]): {
   const get = (type: RoundType) => resolveChar(picks.find((p) => p.roundType === type));
 
   // Step 1: Base stats from character (individual, evaluated from feats).
-  // Attack/defense start at 0 — derived purely from haki/DF/weapon.
+  // Attack/defense start at 0 - derived purely from haki/DF/weapon.
   const bodyChar = get("body");
   const stats: StatBlock = bodyChar
     ? {
@@ -486,7 +486,7 @@ export function calculateFinalStats(picks: DraftPick[]): {
   }
 
   // No race step: racial physique already lives in the body's individual
-  // baseStats (hand-tuned from feats) — a separate % would double-count.
+  // baseStats (hand-tuned from feats) - a separate % would double-count.
 
   // Step 5: Intelligence boosts awareness, Battle IQ boosts strength (percentage bonuses)
   const intChar = get("intelligence");
@@ -521,7 +521,7 @@ export function calculateFinalStats(picks: DraftPick[]): {
   return { stats, breakdown };
 }
 
-/** Simplified BST calculator — V2 additive system (7 stats), integer total. */
+/** Simplified BST calculator - V2 additive system (7 stats), integer total. */
 export function calculateCharacterBST(char: Character): number {
   const s = {
     strength: softCapBody(char.baseStats.strength),
@@ -533,14 +533,14 @@ export function calculateCharacterBST(char: Character): number {
     stamina: softCapBody(char.baseStats.stamina),
   };
 
-  // Haki — additive (attack/defense separate from strength/durability)
+  // Haki - additive (attack/defense separate from strength/durability)
   s.attack += char.haki.armament.attack + char.haki.conqueror.attack;
   s.defense += char.haki.armament.defense + char.haki.conqueror.defense;
   s.speed += char.haki.observation.speed + char.haki.observation.reflex;
   s.awareness += char.haki.observation.awareness;
   s.stamina += char.haki.armament.stamina + char.haki.conqueror.stamina;
 
-  // Devil Fruit — additive
+  // Devil Fruit - additive
   if (char.devilFruit.type !== "none") {
     const df = char.devilFruit;
     s.attack += df.attack;
@@ -550,7 +550,7 @@ export function calculateCharacterBST(char: Character): number {
     s.stamina += df.stamina;
   }
 
-  // Weapon — additive
+  // Weapon - additive
   if (char.weapon.type !== "none") {
     const w = char.weapon;
     s.attack += w.attack;
@@ -567,7 +567,7 @@ export function calculateCharacterBST(char: Character): number {
   s.strength *= 1 + (char.baseStats.battleIQ / 100) * 0.2;
 
   // Integer total: single rounding rule shared by rank script, preview and
-  // live rankBuild — file and app can never disagree on a BST again.
+  // live rankBuild - file and app can never disagree on a BST again.
   return Math.round(s.strength + s.attack + s.durability + s.defense + s.speed + s.awareness + s.stamina);
 }
 
@@ -583,10 +583,10 @@ export type BuildRank = {
 /**
  * Rank a drafted build against all 184 roster characters.
  * Rank = 1 + count(roster BST strictly greater). Ties share rank.
- * Runs live in-browser (184 cheap calcs) — always in sync with tuning.
+ * Runs live in-browser (184 cheap calcs) - always in sync with tuning.
  */
 export function rankBuild(stats: StatBlock): BuildRank {
-  // Integer BST (same rule as calculateCharacterBST) — strict float
+  // Integer BST (same rule as calculateCharacterBST) - strict float
   // equality is exact on integers, epsilon guards the summation noise.
   const eps = 1e-6;
   const bst = Math.round(

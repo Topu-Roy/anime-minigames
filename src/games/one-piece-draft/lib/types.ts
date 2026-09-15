@@ -19,7 +19,7 @@ export type Stats = "strength" | "attack" | "durability" | "defense" | "speed" |
 export type Rarity = "basic" | "epic" | "legend" | "god";
 
 /**
- * V2 Character type — flat additive stat values.
+ * V2 Character type - flat additive stat values.
  *
  * Final block has 7 stats: strength, attack, durability, defense, speed,
  * awareness, stamina.
@@ -44,7 +44,7 @@ export type Character = {
   race: Race;
   rarity: Rarity;
 
-  /** Individual base stats — evaluated from canonical feats, not from race */
+  /** Individual base stats - evaluated from canonical feats, not from race */
   baseStats: {
     strength: number;
     durability: number;

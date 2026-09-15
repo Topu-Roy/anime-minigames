@@ -1,8 +1,8 @@
-# One Piece Blind Rank — Power Brackets
+# One Piece Blind Rank - Power Brackets
 
 > Standalone. Not influenced by stats or other parts of the app.
 > Canon: manga-current (Egghead + Elbaf). Legends at prime. Feats + portrayal weighted equally.
-> Clustered by extremely close power/feats, then ordered strongest → weakest — both between and within clusters.
+> Clustered by extremely close power/feats, then ordered strongest → weakest - both between and within clusters.
 
 [Imu, Joy Boy]
 [Rocks, Roger, Whitebeard, Garp, Sengoku]

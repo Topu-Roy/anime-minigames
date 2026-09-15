@@ -14,7 +14,7 @@ const top5cards = [...Characters]
 const steps = [
   {
     t: "Pick yer body",
-    d: "Round 1 sets looks, name and base stats — rarity-weighted, always a big-race option.",
+    d: "Round 1 sets looks, name and base stats - rarity-weighted, always a big-race option.",
   },
   { t: "Harvest haki", d: "Rounds 2–4: Armament, Observation, Conqueror's. Two guaranteed holders per round." },
   {
@@ -23,42 +23,42 @@ const steps = [
   },
   {
     t: "Mind & rank",
-    d: "Rounds 7–8: intelligence and battle IQ boost stats by percent — then a live rank of 185.",
+    d: "Rounds 7–8: intelligence and battle IQ boost stats by percent - then a live rank of 185.",
   },
 ];
 
 const faqs = [
   {
     q: "How long does a draft take?",
-    a: "About five minutes — eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward.",
+    a: "About five minutes - eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward.",
   },
   {
     q: "Is it free? Do I need an account?",
-    a: "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab — try again as often as you like.",
+    a: "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab - try again as often as you like.",
   },
   {
     q: "What do rerolls do?",
-    a: "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces — save them for Devil Fruit and haki rounds.",
+    a: "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces - save them for Devil Fruit and haki rounds.",
   },
   {
     q: "What does the final rank mean?",
-    a: "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself — good luck.",
+    a: "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself - good luck.",
   },
   {
     q: "Can I play on my phone?",
-    a: "Yes — the whole game is touch-first and mobile-sized. Draft on the bus, argue about the results everywhere else.",
+    a: "Yes - the whole game is touch-first and mobile-sized. Draft on the bus, argue about the results everywhere else.",
   },
   {
     q: "Who are the best donors in the draft game?",
-    a: "Imu, Joy Boy, Rocks and Luffy — the four gods of the roster. Imu dominates body, Armament and Devil Fruit rounds; Joy Boy owns Conqueror's; Rocks is the best pure-haki donor set; Luffy is the most drawable of the four.",
+    a: "Imu, Joy Boy, Rocks and Luffy - the four gods of the roster. Imu dominates body, Armament and Devil Fruit rounds; Joy Boy owns Conqueror's; Rocks is the best pure-haki donor set; Luffy is the most drawable of the four.",
   },
   {
     q: "Can a basic-rarity body still win a draft?",
-    a: "Yes. Body stats soft-cap above 500, so god bodies compress while donor rounds stay full-strength — a basic body with god haki, fruit and weapon beats a god body with basic donors nearly every time.",
+    a: "Yes. Body stats soft-cap above 500, so god bodies compress while donor rounds stay full-strength - a basic body with god haki, fruit and weapon beats a god body with basic donors nearly every time.",
   },
   {
     q: "What is the highest rank my build can reach?",
-    a: "Rank #1 of 185 — above Imu himself. It takes near-perfect god donors in every round: a top-tier body, supreme haki across rounds 2 to 4, a Mythical Zoan fruit and a greatsword-class weapon, finished with strong mind-round multipliers. Most winning builds land between #5 and #30, which still beats nearly every canon pirate.",
+    a: "Rank #1 of 185 - above Imu himself. It takes near-perfect god donors in every round: a top-tier body, supreme haki across rounds 2 to 4, a Mythical Zoan fruit and a greatsword-class weapon, finished with strong mind-round multipliers. Most winning builds land between #5 and #30, which still beats nearly every canon pirate.",
   },
 ];
 ---
@@ -66,10 +66,10 @@ const faqs = [
 <Layout
   canonicalPath="/one-piece/draft"
   description="Play the free One Piece draft game: harvest haki, Devil Fruits and weapons from 184 characters over 8 rounds, then rank your custom pirate build."
-  title="One Piece Draft Game — Build Your Strongest Pirate"
+  title="One Piece Draft Game - Build Your Strongest Pirate"
 >
   <NavBar showRestart={false} />
-  <!-- Structured data (static — keep answers in sync with the visible FAQ). -->
+  <!-- Structured data (static - keep answers in sync with the visible FAQ). -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,7 +90,7 @@ const faqs = [
           "name": "How long does a draft take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "About five minutes — eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward."
+            "text": "About five minutes - eight quick rounds, four donors each. Cards reveal one at a time, or tap ahead to fast-forward."
           }
         },
         {
@@ -122,7 +122,7 @@ const faqs = [
           "name": "Can I play on my phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — the whole game is touch-first and mobile-sized."
+            "text": "Yes - the whole game is touch-first and mobile-sized."
           }
         },
         {
@@ -130,7 +130,7 @@ const faqs = [
           "name": "Who are the best donors in the draft game?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Imu, Joy Boy, Rocks and Luffy — the four gods of the roster."
+            "text": "Imu, Joy Boy, Rocks and Luffy - the four gods of the roster."
           }
         },
         {
@@ -146,7 +146,7 @@ const faqs = [
           "name": "What is the highest rank my build can reach?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Rank #1 of 185 — above Imu himself. It takes near-perfect god donors: top-tier body, supreme haki, a Mythical Zoan fruit and a greatsword-class weapon."
+            "text": "Rank #1 of 185 - above Imu himself. It takes near-perfect god donors: top-tier body, supreme haki, a Mythical Zoan fruit and a greatsword-class weapon."
           }
         }
       ]
@@ -170,8 +170,8 @@ const faqs = [
         <h1 class="mx-auto mt-6 max-w-3xl font-hand text-6xl leading-[1.05]">One Piece Draft Game</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
           Build your own pirate and make him the strongest: draft a body, three haki, a Devil Fruit and a weapon
-          from 184 canon-graded characters — then rank your custom build against the full roster. Free, no account,
-          five minutes a draft — the best One Piece game for powerscaling debates.
+          from 184 canon-graded characters - then rank your custom build against the full roster. Free, no account,
+          five minutes a draft - the best One Piece game for powerscaling debates.
         </p>
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -215,7 +215,7 @@ const faqs = [
           </a>
         </div>
         <p class="mb-4 max-w-2xl">
-          Five faces from the very top of the roster — the gods and legends every draft bends around. Tap any card
+          Five faces from the very top of the roster - the gods and legends every draft bends around. Tap any card
           to browse all 184 characters by tier.
         </p>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
@@ -239,7 +239,7 @@ const faqs = [
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Most drafts are decided in rounds 2, 4 and 5. Armament and Conqueror's Haki feed your attack, defense
-            and stamina from a zero base — a supreme donor there is worth more than any body upgrade. The Devil
+            and stamina from a zero base - a supreme donor there is worth more than any body upgrade. The Devil
             Fruit round adds five stats at once, which is why your two rerolls belong in rounds 2 through 5, never
             spent early on a body you merely like the look of.
           </p>
@@ -253,12 +253,12 @@ const faqs = [
           <p>
             The mind rounds close drafts out. Intelligence multiplies your awareness and battle IQ multiplies
             strength, so a late god pull there can leapfrog builds that led all game. Check the characters page to
-            learn every donor's exact numbers before you play — the best One Piece draft game players study the
+            learn every donor's exact numbers before you play - the best One Piece draft game players study the
             roster like a bounty board.
           </p>
           <p>
             Don't fear a dud. Haki rounds can seat donors with nothing to give, but the guarantee system always
-            fields at least two real holders per round — and Devil Fruit rounds draw from users only, so round five
+            fields at least two real holders per round - and Devil Fruit rounds draw from users only, so round five
             never blanks. Learn the safety nets instead of fearing them: two guaranteed haki holders, three
             guaranteed weapon users, a big-race body every opener.
           </p>
@@ -271,7 +271,7 @@ const faqs = [
         </div>
       </section>
 
-      <!-- FAQ: play-flavored (hub keeps the lore questions — no duplication). -->
+      <!-- FAQ: play-flavored (hub keeps the lore questions - no duplication). -->
       <section class="mx-auto max-w-3xl">
         <h2 class="text-center font-hand text-4xl">Before ye play</h2>
         <div class="mt-6 flex flex-col gap-4">
@@ -314,18 +314,18 @@ const faqs = [
       <section class="mx-auto max-w-3xl pb-12 text-center">
         <h2 class="font-hand text-4xl">Fair winds, pirate</h2>
         <p class="mt-4 leading-relaxed text-cocoa/70">
-          Every donor stat is hand-graded from manga and anime feats — grades follow demonstrated powers,
+          Every donor stat is hand-graded from manga and anime feats - grades follow demonstrated powers,
           unconfirmed ones stay unconfirmed, and the audit trail behind every number is public. No download, no
           account, no paywall: open the page, draft for five minutes, argue about the result everywhere else.
         </p>
         <p class="mt-4 leading-relaxed text-cocoa/70">
-          That loop — draft, rank, rematch — is the whole design. Easy to start, genuinely hard to master, and
+          That loop - draft, rank, rematch - is the whole design. Easy to start, genuinely hard to master, and
           different every single run. Your best build today won't survive tomorrow's pulls, and that is exactly the
           point: the sea keeps dealing, and the rank keeps score. So pick yer first body, sailor. The Grand Line of
           donors is waiting.
         </p>
         <p class="mt-4 leading-relaxed text-cocoa/70">
-          Screenshot yer rank and settle it with the crew. Every build tells a story — the god you stole in round
+          Screenshot yer rank and settle it with the crew. Every build tells a story - the god you stole in round
           two, the reroll that saved round five, the basic body that somehow carried. Those stories are the real
           treasure. The numbers just keep 'em honest.
         </p>

@@ -45,7 +45,7 @@ const keywords: Record<string, string[]> = {
   ],
 };
 
-// Title + H1 + meta description per page (separate check — placement matters).
+// Title + H1 + meta description per page (separate check - placement matters).
 const textOf = (html: string): string => {
   const noScripts = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ");
   return noScripts.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
@@ -84,7 +84,7 @@ for (const u of urls) {
   h1s[u] = h1Of(html);
 }
 
-let md = `# Keyword usage — per route
+let md = `# Keyword usage - per route
 
 Generated from built HTML (\`bun run build\` first). Case-insensitive body-text counts (scripts/styles excluded). One exact-match in title + H1 outweighs ten body mentions.
 `;
@@ -98,7 +98,7 @@ for (const u of urls) {
   }
 }
 
-md += `\n## Notes\n\n- Overlapping phrases double-count by design ("strongest characters" counts inside "strongest characters ranked") — read child rows first.\n- Name rows (luffy … jinbe) count every mention including nav-adjacent copy; the characters page carries the intentional density.\n- Rerun after every copy change: \`bun scripts/keyword-audit.ts\` (writes here).\n`;
+md += `\n## Notes\n\n- Overlapping phrases double-count by design ("strongest characters" counts inside "strongest characters ranked") - read child rows first.\n- Name rows (luffy … jinbe) count every mention including nav-adjacent copy; the characters page carries the intentional density.\n- Rerun after every copy change: \`bun scripts/keyword-audit.ts\` (writes here).\n`;
 
 writeFileSync("KEYWORD_USAGE.md", md);
 console.log("KEYWORD_USAGE.md written");

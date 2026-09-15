@@ -1,9 +1,9 @@
-# Anime Draft — Design System ("Wanted Poster")
+# Anime Draft - Design System ("Wanted Poster")
 
 Selected from three style previews (`src/pages/preview/`). A playful,
 childish pirate-cove look: parchment canvas, thick ink outlines, hard
 sticker shadows, tilted badges, toy-like press-down buttons. Every surface
-feels cut from paper and glued on slightly crooked — on purpose.
+feels cut from paper and glued on slightly crooked - on purpose.
 
 ## Philosophy
 
@@ -17,7 +17,7 @@ feels cut from paper and glued on slightly crooked — on purpose.
   collapse). A button that doesn't react to pressing is broken.
 - **Pirate voice.** Copy talks like a cheerful pirate ("Draft yer own
   pirate!", "Set sail →"). Emoji lead badges, chips and CTAs (⚓ 🏴‍☠️ 🎲 👑).
-- **Readable first.** Body copy is large, rounded, high-contrast Fredoka —
+- **Readable first.** Body copy is large, rounded, high-contrast Fredoka -
   childish but never at legibility's expense.
 
 ## Colors
@@ -25,7 +25,7 @@ feels cut from paper and glued on slightly crooked — on purpose.
 | Token       | Hex       | Role                                                             |
 | ----------- | --------- | ---------------------------------------------------------------- |
 | `parchment` | `#f5e9d4` | Page canvas. Warm paper floor of every surface.                  |
-| `ink`       | `#3a2a18` | Text, borders, shadow color. Dark warm brown — never pure black. |
+| `ink`       | `#3a2a18` | Text, borders, shadow color. Dark warm brown - never pure black. |
 | `coral`     | `#aa2d00` | Primary action + alert accents (banners, primary CTA).           |
 | `forest`    | `#0a2e0e` | Signature dark card surface. Deep green, white type inside.      |
 | `yellow`    | `#f4d35e` | Highlights: badges, secondary CTAs on dark, bounty pills.        |
@@ -35,7 +35,7 @@ feels cut from paper and glued on slightly crooked — on purpose.
 Rules:
 
 - Text on parchment is always `ink`. Text on forest/coral is always white.
-- Yellow never carries body copy — badges and buttons only, with `ink` text.
+- Yellow never carries body copy - badges and buttons only, with `ink` text.
 - Ink is the _only_ border and shadow color on light surfaces.
 - Chips on dark surfaces use translucent white borders (`white/40`).
 
@@ -49,14 +49,14 @@ Rules:
 - Package: `@fontsource/peralta` + `@fontsource/fredoka` (400/500/600/700).
 - Fredoka fallback: `ui-rounded, system-ui, sans-serif`.
 - Buttons and summaries are always bold. Body copy defaults to 400 at
-  base-to-lg sizes — large by default (nothing below `text-sm` carries
+  base-to-lg sizes - large by default (nothing below `text-sm` carries
   meaning).
 - Letter-spaced uppercase (`tracking-widest`/`0.2em`) marks badges and
   eyebrow labels only.
 
 ## Elevation & Motion
 
-Hard offset shadows only — `Npx Npx 0 ink`, no blur, no spread:
+Hard offset shadows only - `Npx Npx 0 ink`, no blur, no spread:
 
 | Shadow | Use                                              |
 | ------ | ------------------------------------------------ |
@@ -84,32 +84,32 @@ pages (the game rounds keep their own reveal choreography).
 
 ## Components
 
-**Nav** — parchment, `border-b-4 ink`. Brand in Peralta 3xl. Right slot
+**Nav** - parchment, `border-b-4 ink`. Brand in Peralta 3xl. Right slot
 holds one tilted yellow badge (page label) or the section CTA.
 
-**Banner pill** — white, 3px coral border, coral bold uppercase text,
+**Banner pill** - white, 3px coral border, coral bold uppercase text,
 `-rotate-2`. Announces the page (`★ Wanted ★ Dead or alive ★`).
 
-**Button primary** — coral bg, white bold text, 4px ink border,
+**Button primary** - coral bg, white bold text, 4px ink border,
 `rounded-2xl`, 6px hard shadow, squish on press.
 
-**Button secondary** — white bg, ink bold text, same border/radius/shadow
+**Button secondary** - white bg, ink bold text, same border/radius/shadow
 as primary. The pair always appears together (play + how-to-play).
 
-**Button on dark** — yellow bg, ink bold text, 4px ink border. Lives
+**Button on dark** - yellow bg, ink bold text, 4px ink border. Lives
 inside the forest card only.
 
-**Signature dark card** — forest bg, white type, 4px ink border,
+**Signature dark card** - forest bg, white type, 4px ink border,
 `rounded-3xl`, 8px shadow, `-0.5deg` tilt. Holds the eyebrow pill, Peralta
 h2, supporting copy, translucent chips, and the on-dark button.
 
-**Info chips** — translucent white border pills on dark; solid bordered
+**Info chips** - translucent white border pills on dark; solid bordered
 pills on light. Emoji + short label.
 
-**Q&A card** — white, 3px ink border, `rounded-2xl`, 4px shadow. Bold
+**Q&A card** - white, 3px ink border, `rounded-2xl`, 4px shadow. Bold
 summary, regular answer.
 
-**Footer** — parchment, `border-t-4 ink`, small centered type.
+**Footer** - parchment, `border-t-4 ink`, small centered type.
 
 ## Layout
 
@@ -125,18 +125,18 @@ summary, regular answer.
 
 - Cheerful pirate, never corporate: "Draft yer own pirate!", "Tavern
   talk", "Read the map", "Set sail →".
-- Emoji lead chips, badges and playful CTAs — never inside body sentences
+- Emoji lead chips, badges and playful CTAs - never inside body sentences
   except Q&A answers where the joke lands.
 - Numbers get pirate flavor where free (bounty pill, "184 sea dogs").
 
 ## Do's and Don'ts
 
 - Do keep ink as the only outline/shadow color on light surfaces.
-- Do squish every button on press — no exceptions.
+- Do squish every button on press - no exceptions.
 - Do tilt badges and the signature card; don't tilt body copy.
 - Don't add gradients, blur shadows, or glassmorphism anywhere.
-- Don't use pure black (`#000`) for text or borders — ink brown only.
-- Don't use pill radius on main CTAs (`rounded-2xl`, not full) — pills
+- Don't use pure black (`#000`) for text or borders - ink brown only.
+- Don't use pill radius on main CTAs (`rounded-2xl`, not full) - pills
   are for badges and chips.
 - Don't place two dark cards adjacently; parchment must reset between.
 - Don't shrink body copy below `text-sm`, and keep answers at base.

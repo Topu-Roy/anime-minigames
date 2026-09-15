@@ -8,7 +8,7 @@
   export let chrome: boolean = true;
 </script>
 
-<!-- Parchment canvas per the Wanted Poster system — no atmospheric
+<!-- Parchment canvas per the Wanted Poster system - no atmospheric
      backdrop. Cards carry their own white surfaces so text stays legible. -->
 <div class="relative bg-paper text-cocoa">
   <!-- No round transition here: it lives on the options grid only,

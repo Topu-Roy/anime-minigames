@@ -34,7 +34,7 @@
   const BEAT_MS = 1000;
 
   // Image warm-up: the round starts once the 15 fixed decoys settle.
-  // The 4 real faces warm in the background (not gated) — each card's
+  // The 4 real faces warm in the background (not gated) - each card's
   // lock additionally waits for its own art to decode (1s cap), so a
   // card never lands blank. Skeleton grid holds the layout meanwhile.
   // Skeleton mirrors the loaded card shape (art + one text bar) so the
@@ -43,7 +43,7 @@
   let loadedCount = 0;
   let loadTotal = 0;
   const decoyPool: string[] = getFixedDecoyURLs();
-  // Full-roster background warm runs once (first round) — afterwards every
+  // Full-roster background warm runs once (first round) - afterwards every
   // round's real faces are already in cache/SW before their options exist.
   let rosterWarming = false;
   // Freshness guard: stale preloads (rapid rerolls) must not clear the loader.
@@ -60,14 +60,14 @@
     }
 
     // Whole roster warms in the background (cache + SW), gated or not.
-    // Runs once — all 184 faces download while the player drafts.
+    // Runs once - all 184 faces download while the player drafts.
     if (!motion && !rosterWarming) {
       rosterWarming = true;
       void preloadImages(getAllImageURLs());
     }
 
     if (motion) {
-      // Nothing animates — reals render eager, no warm-up needed.
+      // Nothing animates - reals render eager, no warm-up needed.
       preloading = false;
       revealReady = true;
       return;
@@ -83,7 +83,7 @@
     }).then(() => {
       if (preloadKey !== key) return;
       preloading = false;
-      // Cards are mounted (dimmed "?") — hold the beat, then shuffle.
+      // Cards are mounted (dimmed "?") - hold the beat, then shuffle.
       beatTimer = setTimeout(() => {
         if (preloadKey !== key) return;
         revealReady = true;

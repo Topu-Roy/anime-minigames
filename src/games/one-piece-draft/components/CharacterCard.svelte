@@ -26,7 +26,7 @@
   let started = false;
   let decoyURL = "";
   // Lock needs both: shuffle delay elapsed (or fast-forward requested)
-  // AND the real art decoded — a card never lands on a blank frame.
+  // AND the real art decoded - a card never lands on a blank frame.
   let delayElapsed = false;
   let lockRequested = false;
   let capExpired = false;
@@ -65,7 +65,7 @@
 
   function randomDecoy(): string {
     if (decoyPool.length > 0) return decoyPool[Math.floor(Math.random() * decoyPool.length)];
-    // Fallback (shouldn't fire — parent always passes a preloaded pool).
+    // Fallback (shouldn't fire - parent always passes a preloaded pool).
     const pool = Characters.filter((c) => c.imageURL && c.id !== character.id);
     return pool[Math.floor(Math.random() * pool.length)]?.imageURL ?? "";
   }

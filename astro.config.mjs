@@ -12,7 +12,7 @@ export default defineConfig({
   site: "https://anime-draft.example",
   integrations: [
     svelte(),
-    // Noindexed pages (style previews) stay out of the sitemap — listing
+    // Noindexed pages (style previews) stay out of the sitemap - listing
     // them contradicts their robots directives.
     sitemap({
       serialize(item) {
@@ -23,7 +23,7 @@ export default defineConfig({
     partytown(),
     // Service worker: forced CacheFirst for character art (header-independent,
     // persistent ~30 days / 250 faces). App shell precached by default.
-    // Scope is caching only — no install manifest yet.
+    // Scope is caching only - no install manifest yet.
     AstroPWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "favicon.svg"],

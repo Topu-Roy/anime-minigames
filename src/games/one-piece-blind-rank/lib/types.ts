@@ -1,4 +1,4 @@
-// Blind-rank local types — self-contained by design.
+// Blind-rank local types - self-contained by design.
 // Only the donor dataset is shared (see characters-v2 in one-piece-draft);
 // every type and runtime helper this mode needs lives in this folder.
 

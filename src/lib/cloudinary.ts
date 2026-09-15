@@ -54,7 +54,7 @@ for (const file of files) {
     uploaded++;
     process.stdout.write(`\r  [${uploaded}/${files.length}] ${publicId}`);
   } catch (error) {
-    console.error(`\n  FAILED: ${publicId} — ${error}`);
+    console.error(`\n  FAILED: ${publicId} - ${error}`);
     failed++;
   }
 }
