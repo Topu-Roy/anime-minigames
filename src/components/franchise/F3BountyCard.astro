@@ -1,0 +1,56 @@
+---
+import type { FranchiseVerse } from "./types";
+
+// F3 · Bounty column - square MC art on top, tilted status pill
+// overlapping the art edge, full-width button on live cards.
+type Props = FranchiseVerse;
+
+const {
+  imageSrc,
+  imageAlt,
+  kicker,
+  title,
+  desc,
+  live,
+  href,
+  tiltClass = "rotate-[-0.5deg]",
+  buttonText = "Set sail →",
+  // Pill doubles as the status line (no separate kicker row in F3),
+  // so soon cards carry their own short label.
+  soonPillText = "Soon · full effort",
+} = Astro.props;
+
+// Whole-card link only when an href is passed; otherwise plain <div>.
+const Tag = href ? "a" : "div";
+---
+
+<Tag
+  {...href ? { href } : {}}
+  class:list={[
+    "block overflow-hidden rounded-3xl border-4 shadow-[8px_8px_0_#3a2a18]",
+    tiltClass,
+    { "border-cocoa bg-white": live, "border-cocoa/40 bg-white": !live },
+    { "active:translate-x-1 active:translate-y-1 active:shadow-none": href },
+  ]}
+>
+  <img alt={imageAlt} class="aspect-square w-full object-cover object-top" loading="lazy" src={imageSrc} />
+  <div class="p-5 pt-0">
+    <p
+      class:list={[
+        "-mt-5 inline-block -rotate-1 rounded-lg border-[3px] px-3 py-1 text-xs font-bold tracking-[0.2em] uppercase",
+        { "border-cocoa bg-yellow text-cocoa": live, "border-cocoa/40 bg-white text-cocoa/50": !live },
+      ]}
+    >
+      {live ? "★ Live now ★" : kicker}
+    </p>
+    <h3 class="mt-3 font-hand text-3xl text-cocoa">{title}</h3>
+    <p class="mt-1 text-sm text-cocoa/70">{desc}</p>
+    {
+      live && (
+        <span class="mt-3 block rounded-2xl border-[3px] border-cocoa bg-coral px-6 py-2 text-center text-base font-bold text-white shadow-[4px_4px_0_#3a2a18]">
+          {buttonText}
+        </span>
+      )
+    }
+  </div>
+</Tag>

@@ -1,6 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.svelte";
+import F2SidewaysCard from "../components/franchise/F2SidewaysCard.astro";
+import type { FranchiseVerse } from "../components/franchise/types";
+import onePieceArt from "../assets/one-piece.jpg";
+import narutoArt from "../assets/naruto.jpg";
+import hxhArt from "../assets/hunter-x-hunter.webp";
+import jjkArt from "../assets/jujutsu-kaisen.jpg";
 
 // Brand hub: targets "free anime games". Deep SEO content like /one-piece hub.
 // Lore FAQ stays on /one-piece - this page keeps brand + franchise questions only.
@@ -34,12 +40,60 @@ const faqs = [
     a: "Yer custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive.",
   },
 ];
+
+// Pick yer verse: one array drives the F2 card grid. Descs stay
+// keyword-rich (Straw Hats, haki, kekkei genkai…) - the audit counts them.
+const verses: FranchiseVerse[] = [
+  {
+    imageSrc: onePieceArt.src,
+    imageAlt: "Monkey D. Luffy - One Piece",
+    kicker: "Live now",
+    title: "One Piece",
+    desc: "Draft game · blind ranking · 184 characters · Straw Hats · haki answers.",
+    live: true,
+    label: "WANTED",
+    buttonText: "Set sail →",
+  },
+  {
+    imageSrc: narutoArt.src,
+    imageAlt: "Naruto Uzumaki - Naruto",
+    kicker: "Next · full effort",
+    title: "Naruto",
+    desc: "Draft yer shinobi. Jutsu, kekkei genkai, tailed beasts, live ranks.",
+    live: false,
+    label: "SEALED",
+    buttonText: "Coming soon",
+  },
+  {
+    imageSrc: hxhArt.src,
+    imageAlt: "Gon Freecss - Hunter x Hunter",
+    kicker: "Next · full effort",
+    title: "Hunter x Hunter",
+    desc: "Draft yer hunter. Nen types, conditions, restrictions, live ranks.",
+    live: false,
+    label: "HUNTED",
+    buttonText: "Coming soon",
+  },
+  {
+    imageSrc: jjkArt.src,
+    imageAlt: "Yuji Itadori - Jujutsu Kaisen",
+    kicker: "Next · full effort",
+    title: "Jujutsu Kaisen",
+    desc: "Draft yer sorcerer. Cursed techniques, domains, live ranks.",
+    live: false,
+    label: "CURSED",
+    buttonText: "Coming soon",
+  },
+];
+
+// Alternating tilts keep the hand-placed look.
+const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate-[-0.5deg]"];
 ---
 
 <Layout
   canonicalPath="/"
-  description="Anime Draft — free anime minigames in your browser. Play One Piece games now; Naruto, Hunter x Hunter and Jujutsu Kaisen minigames next. No download, no account."
-  title="Free Anime Minigames — Play in Browser | Anime Draft"
+  description="Anime Draft - free anime minigames in your browser. Play One Piece games now; Naruto, Hunter x Hunter and Jujutsu Kaisen minigames next. No download, no account."
+  title="Free Anime Minigames - Play in Browser | Anime Draft"
 >
   <NavBar showRestart={false} />
   <script type="application/ld+json">
@@ -124,44 +178,19 @@ const faqs = [
         </p>
       </section>
 
-      <!-- Franchise cards: One Piece live, Naruto + HxH + JJK same-effort soon. -->
+      <!-- Franchise cards: F2 sideways MC cards, mapped from one verses array. -->
       <section>
         <h2 class="text-center font-hand text-4xl">Pick yer verse</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <div
-            class="rotate-[-0.5deg] rounded-3xl border-4 border-cocoa bg-forest p-8 text-white shadow-[8px_8px_0_#3a2a18]"
-          >
-            <p class="text-xs font-bold tracking-[0.16px] text-white/60 uppercase">Live now</p>
-            <h3 class="mt-2 font-hand text-4xl">One Piece</h3>
-            <p class="mt-2 text-sm">Draft game · blind ranking · 184 characters · Straw Hats · haki answers.</p>
-            <a
-              class="mt-5 inline-block rounded-2xl border-4 border-cocoa bg-yellow px-6 py-3 font-bold text-cocoa shadow-[6px_6px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none"
-              href="/one-piece"
-            >
-              Set sail →
-            </a>
-          </div>
-          <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
-            <h3 class="mt-2 font-hand text-4xl">Naruto</h3>
-            <p class="mt-2 text-sm">
-              Draft yer shinobi. Jutsu, kekkei genkai, tailed beasts, live ranks - same depth as One Piece.
-            </p>
-          </div>
-          <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
-            <h3 class="mt-2 font-hand text-4xl">Hunter x Hunter</h3>
-            <p class="mt-2 text-sm">
-              Draft yer hunter. Nen types, conditions, restrictions, live ranks - same depth as One Piece.
-            </p>
-          </div>
-          <div class="rotate-[-0.5deg] rounded-3xl border-4 border-cocoa/40 bg-white p-8 opacity-70">
-            <p class="text-xs font-bold tracking-[0.16px] text-cocoa/50 uppercase">Next · full effort</p>
-            <h3 class="mt-2 font-hand text-4xl">Jujutsu Kaisen</h3>
-            <p class="mt-2 text-sm">
-              Draft yer sorcerer. Cursed techniques, domains, live ranks - same depth as One Piece.
-            </p>
-          </div>
+          {
+            verses.map((verse, index) => (
+              <F2SidewaysCard
+                {...verse}
+                href={verse.live ? "/one-piece" : undefined}
+                tiltClass={tilts[index % tilts.length]}
+              />
+            ))
+          }
         </div>
       </section>
 
@@ -234,7 +263,7 @@ const faqs = [
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             <strong>Naruto games</strong> draft yer shinobi: five natures, kekkei genkai, sage mode and tailed beasts,
-            with jonin-to-god donors graded from canon feats. Expect draft game, rankings and full character guides —
+            with jonin-to-god donors graded from canon feats. Expect draft game, rankings and full character guides -
             not a quiz reskin.
           </p>
           <p>

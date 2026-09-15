@@ -1,12 +1,12 @@
-# Keyword usage — per route
+# Keyword usage - per route
 
 Generated from built HTML (`bun run build` first). Case-insensitive body-text counts (scripts/styles excluded). One exact-match in title + H1 outweighs ten body mentions.
 
 ## `/`
 
-- Title: Free Anime Minigames — Play in Browser | Anime Draft
+- Title: Free Anime Minigames - Play in Browser | Anime Draft
 - H1: Anime Draft
-- Body: 1006 words
+- Body: 998 words
 - P1: "one piece draft game" ×2
 - Hub: "anime draft" ×11, "anime minigames" ×5, "free anime minigames" ×3
 - P1F: "one piece games" ×6, "naruto" ×7
@@ -14,7 +14,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## `/one-piece`
 
-- Title: One Piece Games — Free Minigames | Anime Draft
+- Title: One Piece Games - Free Minigames | Anime Draft
 - H1: One Piece Games
 - Body: 999 words
 - P1: "best one piece game" ×1, "build your own pirate" ×1
@@ -25,7 +25,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## `/one-piece/draft`
 
-- Title: One Piece Draft Game — Build Your Strongest Pirate
+- Title: One Piece Draft Game - Build Your Strongest Pirate
 - H1: One Piece Draft Game
 - Body: 1008 words
 - P1: "one piece draft game" ×3, "best one piece game" ×1, "build your own pirate" ×1
@@ -34,7 +34,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## `/one-piece/draft/how-to-play`
 
-- Title: How to Play the One Piece Draft Game — Rules &amp; Rounds
+- Title: How to Play the One Piece Draft Game - Rules &amp; Rounds
 - H1: How to play
 - Body: 361 words
 - P1: "one piece draft game" ×2
@@ -43,7 +43,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## `/one-piece/draft/characters`
 
-- Title: One Piece Characters — All 184 by Tier, Powers &amp; Ranks
+- Title: One Piece Characters - All 184 by Tier, Powers &amp; Ranks
 - H1: One Piece characters
 - Body: 1061 words
 - P1: "one piece draft game" ×1
@@ -53,6 +53,6 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 ## Notes
 
-- Overlapping phrases double-count by design ("strongest characters" counts inside "strongest characters ranked") — read child rows first.
+- Overlapping phrases double-count by design ("strongest characters" counts inside "strongest characters ranked") - read child rows first.
 - Name rows (luffy … jinbe) count every mention including nav-adjacent copy; the characters page carries the intentional density.
 - Rerun after every copy change: `bun scripts/keyword-audit.ts` (writes here).

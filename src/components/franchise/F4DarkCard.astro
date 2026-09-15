@@ -1,0 +1,71 @@
+---
+import type { FranchiseVerse } from "./types";
+
+// F4 · Dark signature - live card goes forest with yellow CTA, soon cards
+// stay white. Art keeps its own square (self-center), never stretched
+// to the text column - that stretch cropped Gon/Yuji chins.
+type Props = FranchiseVerse;
+
+const {
+  imageSrc,
+  imageAlt,
+  kicker,
+  title,
+  desc,
+  live,
+  href,
+  tiltClass = "rotate-[-0.5deg]",
+  buttonText = "Set sail →",
+} = Astro.props;
+
+// Whole-card link only when an href is passed; otherwise plain <div>.
+const Tag = href ? "a" : "div";
+---
+
+<Tag
+  {...href ? { href } : {}}
+  class:list={[
+    "flex items-stretch gap-4 rounded-3xl border-4 p-4",
+    tiltClass,
+    {
+      "border-cocoa bg-forest text-white shadow-[8px_8px_0_#3a2a18] active:translate-x-1 active:translate-y-1 active:shadow-none":
+        live,
+      "border-cocoa/40 bg-white": !live,
+    },
+  ]}
+>
+  <div
+    class:list={[
+      "relative w-2/5 shrink-0 self-center overflow-hidden rounded-2xl border-[3px]",
+      { "border-cocoa": live, "border-cocoa/40": !live },
+    ]}
+  >
+    <img
+      alt={imageAlt}
+      class="aspect-square h-auto w-full object-cover object-top"
+      loading="lazy"
+      src={imageSrc}
+    />
+  </div>
+  <div class="flex min-w-0 flex-1 flex-col justify-center py-1">
+    <p
+      class:list={[
+        "text-[11px] font-bold tracking-[0.3em] uppercase",
+        { "text-white/60": live, "text-cocoa/50": !live },
+      ]}
+    >
+      {kicker}
+    </p>
+    <h3 class:list={["mt-1 font-hand text-2xl leading-[1.05]", { "text-white": live, "text-cocoa": !live }]}>
+      {title}
+    </h3>
+    <p class:list={["mt-1 text-sm", { "text-white/70": live, "text-cocoa/70": !live }]}>{desc}</p>
+    {
+      live && (
+        <span class="mt-3 inline-block w-fit rounded-2xl border-[3px] border-cocoa bg-yellow px-6 py-2 text-base font-bold text-cocoa shadow-[4px_4px_0_#3a2a18]">
+          {buttonText}
+        </span>
+      )
+    }
+  </div>
+</Tag>
