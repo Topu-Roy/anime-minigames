@@ -6,12 +6,18 @@ import "@fontsource/fredoka/600.css";
 import "@fontsource/fredoka/700.css";
 import { Characters } from "../../games/one-piece-draft/data/characters-v2";
 import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
-import onePieceArt from "../../assets/one-piece.jpg";
-import narutoArt from "../../assets/naruto.jpg";
-import hxhArt from "../../assets/hunter-x-hunter.webp";
-import jjkArt from "../../assets/jujutsu-kaisen.jpg";
 import F2SidewaysCard from "../../components/franchise/F2SidewaysCard.astro";
 import type { FranchiseVerse } from "../../components/franchise/types";
+
+// Same Cloudinary art as / (local avif files stay as upload source).
+const FRANCHISE_ART = {
+  onePiece:
+    "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/franchise/one-piece?_a=BAMAROFG0",
+  naruto:
+    "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/franchise/naruto?_a=BAMAROFG0",
+  hxh: "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/franchise/hunter-x-hunter?_a=BAMAROFG0",
+  jjk: "https://res.cloudinary.com/nn2w9isf/image/upload/f_auto,q_auto/v1/anime-draft/franchise/jujutsu-kaisen?_a=BAMAROFG0",
+};
 
 // STYLE A - "Wanted Poster": parchment, thick ink outlines, hard sticker
 // shadows, tilted badges. Peralta headings + Fredoka rounded body.
@@ -25,7 +31,7 @@ const top1 = [...Characters]
 // here once, each verse maps into its own card.
 const verses: FranchiseVerse[] = [
   {
-    imageSrc: onePieceArt.src,
+    imageSrc: FRANCHISE_ART.onePiece,
     imageAlt: "Monkey D. Luffy - One Piece",
     kicker: "Live now",
     title: "One Piece",
@@ -35,7 +41,7 @@ const verses: FranchiseVerse[] = [
     buttonText: "Set sail →",
   },
   {
-    imageSrc: narutoArt.src,
+    imageSrc: FRANCHISE_ART.naruto,
     imageAlt: "Naruto Uzumaki - Naruto",
     kicker: "Next · full effort",
     title: "Naruto",
@@ -45,7 +51,7 @@ const verses: FranchiseVerse[] = [
     buttonText: "Coming soon",
   },
   {
-    imageSrc: hxhArt.src,
+    imageSrc: FRANCHISE_ART.hxh,
     imageAlt: "Gon Freecss - Hunter x Hunter",
     kicker: "Next · full effort",
     title: "Hunter x Hunter",
@@ -55,7 +61,7 @@ const verses: FranchiseVerse[] = [
     buttonText: "Coming soon",
   },
   {
-    imageSrc: jjkArt.src,
+    imageSrc: FRANCHISE_ART.jjk,
     imageAlt: "Yuji Itadori - Jujutsu Kaisen",
     kicker: "Next · full effort",
     title: "Jujutsu Kaisen",
