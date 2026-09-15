@@ -1,4 +1,4 @@
-# Keywords - Anime Draft (One Piece draft game)
+# Keywords - AnimeMiniGames (One Piece draft game)
 
 Volumes from keyword-tool check (Sep 2026). Every term maps to exactly one
 URL - no two pages target the same query (cannibalization guard).
@@ -15,11 +15,12 @@ URL - no two pages target the same query (cannibalization guard).
 
 ## P1-adjacent - Brand hub (`/`): brand + format terms
 
-| Keyword              | Volume | Note                       |
-| -------------------- | ------ | -------------------------- |
-| anime draft (brand)  | -      | Hub H1 + NavBar            |
-| anime minigames      | check  | Hub H1 support + hero copy |
-| free anime minigames | check  | Hub hero variant           |
+| Keyword                  | Volume | Note                         |
+| ------------------------ | ------ | ---------------------------- |
+| animeminigames (brand)   | -      | Hub H1 + NavBar, token form  |
+| anime mini games (brand) | -      | Hub H1 + NavBar, spaced form |
+| anime minigames          | check  | Hub H1 support + hero copy   |
+| free anime minigames     | check  | Hub hero variant             |
 
 ## P1-franchise - One Piece hub (`/one-piece`): franchise magnet → refers to draft
 

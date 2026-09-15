@@ -18,7 +18,7 @@ const keywords: Record<string, string[]> = {
     "build your own pirate",
     "build your own one piece character",
   ],
-  Hub: ["anime draft", "anime minigames", "free anime minigames"],
+  Hub: ["animeminigames", "anime mini games", "anime minigames", "free anime minigames"],
   P1F: ["one piece games", "one piece minigames", "naruto"],
   P2: ["strongest one piece characters ranked", "strongest one piece characters", "imu one piece"],
   P3: [

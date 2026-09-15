@@ -1,4 +1,4 @@
-# Anime Draft - One Piece Character Draft Builder
+# AnimeMiniGames - One Piece Character Draft Builder
 
 A browser draft game: build an original "strongest possible character" by harvesting **one trait per round** from 4 donor options, over **8 rounds** (Body → Armament → Observation → Conqueror's → Devil Fruit → Weapon → Intelligence → Battle IQ). Final builds resolve to **7 stats** (STR/ATK/DUR/DEF/SPD/AWR/STA) and rank live against all **184** roster characters. Rank-only results - raw numbers stay hidden.
 

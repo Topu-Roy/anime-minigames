@@ -76,7 +76,7 @@
       >
         Final score
       </p>
-      <h2 class="mt-3 font-hand text-5xl text-cocoa">{result.total.toFixed(2)} / 10.00</h2>
+      <h2 class="mt-3 font-hand text-4xl text-cocoa">{result.total.toFixed(2)} / 10.00</h2>
 
       <div class="mt-6 flex flex-col gap-2 text-left">
         {#each result.details as detail (detail.slot)}

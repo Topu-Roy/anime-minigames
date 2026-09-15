@@ -14,7 +14,9 @@
 <!-- Parchment bar, ink rule, Peralta brand + section links + coral restart. -->
 <nav class="w-full border-b-4 border-cocoa bg-paper">
   <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-    <a href="/" class="shrink-0 font-hand text-2xl leading-none font-normal text-cocoa sm:text-3xl">Anime Draft</a>
+    <a href="/" class="shrink-0 font-hand text-2xl leading-none font-normal text-cocoa sm:text-3xl"
+      >Anime Mini Games</a
+    >
 
     <div class="hidden items-center gap-5 text-sm font-bold text-cocoa/70 sm:flex">
       <a href="/one-piece">One Piece</a>

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "anime-draft",
+      "name": "animeminigames",
       "dependencies": {
         "@astrojs/partytown": "^2.1.7",
         "@astrojs/sitemap": "^3.7.3",

@@ -1,4 +1,4 @@
-# Anime Draft - Design System ("Wanted Poster")
+# AnimeMiniGames - Design System ("Wanted Poster")
 
 Selected from three style previews (`src/pages/preview/`). A playful,
 childish pirate-cove look: parchment canvas, thick ink outlines, hard
