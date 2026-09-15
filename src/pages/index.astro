@@ -187,8 +187,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Franchise cards: F2 sideways MC cards, mapped from one verses array. -->
       <section>
-        <h2 class="text-center font-hand text-3xl sm:text-4xl">Pick yer verse</h2>
-        <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="grid gap-4 md:grid-cols-2">
           {
             verses.map((verse, index) => (
               <F2SidewaysCard
@@ -198,6 +197,19 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
               />
             ))
           }
+        </div>
+
+        <div
+          aria-label="Site"
+          class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pt-8 text-sm font-bold text-cocoa/60"
+        >
+          <a class="underline" href="/about">About</a>
+          <span>.</span>
+          <a class="underline" href="/privacy">Privacy</a>
+          <span>.</span>
+          <a class="underline" href="/terms">Terms</a>
+          <span>.</span>
+          <a class="underline" href="/contact">Contact</a>
         </div>
       </section>
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Must match `site` in astro.config.mjs.
+Sitemap: https://animeminigames.com/sitemap-index.xml

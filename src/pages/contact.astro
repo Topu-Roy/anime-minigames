@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.svelte";
+
+// Contact: email only, no backend. Anonymous operator — address only.
+const email = "hello@animeminigames.com";
+---
+
+<Layout
+  canonicalPath="/contact"
+  description="Contact Anime Draft — report bugs, request verses, or raise rights issues by email."
+  title="Contact Us - Anime Draft"
+>
+  <NavBar showRestart={false} />
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+      <p class="text-xs font-bold tracking-wide text-cocoa/60 uppercase">
+        <a class="text-coral underline" href="/">Anime Draft</a> · Contact
+      </p>
+      <h1 class="mt-2 font-hand text-4xl leading-[1.05] sm:text-5xl">Send a message in a bottle</h1>
+      <p class="mt-4 text-lg leading-relaxed">
+        Bug reports, verse requests, stat disputes and rights issues — one email reaches the whole crew.
+      </p>
+      <a
+        class="mt-6 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold break-all text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
+        href={`mailto:${email}`}
+      >
+        ✉️ {email}
+      </a>
+
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">What to include</h2>
+      <div class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm">
+        <div class="border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+          <p class="font-bold">Bugs</p>
+          <p class="mt-0.5 text-sm text-cocoa/60">
+            Page, device and browser, plus what ye tapped before it broke.
+          </p>
+        </div>
+        <div class="border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+          <p class="font-bold">Verse requests</p>
+          <p class="mt-0.5 text-sm text-cocoa/60">Which anime, and which powers the draft should harvest.</p>
+        </div>
+        <div class="border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+          <p class="font-bold">Rights issues</p>
+          <p class="mt-0.5 text-sm text-cocoa/60">The exact page and what you hold rights to.</p>
+        </div>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Before ye write</h2>
+      <div class="flex flex-col gap-3 leading-relaxed">
+        <p>
+          Game rules live on the
+          <a class="font-bold text-coral underline" href="/one-piece/draft/how-to-play">how to play guide</a>, and
+          character numbers on the
+          <a class="font-bold text-coral underline" href="/one-piece/draft/characters">character list</a> — most stat
+          disputes end there. Replies sail within a few days.
+        </p>
+      </div>
+    </main>
+  </div>
+</Layout>

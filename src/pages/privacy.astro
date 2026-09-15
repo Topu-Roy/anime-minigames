@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.svelte";
+
+// Privacy: static site, no accounts, no first-party tracking. Last updated with v1.10.x.
+const updated = "September 2026";
+---
+
+<Layout
+  canonicalPath="/privacy"
+  description="Anime Draft privacy policy — no accounts, no tracking cookies. Draft progress lives in your browser; images served via Cloudinary."
+  title="Privacy Policy - Anime Draft"
+>
+  <NavBar showRestart={false} />
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
+      <p class="text-xs font-bold tracking-wide text-cocoa/60 uppercase">
+        <a class="text-coral underline" href="/">Anime Draft</a> · Privacy
+      </p>
+      <h1 class="mt-2 font-hand text-4xl leading-[1.05] sm:text-5xl">Privacy policy</h1>
+      <p class="mt-4 text-lg leading-relaxed">
+        Short version: we collect nothing. No accounts, no sign-ups, no tracking cookies of our own. Last updated {
+          updated
+        }.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">What stays in yer browser</h2>
+      <div class="flex flex-col gap-3 leading-relaxed">
+        <p>
+          Draft picks, rankings and game progress live only in your browser's memory and local storage. Close the
+          tab and it vanishes — we never see it, store it, or send it anywhere.
+        </p>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Third-party services</h2>
+      <div class="flex flex-col gap-3 leading-relaxed">
+        <p>
+          Character and card art loads from Cloudinary's CDN, which may log standard request data (such as IP
+          address) under its own policy. The site itself sets no analytics or advertising cookies.
+        </p>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Contact about privacy</h2>
+      <div class="flex flex-col gap-3 leading-relaxed">
+        <p>
+          Questions or requests about your data? Write to
+          <a class="font-bold text-coral underline" href="mailto:hello@animeminigames.com"
+            >hello@animeminigames.com</a
+          > — there is little we hold, but we answer everything.
+        </p>
+      </div>
+
+      <a
+        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
+        href="/"
+      >
+        ⚓ Back to the games
+      </a>
+    </main>
+  </div>
+</Layout>

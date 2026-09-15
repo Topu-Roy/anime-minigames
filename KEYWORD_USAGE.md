@@ -6,7 +6,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: Free Anime Minigames - Play in Browser | Anime Draft
 - H1: Anime Draft
-- Body: 1003 words
+- Body: 1007 words
 - P1: "one piece draft game" ×2
 - Hub: "anime draft" ×11, "anime minigames" ×5, "free anime minigames" ×3
 - P1F: "one piece games" ×6, "naruto" ×7
@@ -16,7 +16,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Games - Free Minigames | Anime Draft
 - H1: One Piece Games
-- Body: 1000 words
+- Body: 1004 words
 - P1: "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "anime draft" ×3
 - P1F: "one piece games" ×4
@@ -27,7 +27,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Draft Game - Build Your Strongest Pirate
 - H1: One Piece Draft Game
-- Body: 1013 words
+- Body: 1017 words
 - P1: "one piece draft game" ×3, "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "anime draft" ×2
 - P4: "luffy" ×3, "devil fruit" ×7, "haki" ×11
@@ -36,7 +36,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: How to Play the One Piece Draft Game - Rules &amp; Rounds
 - H1: How to play
-- Body: 366 words
+- Body: 370 words
 - P1: "one piece draft game" ×2
 - Hub: "anime draft" ×2
 - P4: "devil fruit" ×4, "haki" ×8
@@ -45,7 +45,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Characters - All 184 by Tier, Powers &amp; Ranks
 - H1: One Piece characters
-- Body: 1066 words
+- Body: 1070 words
 - P1: "one piece draft game" ×1
 - Hub: "anime draft" ×2
 - P3: "does zoro have conqueror" ×1
