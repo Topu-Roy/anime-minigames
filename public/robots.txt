@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Swap the domain at launch - must match `site` in astro.config.mjs.
-Sitemap: https://anime-draft.example/sitemap-index.xml

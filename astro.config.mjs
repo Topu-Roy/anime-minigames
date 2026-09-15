@@ -9,17 +9,12 @@ import AstroPWA from "@vite-pwa/astro";
 // https://astro.build/config
 export default defineConfig({
   // Required by @astrojs/sitemap; replaced with the real domain at deploy time.
-  site: "https://anime-draft.example",
+  site: "https://animeminigames.com",
   integrations: [
     svelte(),
     // Noindexed pages (style previews) stay out of the sitemap - listing
     // them contradicts their robots directives.
-    sitemap({
-      serialize(item) {
-        if (item.url.includes("/preview/")) return undefined;
-        return item;
-      },
-    }),
+    sitemap(),
     partytown(),
     // Service worker: forced CacheFirst for character art (header-independent,
     // persistent ~30 days / 250 faces). App shell precached by default.
