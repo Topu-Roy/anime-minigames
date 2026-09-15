@@ -62,16 +62,16 @@ const canonical = `${SITE}${canonicalPath}`;
     <slot />
     <footer class="w-full border-t-4 border-cocoa bg-paper">
       <div
-        class="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs font-bold tracking-wide text-cocoa/70 sm:flex-row"
+        class="mx-auto flex w-full max-w-5xl flex-col items-center gap-3 px-6 py-6 text-center text-xs font-bold tracking-wide text-cocoa/70 sm:flex-row sm:justify-between sm:gap-2 sm:text-left"
       >
-        <span>Anime Draft · v{pkg.version}</span>
-        <nav aria-label="Site" class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-          <a class="underline" href="/about">About</a>
-          <a class="underline" href="/privacy">Privacy</a>
-          <a class="underline" href="/terms">Terms</a>
-          <a class="underline" href="/contact">Contact</a>
+        <span class="shrink-0">Anime Draft · v{pkg.version}</span>
+        <nav aria-label="Site" class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 sm:gap-x-4">
+          <a class="px-2 py-1.5 underline" href="/about">About</a>
+          <a class="px-2 py-1.5 underline" href="/privacy">Privacy</a>
+          <a class="px-2 py-1.5 underline" href="/terms">Terms</a>
+          <a class="px-2 py-1.5 underline" href="/contact">Contact</a>
         </nav>
-        <span>Unofficial fan project. All series © their respective owners.</span>
+        <span class="max-w-md sm:max-w-none">Unofficial fan project. All series © their respective owners.</span>
       </div>
     </footer>
   </body>
