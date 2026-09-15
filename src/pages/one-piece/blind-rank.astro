@@ -17,12 +17,14 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
     <main class="mx-auto w-full max-w-5xl space-y-12 px-6">
       <section>
         <div class="pt-8 text-center">
-          <p
-            class="inline-block -rotate-2 rounded-lg border-3 border-coral bg-white px-4 py-1 text-sm font-bold tracking-[0.2em] text-coral uppercase"
-          >
-            ★ New game ★
-          </p>
-          <h1 class="mx-auto max-w-2xl pt-4 font-hand text-5xl leading-[1.05] sm:text-6xl">Blind Rank</h1>
+          <h1 class="relative mx-auto inline-block pt-4 font-hand text-5xl leading-[1.05] sm:text-6xl">
+            <span>Blind Rank</span>
+            <span
+              class="absolute top-[8%] left-[-12%] inline-block -rotate-20 rounded-lg border-3 border-coral bg-white px-2 py-1 text-xs font-bold tracking-[0.2em] text-coral uppercase"
+            >
+              ★ New ★
+            </span>
+          </h1>
         </div>
 
         <BlindRankGame client:only="svelte" />
