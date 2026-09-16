@@ -21,6 +21,9 @@ export default defineConfig({
     // Scope is caching only - no install manifest yet.
     AstroPWA({
       registerType: "autoUpdate",
+      // Install manifest is hand-owned (public/site.webmanifest) - the
+      // worker only handles caching, so disable the generated manifest.
+      manifest: false,
       includeAssets: [
         "favicon.ico",
         "favicon.svg",
