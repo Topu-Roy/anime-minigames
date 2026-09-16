@@ -2,6 +2,7 @@
   // Shared chrome, but restart acts on the draft game's store (static pages
   // render with showRestart={false}, so the import is inert there).
   import { fade, fly } from "svelte/transition";
+  import logoTextCocoa from "../assets/logo-text-cocoa.png";
   import { draft } from "../games/one-piece-draft/stores/draft";
 
   // Hub pages reuse the bar as chrome without the restart action.
@@ -32,9 +33,9 @@
 <!-- Parchment bar, ink rule, Peralta brand + section links + coral restart. -->
 <nav class="w-full border-b-4 border-cocoa bg-paper">
   <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-    <a href="/" class="shrink-0 font-hand text-2xl leading-none font-normal text-cocoa sm:text-3xl"
-      >Anime Mini Games</a
-    >
+    <a href="/" class="shrink-0">
+      <img alt="Anime Mini Games" class="h-10 w-auto sm:h-12" src={logoTextCocoa.src} />
+    </a>
 
     <div class="hidden items-center gap-5 text-sm font-bold text-cocoa/70 sm:flex">
       <a href="/one-piece">One Piece</a>
@@ -81,7 +82,7 @@
       transition:fly={{ x: 300, duration: 250 }}
     >
       <div class="flex items-center justify-between border-b-4 border-cocoa px-4 py-3">
-        <span class="font-hand text-xl leading-none text-cocoa">Anime Mini Games</span>
+        <img alt="Anime Mini Games" class="h-8 w-auto" src={logoTextCocoa.src} />
         <button
           aria-label="Close menu"
           class="shrink-0 rounded-2xl border-3 border-cocoa bg-white px-3 py-1.5 text-base font-bold text-cocoa shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"

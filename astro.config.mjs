@@ -21,7 +21,7 @@ export default defineConfig({
     // Scope is caching only - no install manifest yet.
     AstroPWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "favicon.svg"],
+      includeAssets: ["favicon.ico", "favicon.png"],
       workbox: {
         runtimeCaching: [
           {
