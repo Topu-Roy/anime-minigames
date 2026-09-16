@@ -8,7 +8,7 @@ import { Characters } from "../../games/one-piece-draft/data/characters-v2";
 import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
 import F2SidewaysCard from "../../components/franchise/F2SidewaysCard.astro";
 import type { FranchiseVerse } from "../../components/franchise/types";
-import logoTextCocoa from "../../assets/logo-text-cocoa.png";
+import { LOGO_LOCKUP_URL } from "../../lib/brand";
 
 // Same Cloudinary art as / (local avif files stay as upload source).
 const FRANCHISE_ART = {
@@ -87,7 +87,7 @@ const tiltsB = ["rotate-[0.5deg]", "rotate-[-0.5deg]", "rotate-[-0.5deg]", "rota
     <nav class="border-b-4 border-cocoa">
       <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
         <a class="shrink-0" href="/preview/a">
-          <img alt="Anime Mini Games" class="h-10 w-auto" src={logoTextCocoa.src} />
+          <img alt="Anime Mini Games" class="h-10 w-auto" src={LOGO_LOCKUP_URL} />
         </a>
         <span
           class="rotate-2 rounded-lg border-3 border-cocoa bg-yellow px-3 py-1 text-xs font-bold tracking-widest uppercase"

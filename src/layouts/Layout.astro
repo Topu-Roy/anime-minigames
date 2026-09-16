@@ -10,7 +10,7 @@ import "@fontsource/fredoka/500.css";
 import "@fontsource/fredoka/600.css";
 import "@fontsource/fredoka/700.css";
 import "../styles/global.css";
-import logoMark from "../assets/logo.png";
+import { LOGO_MARK_URL } from "../lib/brand";
 import pkg from "../../package.json";
 
 interface Props {
@@ -42,8 +42,11 @@ const canonical = `${SITE}${canonicalPath}`;
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/favicon.png" rel="icon" type="image/png" />
-    <link href="/favicon.png" rel="apple-touch-icon" />
+    <link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/site.webmanifest" rel="manifest" />
     <meta content={Astro.generator} name="generator" />
     <title>{title}</title>
     <meta content={description} name="description" />
@@ -67,7 +70,7 @@ const canonical = `${SITE}${canonicalPath}`;
         class="mx-auto flex w-full max-w-5xl flex-col items-center gap-3 px-6 py-6 text-center text-xs font-bold tracking-wide text-cocoa/70 min-[850px]:flex-row min-[850px]:justify-between min-[850px]:gap-2 min-[850px]:text-left"
       >
         <span class="flex shrink-0 items-center gap-2 whitespace-nowrap">
-          <img alt="Anime Mini Games" class="h-8 w-auto" src={logoMark.src} />
+          <img alt="Anime Mini Games" class="h-8 w-auto" src={LOGO_MARK_URL} />
           <span>AnimeMiniGames · v{pkg.version}</span>
         </span>
         <nav
