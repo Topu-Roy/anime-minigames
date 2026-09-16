@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { Characters } from "../../one-piece-draft/data/characters-v2";
+  import { getFixedDecoyURLs, preloadImages } from "../../one-piece-draft/lib/preload";
   import { scorePlacements, sampleLineup } from "../lib/rank-set";
   import { TOTAL_SLOTS, type BlindRankState, type RankedCharacter } from "../lib/types";
   import BlindCard from "./BlindCard.svelte";
@@ -24,6 +26,14 @@
   }
 
   let state = $state<BlindRankState>(freshState());
+
+  // Draft-style shuffle needs the fixed 15-face decoy cast warm before
+  // the first card mounts (client-only: preload uses `new Image()`).
+  const decoyPool: string[] = getFixedDecoyURLs();
+
+  onMount(() => {
+    void preloadImages(decoyPool);
+  });
 
   const current = $derived(state.lineup[state.currentRound] as RankedCharacter);
   const placedCount = $derived(state.placements.filter((p) => p.characterId !== null).length);
@@ -59,7 +69,7 @@
       <div class="order-1 w-full md:sticky md:top-4 md:order-2 md:w-auto md:flex-1 md:self-start">
         {#key current.id}
           <div class="animate-round">
-            <BlindCard character={current} round={state.currentRound + 1} />
+            <BlindCard character={current} round={state.currentRound + 1} {decoyPool} shuffleMs={1200} />
           </div>
         {/key}
         <p class="mt-3 text-center text-sm font-bold text-cocoa/60">
