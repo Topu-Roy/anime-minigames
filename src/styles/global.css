@@ -99,7 +99,6 @@ body {
      wrappers — white canvas here showed as a pale band above the footer. */
   background-color: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-sans);
   min-height: 100%;
   /* Tilted badges and offset stamps intentionally bleed past their boxes —
      clip the page instead of scrolling horizontally on mobile. */
