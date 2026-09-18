@@ -28,7 +28,7 @@ export function createRun(treeId: string, startNodeId: string): BountyRunState {
   };
 }
 
-/** Current round's offered options (gated + continuer-guaranteed). */
+/** Current round's offered options (gated + continuer-guaranteed, no picked repeats). */
 export function offerFor(
   nodes: Record<string, BountyNode>,
   state: BountyRunState,
@@ -36,7 +36,10 @@ export function offerFor(
 ): BountyChoice[] {
   const node = nodes[state.nodeId];
   if (!node) return [];
-  return dealOptions(node, nodes, state.flags, OFFER_COUNT, rng);
+  // Exclude already-picked sins so stub loops back to the same node can't
+  // re-offer the identical choice (fallback to seen when pool exhausted).
+  const pickedIds = state.path.map((step) => step.choice.id);
+  return dealOptions(node, nodes, state.flags, OFFER_COUNT, rng, pickedIds);
 }
 
 /** Minimal tree shape the first-sin deal needs (matches TreeMeta structurally). */

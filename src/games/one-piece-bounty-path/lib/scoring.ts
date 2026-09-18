@@ -84,9 +84,12 @@ export function shuffle<T>(items: T[], rng: () => number = Math.random): T[] {
 }
 
 /**
- * Deal one round: requirement-gated, then 1 guaranteed continuer (when the
- * node has any) + random fill, order shuffled so the trunk has no tell.
- * Terminal nodes deal straight random (every pick ends the run by design).
+ * Deal one round: requirement-gated, unseen-first, then 1 guaranteed continuer
+ * (when the node has any) + random fill, order shuffled so the trunk has no tell.
+ * Already-picked choice ids are excluded so stub loops can't re-offer the same
+ * sin; when unseen options run out the pool falls back to seen ones rather
+ * than dealing short. Terminal nodes deal straight random (every pick ends
+ * the run by design).
  */
 export function dealOptions(
   node: BountyNode,
@@ -94,20 +97,33 @@ export function dealOptions(
   flags: string[],
   count = 3,
   rng: () => number = Math.random,
+  excludedIds: readonly string[] = [],
 ): BountyChoice[] {
   const eligible = node.choices.filter((c) => isChoiceEligible(c, flags));
-  if (node.terminal) return shuffle(eligible, rng).slice(0, count);
+  const excluded = new Set(excludedIds);
+  const unseen = eligible.filter((c) => !excluded.has(c.id));
+  // Prefer unseen options, but never deal short when the pool is exhausted.
+  const pool = unseen.length > 0 ? unseen : eligible;
+  if (node.terminal) return shuffle(pool, rng).slice(0, count);
   const continuers = shuffle(
-    eligible.filter((c) => isContinuer(c, nodes)),
+    pool.filter((c) => isContinuer(c, nodes)),
     rng,
   );
   const sides = shuffle(
-    eligible.filter((c) => !isContinuer(c, nodes)),
+    pool.filter((c) => !isContinuer(c, nodes)),
     rng,
   );
   const anchor = continuers.slice(0, 1);
   const fill = [...continuers.slice(1), ...sides].slice(0, Math.max(0, count - anchor.length));
-  return shuffle([...anchor, ...fill], rng);
+  const dealt = shuffle([...anchor, ...fill], rng);
+  if (dealt.length >= count || pool === eligible) return dealt;
+  // Unseen pool came up short: top up with seen options (ids stay unique).
+  const dealtIds = new Set(dealt.map((c) => c.id));
+  const topUp = shuffle(
+    eligible.filter((c) => !dealtIds.has(c.id)),
+    rng,
+  ).slice(0, count - dealt.length);
+  return shuffle([...dealt, ...topUp], rng);
 }
 
 /**
