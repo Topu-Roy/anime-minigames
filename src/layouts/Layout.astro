@@ -62,6 +62,12 @@ const canonical = `${SITE}${canonicalPath}`;
     <meta content={title} name="twitter:title" />
     <meta content={description} name="twitter:description" />
     <meta content={ogImage} name="twitter:image" />
+    <!-- Google Analytics 4 via Partytown (web worker - zero main-thread cost).
+         Single injection point: every page renders through this Layout.
+         Init lives in /gtag-init.js (external file keeps
+         astro/no-unsafe-inline-scripts clean; runs in worker via Partytown). -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-7BGSVX7GR0" type="text/partytown"></script>
+    <script src="/gtag-init.js" type="text/partytown"></script>
   </head>
   <body class="font-playful">
     <slot />

@@ -15,7 +15,9 @@ export default defineConfig({
     // Noindexed pages (style previews) stay out of the sitemap - listing
     // them contradicts their robots directives.
     sitemap(),
-    partytown(),
+    // Forward gtag calls from worker to main thread - required for
+    // type="text/partytown" GA scripts in Layout.astro.
+    partytown({ config: { forward: ["dataLayer.push", "gtag"] } }),
     // Service worker: forced CacheFirst for character art (header-independent,
     // persistent ~30 days / 250 faces). App shell precached by default.
     // Scope is caching only - no install manifest yet.
