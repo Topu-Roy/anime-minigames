@@ -5,6 +5,10 @@ import { describe, expect, test } from "bun:test";
 import { PATH_A_NODES, PATH_A_START } from "../data/path-a";
 import { PATH_B_NODES, PATH_B_START } from "../data/path-b";
 import { PATH_C_NODES, PATH_C_START } from "../data/path-c";
+import { PATH_D_NODES, PATH_D_START } from "../data/path-d";
+import { PATH_E_NODES, PATH_E_START } from "../data/path-e";
+import { PATH_F_NODES, PATH_F_START } from "../data/path-f";
+import { PATH_G_NODES, PATH_G_START } from "../data/path-g";
 import { TREES } from "../data/trees";
 import { computePoster } from "./scoring";
 import { applyPick, createRun, offerFor } from "./run";
@@ -33,8 +37,16 @@ function play(
 }
 
 describe("tree registry", () => {
-  test("ships exactly the three confirmed trees", () => {
-    expect(Object.keys(TREES).sort()).toEqual(["liberator", "scholar", "sky"]);
+  test("ships exactly the seven confirmed trees", () => {
+    expect(Object.keys(TREES).sort()).toEqual([
+      "breaker",
+      "flame",
+      "hunter",
+      "liberator",
+      "racer",
+      "scholar",
+      "sky",
+    ]);
     for (const meta of Object.values(TREES)) {
       expect(meta.nodes[meta.start]).toBeDefined();
     }
@@ -130,6 +142,83 @@ describe("liberator trunk playthrough", () => {
     expect(state.phase).toBe("poster");
     expect(state.flags).toContain("liberator");
     expect(state.flags).toContain("royal_escort");
+  });
+});
+
+describe("hunter trunk playthrough", () => {
+  test("graffiti -> board -> king -> obliterate -> war ends at poster", () => {
+    const state = play(PATH_D_NODES, "hunter", PATH_D_START, [
+      "d1-graffiti",
+      "d2-board",
+      "d3-king",
+      "d4-obliterate",
+      "d5-war",
+    ]);
+    expect(state.phase).toBe("poster");
+    expect(state.flags).toContain("yonko_blood");
+    expect(state.flags).toContain("fleet_killer");
+    const poster = computePoster(state);
+    // Blood plus sunken fleet: Yonko Slayer pays out.
+    expect(poster.combos.map((c) => c.label)).toContain("Yonko Slayer");
+    expect(poster.poster).toBeLessThanOrEqual(5_000_000_000);
+  });
+});
+
+describe("flame trunk playthrough", () => {
+  test("oath -> detonate -> run -> extract -> stand ends at poster", () => {
+    const state = play(PATH_E_NODES, "flame", PATH_E_START, [
+      "e1-oath",
+      "e2-detonate",
+      "e3-run",
+      "e4-extract",
+      "e5-stand",
+    ]);
+    expect(state.phase).toBe("poster");
+    expect(state.flags).toContain("revolutionary");
+    expect(state.flags).toContain("celestial_crime");
+    const poster = computePoster(state);
+    // Oath plus Holy Land blood: Dragon's Faith pays out.
+    expect(poster.combos.map((c) => c.label)).toContain("Dragon's Faith");
+    expect(poster.poster).toBeLessThanOrEqual(5_000_000_000);
+  });
+});
+
+describe("breaker trunk playthrough", () => {
+  test("storm -> free -> duel -> shield -> divert ends at poster", () => {
+    const state = play(PATH_F_NODES, "breaker", PATH_F_START, [
+      "f1-storm",
+      "f2-free",
+      "f3-duel",
+      "f4-shield",
+      "f5-divert",
+    ]);
+    expect(state.phase).toBe("poster");
+    expect(state.flags).toContain("liberator");
+    expect(state.flags).toContain("folk_hero");
+    const poster = computePoster(state);
+    // Freed cages plus shielded escapees: People's Pirate pays out.
+    expect(poster.combos.map((c) => c.label)).toContain("People's Pirate");
+    expect(poster.poster).toBeLessThanOrEqual(5_000_000_000);
+  });
+});
+
+describe("racer trunk playthrough", () => {
+  test("steal -> decipher -> read -> run -> claim ends at poster", () => {
+    const state = play(PATH_G_NODES, "racer", PATH_G_START, [
+      "g1-steal",
+      "g2-decipher",
+      "g3-read",
+      "g4-run",
+      "g5-claim",
+    ]);
+    expect(state.phase).toBe("poster");
+    expect(state.flags).toContain("road_copy");
+    expect(state.flags).toContain("scholar");
+    expect(state.flags).toContain("truth_seeker");
+    const poster = computePoster(state);
+    // Translator aboard: knowledge counts toward the bounty.
+    expect(poster.knowledgeMult).toBe(1.3);
+    expect(poster.poster).toBeLessThanOrEqual(5_000_000_000);
   });
 });
 
