@@ -1,7 +1,7 @@
 {
   "name": "animeminigames",
   "type": "module",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "bun test"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.7",
@@ -22,6 +23,7 @@
     "@eslint/js": "^10.0.1",
     "@fontsource/fredoka": "^5.3.0",
     "@fontsource/peralta": "^5.3.0",
+    "@fontsource/rye": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@typescript-eslint/parser": "^8.68.0",
     "@vite-pwa/astro": "^1.2.0",

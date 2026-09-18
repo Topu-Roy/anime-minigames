@@ -9,6 +9,7 @@ import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
 import F2SidewaysCard from "../../components/franchise/F2SidewaysCard.astro";
 import type { FranchiseVerse } from "../../components/franchise/types";
 import { LOGO_LOCKUP_URL } from "../../lib/brand";
+import WantedPoster from "../../components/WantedPoster.svelte";
 
 // Same Cloudinary art as / (local avif files stay as upload source).
 const FRANCHISE_ART = {
@@ -223,6 +224,20 @@ const tiltsB = ["rotate-[0.5deg]", "rotate-[-0.5deg]", "rotate-[-0.5deg]", "rota
             <summary class="cursor-pointer text-lg font-bold">Who's strongest - Imu or Joy Boy?</summary>
             <p class="mt-2">Our ledger says Imu! Joy Boy's Nika keeps it closer than a barnacle, though.</p>
           </details>
+        </div>
+      </section>
+
+      <section class="mb-16">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Wanted poster - One Piece match</h2>
+        <p class="mt-2 text-center">Parchment sheet, double ink frame, display type, sepia photo, belly bounty.</p>
+
+        <div class="mx-auto mt-8 max-w-xl">
+          <WantedPoster
+            bounty={3000000000}
+            imageAlt="Monkey D. Luffy - One Piece"
+            imageURL={FRANCHISE_ART.onePiece}
+            name="MONKEY·D·LUFFY"
+          />
         </div>
       </section>
     </main>

@@ -11,6 +11,7 @@
         "@eslint/js": "^10.0.1",
         "@fontsource/fredoka": "^5.3.0",
         "@fontsource/peralta": "^5.3.0",
+        "@fontsource/rye": "^5.3.0",
         "@tailwindcss/vite": "^4.3.3",
         "@typescript-eslint/parser": "^8.68.0",
         "@vite-pwa/astro": "^1.2.0",
@@ -361,6 +362,8 @@
     "@fontsource/fredoka": ["@fontsource/fredoka@5.3.0", "", {}, "sha512-s2IhjQ50wDnKkkaKmjhtL0rxQg6ITsVusiipM3m7zUwVZZbbCKsscNDkngwp28xVzfIt7neWrkgU1qKqyTycQg=="],
 
     "@fontsource/peralta": ["@fontsource/peralta@5.3.0", "", {}, "sha512-9eYISzDzPJdouNnWahvH3EAW6QtkEygAt+0iUAJfJE/XJdUsAdhqprLr5yzEeUw+Qx0FnrDagpg1N3J/cl80rQ=="],
+
+    "@fontsource/rye": ["@fontsource/rye@5.3.0", "", {}, "sha512-nKMwMa2/y8LMfhxs7Wm6FnbwXLKsBrJKs6dygYOPrmbpRIvBlf7Kt1mDNm0lzDIuuU+ghluQsisqpQ7peDm7gA=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.2", "", { "dependencies": { "@humanfs/types": "^0.15.0" } }, "sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA=="],
 

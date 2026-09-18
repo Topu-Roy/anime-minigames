@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.svelte";
+import BountyPathGame from "../../games/one-piece-bounty-path/components/BountyPathGame.svelte";
+
+// Bounty path: five sins deep, one wanted poster out. No take-backs.
+---
+
+<Layout
+  canonicalPath="/one-piece/bounty"
+  description="One Piece highest bounty game - pick crimes across 5 rounds, stack hidden infamy, and land your own wanted poster. Free, no account."
+  title="Highest Bounty Run - One Piece Crime Path Game | AnimeMiniGames"
+>
+  <NavBar client:load showRestart={false} />
+
+  <div class="bg-paper text-cocoa">
+    <main class="mx-auto w-full max-w-5xl space-y-12 px-6">
+      <section>
+        <div class="pt-8 text-center">
+          <h1 class="relative mx-auto inline-block pt-4 font-hand text-5xl leading-[1.05] sm:text-6xl">
+            <span>Highest Bounty</span>
+            <span
+              class="absolute top-[8%] left-[-12%] inline-block -rotate-20 rounded-lg border-3 border-coral bg-white px-2 py-1 text-xs font-bold tracking-[0.2em] text-coral uppercase"
+            >
+              ★ New ★
+            </span>
+          </h1>
+          <p class="mx-auto mt-4 max-w-xl text-lg">
+            Five crimes. One poster. Pick yer sins, dodge the Marines, and see what the World Government prices yer
+            head at.
+          </p>
+        </div>
+
+        <BountyPathGame client:only="svelte" />
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">How the bounty run works</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Each run walks five rounds of sins, from a back-alley crime to a legend feat. Every round offers three
+            actions drawn from the underworld - pick one and its hidden infamy feeds yer final poster. Seen a
+            choice before? It sails at half strength, so no two runs price alike.
+          </p>
+          <p>
+            Certain crime combinations unlock notorious titles that multiply yer bounty - the People's Pirate,
+            Dragon's Faith, Knows Too Much. Snitch or grovel and the Marines discount ye instead. Fill all five
+            rounds to lock yer wanted poster.
+          </p>
+        </div>
+      </section>
+
+      <section class="flex flex-wrap justify-center gap-3 pb-12">
+        <a
+          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
+          href="/one-piece/draft"
+        >
+          Draft game
+        </a>
+        <a class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold" href="/one-piece">
+          All One Piece games
+        </a>
+      </section>
+    </main>
+  </div>
+</Layout>
