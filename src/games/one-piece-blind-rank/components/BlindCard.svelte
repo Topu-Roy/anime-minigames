@@ -16,7 +16,10 @@
 
   let shuffling = $state(false);
   let decoyURL = $state("");
-  let realLoaded = $state(!character.imageURL);
+  // Warm-up flag (mutable) + prop-derived readiness: no imageURL means
+  // nothing to wait for. Split keeps $state free of prop snapshots.
+  let artSettled = $state(false);
+  let realLoaded = $derived(!character.imageURL || artSettled);
   let delayElapsed = false;
   let capExpired = false;
   const timers: (ReturnType<typeof setTimeout> | ReturnType<typeof setInterval>)[] = [];
@@ -30,7 +33,7 @@
   }
 
   function handleRealSettled() {
-    realLoaded = true;
+    artSettled = true;
     tryLock();
   }
 
@@ -99,7 +102,11 @@
         <div
           class="text-art-outline pointer-events-none absolute inset-x-0 bottom-0 line-clamp-2 px-2 pb-2 text-center font-hand text-3xl leading-[1.1] font-normal text-yellow sm:text-2xl"
         >
-          {character.displayName}
+          {#if shuffling}
+            ?
+          {:else}
+            {character.displayName}
+          {/if}
         </div>
       </div>
 
@@ -129,7 +136,11 @@
     </div>
     <div class="flex min-w-0 flex-col items-center justify-center px-4 py-3 text-center">
       <p class="truncate font-hand text-2xl leading-tight text-cocoa md:text-3xl md:whitespace-normal">
-        {character.displayName}
+        {#if shuffling}
+          ?
+        {:else}
+          {character.displayName}
+        {/if}
       </p>
     </div>
   </div>
