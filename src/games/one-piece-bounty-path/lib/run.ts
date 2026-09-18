@@ -2,7 +2,7 @@
 // Pure transitions over plain state (Svelte wraps in $state, tests call directly).
 // Single entry for picks, single source for offers - UI layers stay thin.
 
-import { applyChoice, dealOptions, freshStats, isContinuer } from "./scoring";
+import { applyChoice, dealOptions, freshStats, isChoiceEligible, isContinuer, shuffle } from "./scoring";
 import type { BountyChoice, BountyNode, BountyRunState } from "./types";
 
 export const OFFER_COUNT = 3;
@@ -37,6 +37,47 @@ export function offerFor(
   const node = nodes[state.nodeId];
   if (!node) return [];
   return dealOptions(node, nodes, state.flags, OFFER_COUNT, rng);
+}
+
+/** Minimal tree shape the first-sin deal needs (matches TreeMeta structurally). */
+export type TreeRegistry = {
+  id: string;
+  nodes: Record<string, BountyNode>;
+  start: string;
+};
+
+export type FirstDeal = {
+  /** Three uniform-random R1 options pooled across every tree (no spoilers). */
+  offered: BountyChoice[];
+  /** Owner tree + nodes for a dealt choice id (undefined for unknown ids). */
+  ownerOf: (choiceId: string) => TreeRegistry | undefined;
+};
+
+/**
+ * Deal round one: uniform-random options pooled from every tree's start
+ * node. No continuer guarantee here (every pick lands somewhere real -
+ * trunk or stub loop), so the lobby never spoils which road is which.
+ */
+export function dealFirstSin(
+  trees: TreeRegistry[],
+  count: number = OFFER_COUNT,
+  rng: () => number = Math.random,
+): FirstDeal {
+  const owners = new Map<string, TreeRegistry>();
+  const pool: BountyChoice[] = [];
+  for (const tree of trees) {
+    const start = tree.nodes[tree.start];
+    if (!start) continue;
+    for (const choice of start.choices) {
+      if (!isChoiceEligible(choice, [])) continue;
+      owners.set(choice.id, tree);
+      pool.push(choice);
+    }
+  }
+  return {
+    offered: shuffle(pool, rng).slice(0, count),
+    ownerOf: (choiceId: string) => owners.get(choiceId),
+  };
 }
 
 export type PickOptions = {

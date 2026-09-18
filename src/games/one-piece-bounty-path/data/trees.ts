@@ -25,7 +25,7 @@ export const TREES: Record<string, TreeMeta> = {
   sky: {
     id: "sky",
     title: "Sky Sinners",
-    flavor: "Punch a Celestial Dragon, outrun an Admiral, ride the geyser up.",
+    flavor: "Seven sins, one crime the whole sea will remember.",
     icon: "👊",
     nodes: PATH_A_NODES,
     start: PATH_A_START,
@@ -33,7 +33,7 @@ export const TREES: Record<string, TreeMeta> = {
   scholar: {
     id: "scholar",
     title: "Ashen Scholars",
-    flavor: "Steal Ohara's records, earn a giant reader, shout it from Roger's scaffold.",
+    flavor: "Some books burn. Some books bite back.",
     icon: "📜",
     nodes: PATH_B_NODES,
     start: PATH_B_START,
@@ -41,7 +41,7 @@ export const TREES: Record<string, TreeMeta> = {
   liberator: {
     id: "liberator",
     title: "Chain Breakers",
-    flavor: "Free a slave ship, win Neptune's pardon, climb Mariejois again.",
+    flavor: "No port safe. No chain unbroken.",
     icon: "⛓️",
     nodes: PATH_C_NODES,
     start: PATH_C_START,
@@ -49,7 +49,7 @@ export const TREES: Record<string, TreeMeta> = {
   hunter: {
     id: "hunter",
     title: "Yonko Hunters",
-    flavor: "Insult a Yonko's flag, duel his commander, sink Blackbeard's fleet.",
+    flavor: "Four Emperors. One big mouth.",
     icon: "⚔️",
     nodes: PATH_D_NODES,
     start: PATH_D_START,
@@ -57,7 +57,7 @@ export const TREES: Record<string, TreeMeta> = {
   flame: {
     id: "flame",
     title: "Revolutionary Flame",
-    flavor: "Swear Dragon's oath, bomb the Holy Land, free Kuma's memory.",
+    flavor: "Baltigo calls. Answer with fire.",
     icon: "🔥",
     nodes: PATH_E_NODES,
     start: PATH_E_START,
@@ -65,7 +65,7 @@ export const TREES: Record<string, TreeMeta> = {
   breaker: {
     id: "breaker",
     title: "Impel Breakers",
-    flavor: "Storm the drowned prison, duel Magellan, shield ten thousand freed.",
+    flavor: "The drowned prison has thin walls tonight.",
     icon: "🔓",
     nodes: PATH_F_NODES,
     start: PATH_F_START,
@@ -73,7 +73,7 @@ export const TREES: Record<string, TreeMeta> = {
   racer: {
     id: "racer",
     title: "Laugh Tale Racers",
-    flavor: "Steal a road copy, read the glyphs, outrun every Emperor to the last island.",
+    flavor: "Four red stones. One last island.",
     icon: "🗺️",
     nodes: PATH_G_NODES,
     start: PATH_G_START,

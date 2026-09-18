@@ -11,7 +11,7 @@ import { PATH_F_NODES, PATH_F_START } from "../data/path-f";
 import { PATH_G_NODES, PATH_G_START } from "../data/path-g";
 import { TREES } from "../data/trees";
 import { computePoster } from "./scoring";
-import { applyPick, createRun, offerFor } from "./run";
+import { applyPick, createRun, dealFirstSin, offerFor } from "./run";
 import type { BountyChoice, BountyNode, BountyRunState } from "./types";
 
 function findChoice(nodes: Record<string, BountyNode>, id: string): BountyChoice {
@@ -34,6 +34,16 @@ function play(
     state = applyPick(nodes, state, findChoice(nodes, id), { roll });
   }
   return state;
+}
+
+/** Deterministic rng from a fixed sequence (cycles when exhausted). */
+function scriptedRng(sequence: number[]): () => number {
+  let i = 0;
+  return () => {
+    const value = sequence[i % sequence.length] as number;
+    i += 1;
+    return value;
+  };
 }
 
 describe("tree registry", () => {
@@ -219,6 +229,58 @@ describe("racer trunk playthrough", () => {
     // Translator aboard: knowledge counts toward the bounty.
     expect(poster.knowledgeMult).toBe(1.3);
     expect(poster.poster).toBeLessThanOrEqual(5_000_000_000);
+  });
+});
+
+describe("first sin", () => {
+  const registries = Object.values(TREES);
+
+  test("deals three unique pooled R1 options", () => {
+    const pool = new Set(
+      registries.flatMap((t) => {
+        const start = t.nodes[t.start];
+        return start ? start.choices.map((c) => c.id) : [];
+      }),
+    );
+    for (let seed = 0; seed < 20; seed++) {
+      const deal = dealFirstSin(registries, 3, scriptedRng([seed / 20]));
+      expect(deal.offered).toHaveLength(3);
+      const ids = deal.offered.map((c) => c.id);
+      expect(new Set(ids).size).toBe(3);
+      for (const id of ids) expect(pool.has(id)).toBe(true);
+    }
+  });
+
+  test("every trunk opener routes to its owner tree", () => {
+    const deal = dealFirstSin(registries);
+    const openers: [string, string][] = [
+      ["r1-punch", "sky"],
+      ["b1-records", "scholar"],
+      ["c1-free", "liberator"],
+      ["d1-graffiti", "hunter"],
+      ["e1-oath", "flame"],
+      ["f1-storm", "breaker"],
+      ["g1-steal", "racer"],
+    ];
+    for (const [choiceId, treeId] of openers) {
+      expect(deal.ownerOf(choiceId)?.id).toBe(treeId);
+    }
+    expect(deal.ownerOf("nope")?.id).toBeUndefined();
+  });
+
+  test("a first pick starts a full run in the owner tree", () => {
+    const deal = dealFirstSin(registries);
+    const owner = deal.ownerOf("d1-graffiti");
+    if (!owner) throw new Error("missing owner");
+    let state = createRun(owner.id, owner.start);
+    state = applyPick(owner.nodes, state, findChoice(PATH_D_NODES, "d1-graffiti"), { roll: 0.5 });
+    expect(state.phase).toBe("playing");
+    expect(state.nodeId).toBe("yonko-heat");
+    expect(state.path).toHaveLength(1);
+    for (const id of ["d2-board", "d3-king", "d4-obliterate", "d5-war"]) {
+      state = applyPick(owner.nodes, state, findChoice(PATH_D_NODES, id), { roll: 0.5 });
+    }
+    expect(state.phase).toBe("poster");
   });
 });
 
