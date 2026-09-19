@@ -49,7 +49,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Bounty Game - Five Sins, One Wanted Poster | AnimeMiniGames
 - H1: Highest Bounty★ New ★
-- Body: 955 words
+- Body: 950 words
 - Hub: "animeminigames" ×2
 - P1F: "one piece games" ×1
 - P5: "one piece bounty game" ×1, "highest bounty" ×3, "wanted poster" ×2
@@ -58,11 +58,11 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Blind Ranking Game - Rank 10, No Take-Backs | AnimeMiniGames
 - H1: Blind Rank★ New ★
-- Body: 910 words
+- Body: 911 words
 - Hub: "animeminigames" ×2
 - P1F: "one piece games" ×1
 - P4: "luffy" ×1
-- P6: "one piece blind ranking game" ×1, "blind ranking game" ×3, "top-10" ×2
+- P6: "one piece blind ranking game" ×1, "blind ranking game" ×3, "top-10" ×1
 
 ## Notes
 

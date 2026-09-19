@@ -1,9 +1,9 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import NavBar from "../../../components/NavBar.svelte";
-import DraftGame from "../../../games/one-piece-draft/components/DraftGame.svelte";
-import { Characters } from "../../../games/one-piece-draft/data/characters-v2";
-import { calculateCharacterBST } from "../../../games/one-piece-draft/lib/draft";
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.svelte";
+import DraftGame from "../../games/one-piece-draft/components/DraftGame.svelte";
+import { Characters } from "../../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST } from "../../games/one-piece-draft/lib/draft";
 
 // Landing: owns the P1 query. Full SEO content + Play CTA → /play.
 const top5cards = [...Characters]
@@ -74,8 +74,8 @@ const faqs = [
   },
 ];
 
-  // Static JSON-LD below mirrors the visible FAQs exactly - scripts/keyword-audit.ts
-  // verifies the sync on every run. Update both together.
+// Static JSON-LD below mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+// verifies the sync on every run. Update both together.
 ---
 
 <Layout
@@ -238,16 +238,15 @@ const faqs = [
         </div>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
-            Each option rolls rarity independently: 40% basic, 30% epic, 20% legend, 10% god. The body
-            round rolls hotter at 25% god and always seats a giant, oni or lunarian. Options are unique
-            per round and never repeat an already-picked donor.
+            Each option rolls rarity independently: 40% basic, 30% epic, 20% legend, 10% god. The body round rolls
+            hotter at 25% god and always seats a giant, oni or lunarian. Options are unique per round and never
+            repeat an already-picked donor.
           </p>
           <p>
-            Builds resolve to 7 stats: strength and durability come from the body only; attack and defense
-            start at zero and are fed purely by haki, Devil Fruit and weapon picks; speed, awareness and
-            stamina mix base with donor bonuses. Intelligence boosts awareness and battle IQ boosts
-            strength by percentage - every donor stat hand-graded from canon feats across all 184
-            characters.
+            Builds resolve to 7 stats: strength and durability come from the body only; attack and defense start at
+            zero and are fed purely by haki, Devil Fruit and weapon picks; speed, awareness and stamina mix base
+            with donor bonuses. Intelligence boosts awareness and battle IQ boosts strength by percentage - every
+            donor stat hand-graded from canon feats across all 184 characters.
           </p>
         </div>
       </section>
@@ -256,9 +255,7 @@ const faqs = [
       <section>
         <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <h2 class="font-hand text-3xl sm:text-4xl">Strongest right now</h2>
-          <a class="text-sm font-bold text-coral underline" href="/one-piece/characters">
-            All 184 characters
-          </a>
+          <a class="text-sm font-bold text-coral underline" href="/one-piece/characters"> All 184 characters </a>
         </div>
         <p class="mb-4 max-w-2xl">
           Five faces from the very top of the roster - the gods and legends every draft bends around. Tap any card
@@ -300,8 +297,9 @@ const faqs = [
             The mind rounds close drafts out. Intelligence multiplies your awareness and battle IQ multiplies
             strength, so a late god pull there can leapfrog builds that led all game. Check the characters page to
             learn every donor's exact numbers before you play - the best One Piece draft game players study the
-            roster like a bounty board. The <a class="font-bold text-coral underline" href="/one-piece/characters">full
-            character list</a> grades all 184 donors.
+            roster like a bounty board. The <a class="font-bold text-coral underline" href="/one-piece/characters"
+              >full character list</a
+            > grades all 184 donors.
           </p>
           <p>
             Don't fear a dud. Haki rounds can seat donors with nothing to give, but the guarantee system always
@@ -348,10 +346,7 @@ const faqs = [
           >
             Characters
           </a>
-          <a
-            class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-            href="/one-piece"
-          >
+          <a class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold" href="/one-piece">
             All One Piece games
           </a>
         </div>
@@ -368,8 +363,8 @@ const faqs = [
         <p class="mt-4 leading-relaxed text-cocoa/70">
           That loop - draft, rank, rematch - is the whole design. Easy to start, genuinely hard to master, and
           different every single run. Your best build today won't survive tomorrow's pulls, and that is exactly the
-          point: the sea keeps dealing, and the rank keeps score. So pick your first body. The Grand Line of
-          donors is waiting.
+          point: the sea keeps dealing, and the rank keeps score. So pick your first body. The Grand Line of donors
+          is waiting.
         </p>
         <p class="mt-4 leading-relaxed text-cocoa/70">
           Screenshot your rank and settle it with the crew. Every build tells a story - the god you stole in round
