@@ -60,7 +60,7 @@
   }
 </script>
 
-<div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
+<div class="mx-auto flex w-full max-w-full flex-col items-center py-6 sm:px-6 sm:py-8">
   {#if state.phase === "ranking"}
     <div class="flex w-full flex-col items-stretch justify-center gap-4 md:flex-row md:items-start">
       <div class="order-2 mx-auto flex w-full items-center justify-center md:order-1 md:max-w-[55%]">
@@ -79,7 +79,7 @@
     </div>
   {:else if result}
     <div
-      class="w-full max-w-xl rounded-3xl border-4 border-cocoa bg-white p-6 text-center shadow-sticker-lg sm:p-8"
+      class="w-full max-w-xl rounded-3xl border-4 border-cocoa bg-white p-4 text-center shadow-sticker-lg sm:p-8"
     >
       <p
         class="inline-block -rotate-2 rounded-lg border-3 border-cocoa bg-yellow px-4 py-1 text-sm font-bold tracking-[0.2em] text-cocoa uppercase"
@@ -93,9 +93,9 @@
           {@const user = byId(detail.userId)}
           {@const truth = byId(detail.truthId)}
           <div
-            class={`flex items-center gap-3 rounded-2xl border-3 px-3 py-2 shadow-sticker-sm ${detail.bracketDistance <= 1 ? "border-cocoa bg-yellow text-cocoa" : "border-cocoa bg-coral text-white"}`}
+            class={`flex items-center gap-2 rounded-2xl border-3 px-3 py-2 shadow-sticker-sm ${detail.bracketDistance <= 1 ? "border-cocoa bg-yellow text-cocoa" : "border-cocoa bg-coral text-white"}`}
           >
-            <span class="w-7 shrink-0 text-center font-hand text-2xl">{detail.slot + 1}</span>
+            <span class="w-7 shrink-0 text-center font-hand text-xl">{detail.slot + 1}</span>
             <img
               alt=""
               class="h-10 w-10 shrink-0 rounded-xl border-2 border-cocoa object-cover"
@@ -103,10 +103,10 @@
             />
             <span class="min-w-0 flex-1 truncate font-bold">{user.displayName}</span>
             <span class="shrink-0 text-right leading-tight">
-              <span class="block text-xs font-bold tracking-widest uppercase opacity-60">
+              <span class="block text-[0.7rem] font-bold tracking-widest uppercase opacity-60 md:text-xs">
                 {detail.bracketDistance === 0 ? "Perfect" : "Incorrect"}
               </span>
-              <span class="hidden text-xs opacity-60 sm:block">Correct: {truth.displayName}</span>
+              <span class="text-[0.6rem] opacity-60 md:text-xs">{truth.displayName}</span>
             </span>
           </div>
         {/each}

@@ -17,7 +17,11 @@
 <div class="w-full">
   <!-- Wanted poster card -->
   <div class="rotate-[0.5deg] rounded-3xl border-4 border-cocoa bg-paper p-4 text-center shadow-sticker-lg sm:p-8">
-    <h2 class="font-hand text-3xl text-cocoa sm:text-4xl">Your final bounty</h2>
+    <p
+      class="inline-block -rotate-2 rounded-lg border-3 border-cocoa bg-yellow px-4 py-1 text-sm font-bold tracking-[0.2em] text-cocoa uppercase"
+    >
+      Final bounty
+    </p>
     <div class="mt-4">
       <WantedPoster bounty={poster.poster} name="Nameless Pirate" />
     </div>
