@@ -6,7 +6,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: Free Anime Minigames - Play in Browser | AnimeMiniGames
 - H1: Anime Mini Games
-- Body: 1011 words
+- Body: 1010 words
 - P1: "one piece draft game" ×2
 - Hub: "animeminigames" ×2, "anime mini games" ×8, "anime minigames" ×5, "free anime minigames" ×3
 - P1F: "one piece games" ×6, "naruto" ×7
@@ -17,7 +17,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Games - Free Minigames | AnimeMiniGames
 - H1: One Piece Games
-- Body: 1005 words
+- Body: 1004 words
 - P1: "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "animeminigames" ×2
 - P1F: "one piece games" ×4
@@ -29,7 +29,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Draft Game - Build Your Strongest Pirate
 - H1: One Piece Draft Game
-- Body: 1217 words
+- Body: 1216 words
 - P1: "one piece draft game" ×3, "best one piece game" ×1, "build your own pirate" ×1
 - Hub: "animeminigames" ×1
 - P1F: "one piece games" ×1
@@ -49,7 +49,7 @@ Generated from built HTML (`bun run build` first). Case-insensitive body-text co
 
 - Title: One Piece Bounty Game - Five Sins, One Wanted Poster | AnimeMiniGames
 - H1: Highest Bounty★ New ★
-- Body: 951 words
+- Body: 955 words
 - Hub: "animeminigames" ×2
 - P1F: "one piece games" ×1
 - P5: "one piece bounty game" ×1, "highest bounty" ×3, "wanted poster" ×2

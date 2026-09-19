@@ -20,11 +20,11 @@ const FRANCHISE_ART = {
 const faqs = [
   {
     q: "What is Anime Mini Games?",
-    a: "A free anime games hub in yer browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next.",
+    a: "A free anime games hub in your browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next.",
   },
   {
     q: "Is it really free?",
-    a: "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when ye close the tab.",
+    a: "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when you close the tab.",
   },
   {
     q: "Which anime game is live right now?",
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "What will the Naruto, HxH and JJK games play like?",
-    a: "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank yer custom build against the full roster of that verse.",
+    a: "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank your custom build against the full roster of that verse.",
   },
   {
     q: "Can I play on my phone?",
@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     q: "What does the final rank mean?",
-    a: "Yer custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive.",
+    a: "Your custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive.",
   },
 ];
 
-// Pick yer verse: one array drives the F2 card grid. Descs stay
+// Pick your verse: one array drives the F2 card grid. Descs stay
 // keyword-rich (Straw Hats, haki, kekkei genkai…) - the audit counts them.
 const verses: FranchiseVerse[] = [
   {
@@ -66,7 +66,7 @@ const verses: FranchiseVerse[] = [
     imageAlt: "Naruto Uzumaki - Naruto",
     kicker: "Next · full effort",
     title: "Naruto",
-    desc: "Draft yer shinobi. Jutsu, kekkei genkai, tailed beasts, live ranks.",
+    desc: "Draft your shinobi. Jutsu, kekkei genkai, tailed beasts, live ranks.",
     live: false,
     label: "SEALED",
     buttonText: "Coming soon",
@@ -76,7 +76,7 @@ const verses: FranchiseVerse[] = [
     imageAlt: "Gon Freecss - Hunter x Hunter",
     kicker: "Next · full effort",
     title: "Hunter x Hunter",
-    desc: "Draft yer hunter. Nen types, conditions, restrictions, live ranks.",
+    desc: "Draft your hunter. Nen types, conditions, restrictions, live ranks.",
     live: false,
     label: "HUNTED",
     buttonText: "Coming soon",
@@ -86,7 +86,7 @@ const verses: FranchiseVerse[] = [
     imageAlt: "Yuji Itadori - Jujutsu Kaisen",
     kicker: "Next · full effort",
     title: "Jujutsu Kaisen",
-    desc: "Draft yer sorcerer. Cursed techniques, domains, live ranks.",
+    desc: "Draft your sorcerer. Cursed techniques, domains, live ranks.",
     live: false,
     label: "CURSED",
     buttonText: "Coming soon",
@@ -115,7 +115,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What is Anime Mini Games?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A free anime games hub in yer browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next."
+            "text": "A free anime games hub in your browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next."
           }
         },
         {
@@ -123,7 +123,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when ye close the tab."
+            "text": "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when you close the tab."
           }
         },
         {
@@ -147,7 +147,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What will the Naruto, HxH and JJK games play like?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank yer custom build against the full roster of that verse."
+            "text": "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank your custom build against the full roster of that verse."
           }
         },
         {
@@ -163,7 +163,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What does the final rank mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yer custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive."
+            "text": "Your custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive."
           }
         }
       ]
@@ -181,7 +181,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
         </p>
         <h1 class="mx-auto mt-6 max-w-2xl font-hand text-5xl leading-[1.05] sm:text-6xl">Anime Mini Games</h1>
         <p class="mx-auto mt-4 max-w-xl text-lg">
-          Anime Mini Games is free anime minigames in yer browser - quick anime minigames with no download, no
+          Anime Mini Games is free anime minigames in your browser - quick anime minigames with no download, no
           account, five minutes a game. Play the live One Piece games today, with Naruto, Hunter x Hunter and
           Jujutsu Kaisen minigames charted next.
         </p>
@@ -220,7 +220,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
         <h2 class="text-center font-hand text-3xl sm:text-4xl">What is Anime Mini Games?</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
-            Anime Mini Games is a free anime games hub: quick browser minigames where ye build original fighters
+            Anime Mini Games is a free anime games hub: quick browser minigames where you build original fighters
             and rank them against canon rosters. No download, no account, no paywall - open a page, draft for five
             minutes, argue about the result everywhere else. Every verse gets the same treatment: a draft game, a
             ranking game, character guides and honest feat-graded numbers.
@@ -249,7 +249,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
             > seats 10 mystery donors and locks every placement forever.
           </p>
           <p>
-            Study before ye sail: the
+            Study before you play: the
             <a class="font-bold text-coral underline" href="/one-piece/characters">184 characters</a>
             break down every donor stat by stat, and the
             <a class="font-bold text-coral underline" href="/one-piece/draft#rounds">how to play guide</a>
@@ -270,7 +270,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
             the final pick.
           </p>
           <p>
-            Scoring stays honest across verses. Yer build resolves to stats with the same model that grades every
+            Scoring stays honest across verses. Your build resolves to stats with the same model that grades every
             roster character, so a rank means the same thing on draft one and draft one hundred. Learn the safety
             nets, spend rerolls late, and never trust a pretty face over numbers - the rank at the end is the
             receipt.
@@ -283,17 +283,17 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
         <h2 class="text-center font-hand text-3xl sm:text-4xl">Coming next, same effort</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
-            <strong>Naruto games</strong> draft yer shinobi: five natures, kekkei genkai, sage mode and tailed beasts,
+            <strong>Naruto games</strong> draft your shinobi: five natures, kekkei genkai, sage mode and tailed beasts,
             with jonin-to-god donors graded from canon feats. Expect draft game, rankings and full character guides -
             not a quiz reskin.
           </p>
           <p>
-            <strong>Hunter x Hunter games</strong> draft yer hunter: six nen types, conditions and restrictions, with
+            <strong>Hunter x Hunter games</strong> draft your hunter: six nen types, conditions and restrictions, with
             specialists and Chimera Ants priced like the monsters they are. Same depth as One Piece - same 8-round tension,
             same honest ranks.
           </p>
           <p>
-            <strong>Jujutsu Kaisen games</strong> draft yer sorcerer: cursed techniques, reversals and domains, with
+            <strong>Jujutsu Kaisen games</strong> draft your sorcerer: cursed techniques, reversals and domains, with
             grades that respect what the manga actually shows. Draft it, rank it, settle every domain-clash debate with
             numbers.
           </p>
@@ -302,10 +302,10 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
 
       <!-- Why: conversion block. -->
       <section class="mx-auto max-w-3xl">
-        <h2 class="text-center font-hand text-3xl sm:text-4xl">Why this hub hooks ye</h2>
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Why this hub works</h2>
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
-            Most free anime games ask what ye remember. Anime Mini Games asks what ye understand: which power
+            Most free anime games ask what you remember. Anime Mini Games asks what you understand: which power
             carries attack, when to burn a reroll, why a rare technique beats raw muscle. Every pick is a
             powerscaling decision, and the final rank grades it against a canon-graded roster.
           </p>
@@ -323,7 +323,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Anime Mini Games is an unofficial fan project - but every number is graded from canon feats, and
-            unconfirmed powers stay unconfirmed in the data. Disagree with a grade? Good. Draft the version ye
+            unconfirmed powers stay unconfirmed in the data. Disagree with a grade? Good. Draft the version you
             believe in and see where it ranks.
           </p>
         </div>
