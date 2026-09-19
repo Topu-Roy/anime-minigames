@@ -10,11 +10,17 @@ import AstroPWA from "@vite-pwa/astro";
 export default defineConfig({
   // Required by @astrojs/sitemap; replaced with the real domain at deploy time.
   site: "https://animeminigames.com",
+  // Retired routes: static builds emit meta-refresh pages (no host config needed).
+  redirects: {
+    "/one-piece/draft/how-to-play": "/one-piece/draft#rounds",
+  },
   integrations: [
     svelte(),
     // Noindexed pages (style previews) stay out of the sitemap - listing
     // them contradicts their robots directives.
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes("/preview/"),
+    }),
     // Forward gtag calls from worker to main thread - required for
     // type="text/partytown" GA scripts in Layout.astro.
     partytown({ config: { forward: ["dataLayer.push", "gtag"] } }),

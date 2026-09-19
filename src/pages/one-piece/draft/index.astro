@@ -27,6 +27,18 @@ const steps = [
   },
 ];
 
+// Round table folded in from the old /how-to-play route (single-page SEO).
+const rounds = [
+  { n: 1, name: "Body", pool: "All characters · always a giant, oni or lunarian" },
+  { n: 2, name: "Armament Haki", pool: "All characters · ≥2 holders guaranteed" },
+  { n: 3, name: "Observation Haki", pool: "All characters · ≥2 holders guaranteed" },
+  { n: 4, name: "Conqueror's Haki", pool: "All characters · ≥2 holders guaranteed" },
+  { n: 5, name: "Devil Fruit", pool: "Devil Fruit users only" },
+  { n: 6, name: "Weapon", pool: "≥3 of 4 are weapon users" },
+  { n: 7, name: "Intelligence", pool: "All characters · boosts awareness by percent" },
+  { n: 8, name: "Battle IQ", pool: "All characters · boosts strength by percent" },
+];
+
 const faqs = [
   {
     q: "How long does a draft take?",
@@ -61,6 +73,9 @@ const faqs = [
     a: "Rank #1 of 185 - above Imu himself. It takes near-perfect god donors in every round: a top-tier body, supreme haki across rounds 2 to 4, a Mythical Zoan fruit and a greatsword-class weapon, finished with strong mind-round multipliers. Most winning builds land between #5 and #30, which still beats nearly every canon pirate.",
   },
 ];
+
+  // Static JSON-LD below mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+  // verifies the sync on every run. Update both together.
 ---
 
 <Layout
@@ -69,7 +84,7 @@ const faqs = [
   title="One Piece Draft Game - Build Your Strongest Pirate"
 >
   <NavBar client:load showRestart={false} />
-  <!-- Structured data (static - keep answers in sync with the visible FAQ). -->
+  <!-- Structured data (generated from the visible FAQ - always in sync). -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -98,7 +113,7 @@ const faqs = [
           "name": "Is it free? Do I need an account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab."
+            "text": "Free forever, zero accounts. Your draft lives in the browser and vanishes when you close the tab - try again as often as you like."
           }
         },
         {
@@ -106,7 +121,7 @@ const faqs = [
           "name": "What do rerolls do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces."
+            "text": "You get 2 per draft, usable in any round including the last. A reroll swaps the current 4 donors for 4 fresh faces - save them for Devil Fruit and haki rounds."
           }
         },
         {
@@ -114,7 +129,7 @@ const faqs = [
           "name": "What does the final rank mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself."
+            "text": "Your 7-stat build is scored by the same feat-graded model as all 184 roster characters. Rank #1 of 185 beats Imu himself - good luck."
           }
         },
         {
@@ -122,7 +137,7 @@ const faqs = [
           "name": "Can I play on my phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - the whole game is touch-first and mobile-sized."
+            "text": "Yes - the whole game is touch-first and mobile-sized. Draft on the bus, argue about the results everywhere else."
           }
         },
         {
@@ -130,7 +145,7 @@ const faqs = [
           "name": "Who are the best donors in the draft game?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Imu, Joy Boy, Rocks and Luffy - the four gods of the roster."
+            "text": "Imu, Joy Boy, Rocks and Luffy - the four gods of the roster. Imu dominates body, Armament and Devil Fruit rounds; Joy Boy owns Conqueror's; Rocks is the best pure-haki donor set; Luffy is the most drawable of the four."
           }
         },
         {
@@ -138,7 +153,7 @@ const faqs = [
           "name": "Can a basic-rarity body still win a draft?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Body stats soften above 500 while donor rounds land at full strength."
+            "text": "Yes. Body stats soft-cap above 500, so god bodies compress while donor rounds stay full-strength - a basic body with god haki, fruit and weapon beats a god body with basic donors nearly every time."
           }
         },
         {
@@ -146,7 +161,7 @@ const faqs = [
           "name": "What is the highest rank my build can reach?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Rank #1 of 185 - above Imu himself. It takes near-perfect god donors: top-tier body, supreme haki, a Mythical Zoan fruit and a greatsword-class weapon."
+            "text": "Rank #1 of 185 - above Imu himself. It takes near-perfect god donors in every round: a top-tier body, supreme haki across rounds 2 to 4, a Mythical Zoan fruit and a greatsword-class weapon, finished with strong mind-round multipliers. Most winning builds land between #5 and #30, which still beats nearly every canon pirate."
           }
         }
       ]
@@ -183,9 +198,9 @@ const faqs = [
           </a>
           <a
             class="rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
-            href="/one-piece/draft/how-to-play"
+            href="/one-piece/characters"
           >
-            How to play
+            Characters
           </a>
         </div>
       </section>
@@ -206,11 +221,42 @@ const faqs = [
         </div>
       </section>
 
+      <!-- The 8 rounds: folded in from the old /how-to-play route. -->
+      <section class="mx-auto max-w-3xl" id="rounds">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">The 8 rounds</h2>
+        <div class="mt-6 overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm">
+          {
+            rounds.map((r) => (
+              <div class="border-b border-cocoa/20 px-4 py-3 last:border-b-0">
+                <p class="font-bold">
+                  Round {r.n} - {r.name}
+                </p>
+                <p class="mt-0.5 text-sm text-cocoa/60">Pool: {r.pool}</p>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Each option rolls rarity independently: 40% basic, 30% epic, 20% legend, 10% god. The body
+            round rolls hotter at 25% god and always seats a giant, oni or lunarian. Options are unique
+            per round and never repeat an already-picked donor.
+          </p>
+          <p>
+            Builds resolve to 7 stats: strength and durability come from the body only; attack and defense
+            start at zero and are fed purely by haki, Devil Fruit and weapon picks; speed, awareness and
+            stamina mix base with donor bonuses. Intelligence boosts awareness and battle IQ boosts
+            strength by percentage - every donor stat hand-graded from canon feats across all 184
+            characters.
+          </p>
+        </div>
+      </section>
+
       <!-- Characters teaser: top 5 cards, links to the P2 magnet page. -->
       <section>
         <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <h2 class="font-hand text-3xl sm:text-4xl">Strongest right now</h2>
-          <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/characters">
+          <a class="text-sm font-bold text-coral underline" href="/one-piece/characters">
             All 184 characters
           </a>
         </div>
@@ -223,7 +269,7 @@ const faqs = [
             top5cards.map((c) => (
               <a
                 class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                href="/one-piece/draft/characters"
+                href="/one-piece/characters"
               >
                 <img alt={c.name} class="aspect-square w-full object-cover" loading="lazy" src={c.imageURL} />
                 <p class="px-2 py-2 text-center font-hand text-xl leading-tight">{c.name}</p>
@@ -254,7 +300,8 @@ const faqs = [
             The mind rounds close drafts out. Intelligence multiplies your awareness and battle IQ multiplies
             strength, so a late god pull there can leapfrog builds that led all game. Check the characters page to
             learn every donor's exact numbers before you play - the best One Piece draft game players study the
-            roster like a bounty board.
+            roster like a bounty board. The <a class="font-bold text-coral underline" href="/one-piece/characters">full
+            character list</a> grades all 184 donors.
           </p>
           <p>
             Don't fear a dud. Haki rounds can seat donors with nothing to give, but the guarantee system always
@@ -297,15 +344,15 @@ const faqs = [
         <div class="mt-6 flex flex-wrap justify-center gap-3">
           <a
             class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-            href="/one-piece/draft/how-to-play"
+            href="/one-piece/characters"
           >
-            How to play
+            Characters
           </a>
           <a
             class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-            href="/one-piece/draft/characters"
+            href="/one-piece"
           >
-            Characters
+            All One Piece games
           </a>
         </div>
       </section>

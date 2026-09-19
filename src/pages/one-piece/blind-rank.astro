@@ -4,6 +4,44 @@ import NavBar from "../../components/NavBar.svelte";
 import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRankGame.svelte";
 
 // Blind rank: ten mystery donors, one locked top-10. No take-backs.
+const faqs = [
+  {
+    q: "How long does a blind ranking take?",
+    a: "About two minutes - ten reveals, one placement each. Read fast, commit faster; locked slots never reopen.",
+  },
+  {
+    q: "Is the blind ranking game free?",
+    a: "Free forever, no account. Your list lives in the browser and vanishes when you close the tab - rank again as often as ye like.",
+  },
+  {
+    q: "How is my list scored?",
+    a: "Every slot is graded against the true strongest-first order from our 184-character feat model. Exact hits call Perfect; near misses stay lit so ye can see where the ranking slipped.",
+  },
+  {
+    q: "Can the same character appear twice in one run?",
+    a: "Never. Each run draws ten unique donors, god-tier monsters or loveable weaklings, in random reveal order.",
+  },
+  {
+    q: "Do I need to know One Piece to play?",
+    a: "No. Faces and names are all ye get before each placement - and the truth reveal at the end teaches the order as ye play.",
+  },
+  {
+    q: "What if I waste slot 1 on a weakling?",
+    a: "Then slot 1 is a weakling forever - that is the game. Burn the top early and a god walks in at round nine with nowhere to go. Rematch and spend better.",
+  },
+  {
+    q: "Who decides the true order?",
+    a: "The same hand-graded model behind the draft game and the character list: canon feats across 184 characters, strongest first, no popularity votes.",
+  },
+  {
+    q: "Can I undo a placement?",
+    a: "No. Locked slots never reopen - that irreversibility is the entire game. Play each reveal like it might be the last god ye see.",
+  },
+  {
+    q: "How many different runs exist?",
+    a: "Ten unique donors drawn from 184, in random order - billions of possible casts. Ye will never see the same list twice.",
+  },
+];
 ---
 
 <Layout
@@ -12,6 +50,98 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
   title="One Piece Blind Ranking Game - Rank 10, No Take-Backs | AnimeMiniGames"
 >
   <NavBar client:load showRestart={false} />
+  <!-- Static JSON-LD mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+  verifies the sync on every run. Update both together. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "One Piece Blind Ranking Game - Rank 10, No Take-Backs",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a blind ranking take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About two minutes - ten reveals, one placement each. Read fast, commit faster; locked slots never reopen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the blind ranking game free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free forever, no account. Your list lives in the browser and vanishes when you close the tab - rank again as often as ye like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is my list scored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every slot is graded against the true strongest-first order from our 184-character feat model. Exact hits call Perfect; near misses stay lit so ye can see where the ranking slipped."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the same character appear twice in one run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. Each run draws ten unique donors, god-tier monsters or loveable weaklings, in random reveal order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to know One Piece to play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Faces and names are all ye get before each placement - and the truth reveal at the end teaches the order as ye play."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I waste slot 1 on a weakling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Then slot 1 is a weakling forever - that is the game. Burn the top early and a god walks in at round nine with nowhere to go. Rematch and spend better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who decides the true order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The same hand-graded model behind the draft game and the character list: canon feats across 184 characters, strongest first, no popularity votes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I undo a placement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Locked slots never reopen - that irreversibility is the entire game. Play each reveal like it might be the last god ye see."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different runs exist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ten unique donors drawn from 184, in random order - billions of possible casts. Ye will never see the same list twice."
+          }
+        }
+      ]
+    }
+  </script>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl space-y-12 px-6">
@@ -25,6 +155,20 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
               ★ New ★
             </span>
           </h1>
+          <p class="mx-auto mt-4 max-w-xl text-lg">
+            Ten mystery faces. One locked top-10. Place each reveal without knowing what's next - no take-backs.
+          </p>
+          <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-cocoa/80">
+            The blind ranking game is powerscaling under pressure: ten unique donors from all 184 roster
+            characters surface one at a time, and each must be locked into yer top-10 list on sight. Spend slot
+            1 on a mid-tier clown and Imu himself can walk in at round nine with nowhere to go. Free, no
+            account, two minutes a list.
+          </p>
+          <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-cocoa/80">
+            Every list tells a story afterward - the god ye nailed at slot 1, the clown ye buried at 10, the
+            round-nine heartbreak. Screenshot the truth reveal and settle it with the crew; the numbers keep
+            every argument honest.
+          </p>
         </div>
 
         <BlindRankGame client:only="svelte" />
@@ -40,8 +184,75 @@ import BlindRankGame from "../../games/one-piece-blind-rank/components/BlindRank
           </p>
           <p>
             The tension is the game: burn slot 1 early on a legend and a god walks in at round 9 with nowhere to
-            go. Fill all 10 slots to lock yer list - scoring against the true order drops next.
+            go. Fill all 10 slots to lock yer list - then the truth reveal grades every placement against the
+            real strongest-first order, exact hits calling Perfect.
           </p>
+          <p>
+            Smart rankers play the odds, not the face. Early reveals skew toward the middle - park them in
+            middle slots and keep the poles open. Gods cluster at the extremes of the true order, so a famous
+            silhouette deserves a famous slot. And never fill both ends before round six: the run punishes
+            certainty more than caution.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Graded, not guessed</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            The truth order comes from the same feat-graded model as the draft game: every donor scored from
+            canon showings across 184 characters, strongest first. No popularity votes, no recency bias - a
+            background legend outranks a beloved weakling every time, and the reveal shows exactly where yer
+            instincts broke from the numbers.
+          </p>
+          <p>
+            Study the <a class="font-bold text-coral underline" href="/one-piece/characters">full character
+            list</a> to learn the tiers before ye play - or go in blind and let the reveal teach ye. Either
+            way, every list ends smarter than it started.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Reads that win lists</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Learn the extremes and the middle plays itself. The god tier is tiny - Imu, Joy Boy, Rocks, Luffy,
+            Shanks and a handful more - so a famous monster silhouette is almost always a pole slot. The joke
+            tier is just as readable: East Blue gag faces and loveable weaklings belong at the bottom on sight.
+            Everything between is the skill zone, and that is where lists are won.
+          </p>
+          <p>
+            Count open slots, not rounds. Keep slots 1, 2, 9 and 10 breathing as long as ye can - extremes
+            demand extremes, and a mid-tier face parked at a pole is a wound that never heals. When a reveal
+            could be anything, spend a middle slot; middles forgive, poles don't. The nightmare is fixed math:
+            ten slots, ten reveals, and the run loves dealing its god the round after ye close the top.
+          </p>
+          <p>
+            Study before or after - both work. The
+            <a class="font-bold text-coral underline" href="/one-piece/characters">character list</a> teaches
+            every tier cold, but going in blind teaches faster because every mistake stings. Most rankers split
+            the             difference: one blind list for pride, then homework, then the rematch where it counts.
+          </p>
+          <p>
+            And rematch often - a two-minute list costs nothing. Chase the perfect ten-for-ten, then chase it
+            again with a harder cast. The leaderboard that matters is yer crew's group chat, and every truth
+            reveal is fresh ammunition. Keep a running tally across the week; consistency beats one lucky list.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Before ye rank</h2>
+        <div class="mt-6 flex flex-col gap-4">
+          {
+            faqs.map((f) => (
+              <details class="rounded-2xl border-3 border-cocoa bg-white px-5 py-4 shadow-sticker-sm">
+                <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
+                <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
+              </details>
+            ))
+          }
         </div>
       </section>
 

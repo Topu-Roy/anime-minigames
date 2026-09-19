@@ -54,6 +54,8 @@ const faqs = [
   title="One Piece Games - Free Minigames | AnimeMiniGames"
 >
   <NavBar client:load showRestart={false} />
+  <!-- Static JSON-LD mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+  verifies the sync on every run. Update both together. -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,7 +66,7 @@ const faqs = [
           "name": "Does Blackbeard have Conqueror's Haki?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Never demonstrated in the manga or anime, and unconfirmed on his Vivre Card - he fights Yonko-tier on two Devil Fruits and elite Armament instead."
+            "text": "Never demonstrated in the manga or anime, and unconfirmed on his Vivre Card - he fights Yonko-tier on two Devil Fruits and elite Armament instead. Try drafting his Yami Yami no Mi in the draft game and see how far fruit power alone takes a build."
           }
         },
         {
@@ -72,7 +74,7 @@ const faqs = [
           "name": "Does Garp have Conqueror's Haki?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - confirmed, and our data rates it among the strongest in the series."
+            "text": "Yes - confirmed, and our data rates it among the strongest in the series. Garp is one of the best Conqueror's donors you can pull in round 4."
           }
         },
         {
@@ -80,7 +82,7 @@ const faqs = [
           "name": "What is Imu's Devil Fruit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Still unnamed in canon - a grimoire-like power granting covenants, regeneration and abyss summons. In our rankings Imu sits #1."
+            "text": "Still unnamed in canon - a grimoire-like power granting covenants, regeneration and abyss summons. In our 184-character rankings Imu sits #1, clear of Joy Boy."
           }
         },
         {
@@ -88,7 +90,7 @@ const faqs = [
           "name": "Imu vs Joy Boy - who would win?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "By our feat-graded stat model: Imu takes it."
+            "text": "By our feat-graded stat model: Imu takes it. Joy Boy's Nika Mythical Zoan keeps this imu vs joy boy debate the closest matchup at the top of the list - see the full rankings."
           }
         },
         {
@@ -96,7 +98,7 @@ const faqs = [
           "name": "Does Zoro have Conqueror's Haki?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - advanced Conqueror's, unlocked against King in Wano."
+            "text": "Yes - advanced Conqueror's, unlocked against King in Wano. Zoro is a premium round-4 donor and a top weapon pull with Enma-class blades."
           }
         },
         {
@@ -104,7 +106,7 @@ const faqs = [
           "name": "Does Koby have Conqueror's Haki?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Unconfirmed - neither the manga nor his Vivre Card confirms it."
+            "text": "Unconfirmed - Honesty Impact showed black-lightning effects, but neither the manga nor his Vivre Card confirms it. Our data lists Koby without a Conqueror's tier, so don't bank a round-4 pick on him."
           }
         },
         {
@@ -112,7 +114,7 @@ const faqs = [
           "name": "Who is the strongest One Piece character?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "By our feat-graded model: Imu, clear of Joy Boy."
+            "text": "By our feat-graded model: Imu, clear of Joy Boy. Yonko cluster below - Kaido, Luffy, Shanks - then Roger, Dragon and Whitebeard. See the full 184-character rankings for every score."
           }
         },
         {
@@ -120,7 +122,7 @@ const faqs = [
           "name": "What is the best Devil Fruit to draft?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Nika Mythical Zoan - the highest-scoring fruit in our data."
+            "text": "The Nika Mythical Zoan (Luffy, Joy Boy) - the highest-scoring fruit in our data across attack, speed and stamina. Logias like Enel's lightning and Akainu's magma follow for pure output, but Nika's all-round numbers win drafts."
           }
         }
       ]
@@ -195,7 +197,7 @@ const faqs = [
       <section>
         <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <h2 class="font-hand text-3xl sm:text-4xl">Characters</h2>
-          <a class="text-sm font-bold text-coral underline" href="/one-piece/draft/characters">
+          <a class="text-sm font-bold text-coral underline" href="/one-piece/characters">
             All 184 characters
           </a>
         </div>
@@ -207,7 +209,7 @@ const faqs = [
             top5.map((c) => (
               <a
                 class="overflow-hidden rounded-2xl border-3 border-cocoa bg-white shadow-sticker-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                href="/one-piece/draft/characters"
+                href="/one-piece/characters"
               >
                 <img alt={c.name} class="aspect-square w-full object-cover" loading="lazy" src={c.imageURL} />
                 <p class="px-2 py-2 text-center font-hand text-xl leading-tight">{c.name}</p>
@@ -230,7 +232,7 @@ const faqs = [
           <p>
             Rarity shapes every round: basic donors are common, epics show up often, legends define drafts, and
             gods appear rarely enough to feel like treasure. The full
-            <a class="font-bold text-coral underline" href="/one-piece/draft/characters">Straw Hats</a>
+            <a class="font-bold text-coral underline" href="/one-piece/characters">Straw Hats</a>
             break down ten famous donors stat by stat - start there if the roster feels big.
           </p>
         </div>
@@ -249,7 +251,7 @@ const faqs = [
           <p>
             When the eighth pick locks, the game scores your 7-stat build with the same feat-graded model as all
             184 roster characters and deals a live rank out of 185. Full rules live on the
-            <a class="font-bold text-coral underline" href="/one-piece/draft/how-to-play">how to play page</a> - this
+            <a class="font-bold text-coral underline" href="/one-piece/draft#rounds">how to play page</a> - this
             is the short version that gets you drafting in a minute.
           </p>
         </div>
@@ -312,18 +314,18 @@ const faqs = [
 
       <!-- Spokes. -->
       <section class="flex flex-wrap justify-center gap-3 pb-12">
-        <a
-          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-          href="/one-piece/draft/how-to-play"
-        >
-          How to play
-        </a>
-        <a
-          class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-          href="/one-piece/draft/characters"
-        >
-          Characters
-        </a>
+          <a
+            class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
+            href="/one-piece/draft#rounds"
+          >
+            How to play
+          </a>
+          <a
+            class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
+            href="/one-piece/characters"
+          >
+            Characters
+          </a>
       </section>
     </main>
   </div>

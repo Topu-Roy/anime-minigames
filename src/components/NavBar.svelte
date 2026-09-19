@@ -40,8 +40,8 @@
     <div class="hidden items-center gap-5 text-sm font-bold text-cocoa/70 sm:flex">
       <a href="/one-piece">One Piece</a>
       <a href="/one-piece/draft">Draft</a>
-      <a href="/one-piece/draft/characters">Characters</a>
-      <a href="/one-piece/draft/how-to-play">Guides</a>
+      <a href="/one-piece/characters">Characters</a>
+      <a href="/one-piece/draft#rounds">Guides</a>
     </div>
 
     {#if showRestart}
@@ -94,10 +94,10 @@
       <nav class="flex flex-col px-4 py-2 text-base font-bold text-cocoa">
         <a class="border-b border-cocoa/10 py-3" href="/one-piece" on:click={closeMenu}>One Piece</a>
         <a class="border-b border-cocoa/10 py-3" href="/one-piece/draft" on:click={closeMenu}>Draft</a>
-        <a class="border-b border-cocoa/10 py-3" href="/one-piece/draft/characters" on:click={closeMenu}
+        <a class="border-b border-cocoa/10 py-3" href="/one-piece/characters" on:click={closeMenu}
           >Characters</a
         >
-        <a class="py-3" href="/one-piece/draft/how-to-play" on:click={closeMenu}>Guides</a>
+        <a class="py-3" href="/one-piece/draft#rounds" on:click={closeMenu}>Guides</a>
       </nav>
       <p class="mt-auto px-4 py-4 text-xs font-bold tracking-wider text-cocoa/50 uppercase">
         Free anime minigames

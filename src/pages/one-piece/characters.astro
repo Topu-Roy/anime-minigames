@@ -1,8 +1,8 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import NavBar from "../../../components/NavBar.svelte";
-import { Characters } from "../../../games/one-piece-draft/data/characters-v2";
-import { calculateCharacterBST, weaponLabel } from "../../../games/one-piece-draft/lib/draft";
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.svelte";
+import { Characters } from "../../games/one-piece-draft/data/characters-v2";
+import { calculateCharacterBST, weaponLabel } from "../../games/one-piece-draft/lib/draft";
 
 // All-characters hub: 10 graded Straw Hat guides + every donor grouped by
 // tier (god → basic = strongest first). Card grids carry image + name only.
@@ -154,22 +154,114 @@ const byTier = (rarity: string) =>
 ---
 
 <Layout
-  canonicalPath="/one-piece/draft/characters"
-  description="Every One Piece character in the draft game, grouped god to basic: Straw Hat powers graded, all 184 donors with haki, Devil Fruits and weapons."
+  canonicalPath="/one-piece/characters"
+  description="Every One Piece character, grouped god to basic: Straw Hat powers graded, all 184 with haki, Devil Fruits and weapons. The roster behind every game."
   title="One Piece Characters - All 184 by Tier, Powers & Ranks"
 >
   <NavBar client:load showRestart={false} />
+  <!-- Static JSON-LD mirrors the Straw Hat Q&As exactly - scripts/keyword-audit.ts
+  verifies the sync on every run. Update both together. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Luffy's Devil Fruit called?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Human-Human Fruit, Model: Nika - a Mythical Zoan the World Government renamed the Gum-Gum Fruit to hide. It grants the Gear 5 Sun God form."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Zoro have Conqueror's Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - advanced Conqueror's, unlocked against King in Wano and coated through his blades. Our data grades it advanced tier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Nami have a Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Her weather eggs, mirages and Zeus thundercloud come from technology and a stolen soul-homie - no fruit, no haki, all tactics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Usopp have Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - Observation, awakened sensing Sugar's aura across Dressrosa. It's basic tier in our data, but it makes him a legit round-3 donor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Sanji have a Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No - he famously refused even the Invisible Fruit on principle. His power is pure body: flames, speed, and advanced haki on both sides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Chopper's Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Human-Human Fruit - it turned a reindeer human-like and, with Rumble Balls, unlocks forms up to Monster Point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Robin's Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Flower-Flower Fruit - sprout any body part on any surface. Wano's Demonio Fleur showed its top-end grappling power."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Franky have a Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every ability is cola-powered cybernetics he built himself - lasers, rockets, and the General Franky mecha."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Brook's Devil Fruit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Revive-Revive Fruit - one extra life plus soul projection and freezing soul energy channeled through his blade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Jinbe have Haki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - basic Armament and Observation, layered over Fish-Man Karate mastery. A former Warlord with fundamentals most pirates lack."
+          }
+        }
+      ]
+    }
+  </script>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
       <p class="text-xs font-bold tracking-wide text-cocoa/60 uppercase">
-        <a class="text-coral underline" href="/one-piece/draft">One Piece draft game</a> · Characters
+        <a class="text-coral underline" href="/one-piece">One Piece games</a> · Characters
       </p>
       <h1 class="mt-2 font-hand text-4xl leading-[1.05] sm:text-5xl">One Piece characters</h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed">
-        All 184 draftable characters, grouped strongest-first: god, legend, epic, basic. Straw Hat powers graded
-        stat by stat below - then the full roster, every one of them draftable:
-        <a class="font-bold text-coral underline" href="/one-piece/draft">play the draft game</a>.
+        All 184 characters, grouped strongest-first: god, legend, epic, basic. Straw Hat powers graded
+        stat by stat below - then the full roster. These grades power every game:
+        <a class="font-bold text-coral underline" href="/one-piece/draft">draft them</a>,
+        <a class="font-bold text-coral underline" href="/one-piece/blind-rank">rank them blind</a>, or
+        <a class="font-bold text-coral underline" href="/one-piece/bounty">earn their bounty</a>.
       </p>
 
       <h2 class="mt-12 mb-4 font-hand text-3xl sm:text-4xl">Straw Hats</h2>
@@ -251,12 +343,26 @@ const byTier = (rarity: string) =>
         })
       }
 
-      <a
-        class="mt-12 inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
-        href="/one-piece/draft"
-      >
-        ⚓ Draft them yourself
-      </a>
+      <div class="mt-12 flex flex-wrap gap-3">
+        <a
+          class="inline-block rounded-2xl border-4 border-cocoa bg-coral px-8 py-4 text-xl font-bold text-white shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
+          href="/one-piece/draft"
+        >
+          ⚓ Draft them yourself
+        </a>
+        <a
+          class="inline-block rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
+          href="/one-piece/blind-rank"
+        >
+          Rank them blind →
+        </a>
+        <a
+          class="inline-block rounded-2xl border-4 border-cocoa bg-white px-8 py-4 text-xl font-bold text-cocoa shadow-sticker-md active:translate-x-1 active:translate-y-1 active:shadow-none"
+          href="/one-piece/bounty"
+        >
+          Earn their bounty →
+        </a>
+      </div>
     </main>
   </div>
 </Layout>

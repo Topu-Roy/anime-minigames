@@ -4,14 +4,132 @@ import NavBar from "../../components/NavBar.svelte";
 import BountyPathGame from "../../games/one-piece-bounty-path/components/BountyPathGame.svelte";
 
 // Bounty path: five sins deep, one wanted poster out. No take-backs.
+const faqs = [
+  {
+    q: "How long does a bounty run take?",
+    a: "About three minutes - five sins, three options each. Pick fast or pick clever; the Marines wait for no pirate.",
+  },
+  {
+    q: "Is the bounty game free?",
+    a: "Free forever, no account. Your run lives in the browser and vanishes when you close the tab - sail again as often as ye like.",
+  },
+  {
+    q: "How is my final bounty calculated?",
+    a: "Every crime feeds hidden infamy - power, notoriety, defiance, cunning and influence - plus a rolled bounty sum from each pick. Notorious title combinations multiply the total, and no poster can pass Gol D. Roger's 5,000,000,000 belly.",
+  },
+  {
+    q: "What are notorious titles?",
+    a: "Crime pairs the World Government fears together: Dragon's Faith for revolutionaries who strike Celestials, Yonko Slayer for Emperor blood plus sunken fleets, Knows Too Much for throne secrets plus truth-seeking, Merchant of Death, People's Pirate and Big Mouth. Snitch or soften and ye earn Rat or Soft Heart instead - both discount the poster.",
+  },
+  {
+    q: "Can two runs land the same bounty?",
+    a: "Practically never. Bounty ranges roll fresh every run, three-card deals shuffle across seven hidden roads, and picked or recently offered sides rotate out - no two posters price alike.",
+  },
+  {
+    q: "Do I need to know One Piece to play?",
+    a: "No. Every crime explains itself; fans just catch the references - Sabaody, Impel Down, Fish-Man Island and the race for the last island.",
+  },
+  {
+    q: "What is the highest bounty I can reach?",
+    a: "The Roger cap of 5,000,000,000 belly. Touching it takes a truth-seeker finale with top rolls and stacked titles - most legends land between one and three billion.",
+  },
+  {
+    q: "What happens if I pick side crimes?",
+    a: "Detours bank their infamy and loop back to the same waters with fresh options. But the Marines close the net after eight picks - wander too long and the poster prints wherever ye stand.",
+  },
+];
 ---
 
 <Layout
   canonicalPath="/one-piece/bounty"
   description="One Piece highest bounty game - pick crimes across 5 rounds, stack hidden infamy, and land your own wanted poster. Free, no account."
-  title="Highest Bounty Run - One Piece Crime Path Game | AnimeMiniGames"
+  title="One Piece Bounty Game - Five Sins, One Wanted Poster | AnimeMiniGames"
 >
   <NavBar client:load showRestart={false} />
+  <!-- Static JSON-LD mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+  verifies the sync on every run. Update both together. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Highest Bounty Run - One Piece Crime Path Game",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0" }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a bounty run take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About three minutes - five sins, three options each. Pick fast or pick clever; the Marines wait for no pirate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the bounty game free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free forever, no account. Your run lives in the browser and vanishes when you close the tab - sail again as often as ye like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is my final bounty calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every crime feeds hidden infamy - power, notoriety, defiance, cunning and influence - plus a rolled bounty sum from each pick. Notorious title combinations multiply the total, and no poster can pass Gol D. Roger's 5,000,000,000 belly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are notorious titles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crime pairs the World Government fears together: Dragon's Faith for revolutionaries who strike Celestials, Yonko Slayer for Emperor blood plus sunken fleets, Knows Too Much for throne secrets plus truth-seeking, Merchant of Death, People's Pirate and Big Mouth. Snitch or soften and ye earn Rat or Soft Heart instead - both discount the poster."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can two runs land the same bounty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Practically never. Bounty ranges roll fresh every run, three-card deals shuffle across seven hidden roads, and picked or recently offered sides rotate out - no two posters price alike."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to know One Piece to play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every crime explains itself; fans just catch the references - Sabaody, Impel Down, Fish-Man Island and the race for the last island."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the highest bounty I can reach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Roger cap of 5,000,000,000 belly. Touching it takes a truth-seeker finale with top rolls and stacked titles - most legends land between one and three billion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I pick side crimes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Detours bank their infamy and loop back to the same waters with fresh options. But the Marines close the net after eight picks - wander too long and the poster prints wherever ye stand."
+          }
+        }
+      ]
+    }
+  </script>
 
   <div class="bg-paper text-cocoa">
     <main class="mx-auto w-full max-w-5xl space-y-12 px-6">
@@ -29,6 +147,12 @@ import BountyPathGame from "../../games/one-piece-bounty-path/components/BountyP
             Five crimes. One poster. Pick yer sins, dodge the Marines, and see what the World Government prices yer
             head at.
           </p>
+          <p class="mx-auto mt-4 max-w-2xl leading-relaxed text-cocoa/80">
+            The highest bounty game is a crime-path picker: every round deals three sins from the One Piece
+            underworld and yer choices stack hidden infamy toward a final wanted poster. Punch a Celestial,
+            free a slave ship, decipher forbidden history, hunt an Emperor - each road ends somewhere loud, and
+            the Marines price every step. Free, no account, three minutes a legend.
+          </p>
         </div>
 
         <BountyPathGame client:only="svelte" />
@@ -39,14 +163,77 @@ import BountyPathGame from "../../games/one-piece-bounty-path/components/BountyP
         <div class="mt-6 flex flex-col gap-4 leading-relaxed">
           <p>
             Each run walks five rounds of sins, from a back-alley crime to a legend feat. Every round offers three
-            actions drawn from the underworld - pick one and its hidden infamy feeds yer final poster. Seen a
-            choice before? It sails at half strength, so no two runs price alike.
+            actions drawn from the underworld - pick one and its hidden infamy feeds yer final poster. Bounty
+            ranges roll fresh every run and picked or recently offered sides rotate out, so no two runs price
+            alike.
           </p>
           <p>
-            Certain crime combinations unlock notorious titles that multiply yer bounty - the People's Pirate,
-            Dragon's Faith, Knows Too Much. Snitch or grovel and the Marines discount ye instead. Fill all five
-            rounds to lock yer wanted poster.
+            Side crimes are detours, not dead ends: they bank their infamy and loop back with fresh options. But
+            the Marines close the net after eight picks, so wanderers get a forced poster wherever they stand.
+            Follow the story thread through all five rounds to reach a true finale instead.
           </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Seven hidden roads</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Yer first sin chooses yer road without telling ye: sky piracy above the clouds, forbidden history
+            with the scholars of Ohara, slave revolts from Fish-Man Island, Emperor hunting in the New World,
+            revolution with Dragon's army, a break from the drowned prison Impel Down, or the race for the last
+            island itself. Seven roads, each five sins deep, each ending at its own legend finale.
+          </p>
+          <p>
+            Sky sinners start with a punch the whole world hears, outrun light itself, then ride a geyser past
+            the clouds to a storm-crowned throne. Ashen scholars pull manuscripts from burning water, thaw a
+            giant's laugh, and read the century the Government erased. Chain breakers cut steel on open water,
+            earn a king's pardon below the waves, and finish on the Holy Land's steps. Yonko hunters insult an
+            Emperor's flag, bleed a flagship, duel a Lunarian wildfire, and sink a Blackbeard fleet. The
+            revolutionary flame swears its oath in Baltigo, bombs Holy Land depots, runs a siege line, and frees
+            a stolen memory. Impel breakers kick in the drowned prison's door, loose Level Six, duel the warden
+            in venom halls, and shield ten thousand escapees. And laugh-tale racers steal a red rubbing, find
+            someone who can read it, triangulate the final course, and run the Emperor blockade to the last
+            island. Pick a road by instinct - every finale pays like a legend.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Notorious titles</h2>
+        <div class="mt-6 flex flex-col gap-4 leading-relaxed">
+          <p>
+            Certain crime combinations unlock notorious titles that multiply yer bounty. Swear to the revolution
+            and strike the Holy Land for Dragon's Faith; spill Emperor blood and sink fleets for Yonko Slayer;
+            glimpse the Empty Throne and chase the truth for Knows Too Much - the richest pairing of all. Move
+            ancient weapons for Merchant of Death, free the chained for People's Pirate, insult an Emperor and
+            claim the crown for Big Mouth.
+          </p>
+          <p>
+            But infamy cuts both ways. Snitch to the Marines and ye wear the Rat discount; spare where a pirate
+            shouldn't and Soft Heart shrinks the poster. Burn or sell the truth and yer Knowledge dies with it;
+            deal with the Elders and yer Defiance wears their leash. The Government prices everything - even
+            mercy.
+          </p>
+          <p>
+            Screenshot yer poster and settle it with the crew: who earned the higher price, and which road got
+            them there? Every finale tells a different story - the throne glimpsed, the fleet sunk, the island
+            saved or shattered. Rematches are free, roads are many, and the Roger cap waits for no pirate twice.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-3xl">
+        <h2 class="text-center font-hand text-3xl sm:text-4xl">Before ye sail</h2>
+        <div class="mt-6 flex flex-col gap-4">
+          {
+            faqs.map((f) => (
+              <details class="rounded-2xl border-3 border-cocoa bg-white px-5 py-4 shadow-sticker-sm">
+                <summary class="cursor-pointer text-lg font-bold">{f.q}</summary>
+                <p class="mt-2 leading-relaxed text-cocoa/80">{f.a}</p>
+              </details>
+            ))
+          }
         </div>
       </section>
 

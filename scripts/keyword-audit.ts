@@ -7,8 +7,9 @@ const pages: Record<string, string> = {
   "/": "dist/index.html",
   "/one-piece": "dist/one-piece/index.html",
   "/one-piece/draft": "dist/one-piece/draft/index.html",
-  "/one-piece/draft/how-to-play": "dist/one-piece/draft/how-to-play/index.html",
-  "/one-piece/draft/characters": "dist/one-piece/draft/characters/index.html",
+  "/one-piece/characters": "dist/one-piece/characters/index.html",
+  "/one-piece/bounty": "dist/one-piece/bounty/index.html",
+  "/one-piece/blind-rank": "dist/one-piece/blind-rank/index.html",
 };
 
 const keywords: Record<string, string[]> = {
@@ -43,6 +44,8 @@ const keywords: Record<string, string[]> = {
     "devil fruit",
     "haki",
   ],
+  P5: ["one piece bounty game", "highest bounty", "wanted poster"],
+  P6: ["one piece blind ranking game", "blind ranking game", "top-10"],
 };
 
 // Title + H1 + meta description per page (separate check - placement matters).
@@ -102,3 +105,67 @@ md += `\n## Notes\n\n- Overlapping phrases double-count by design ("strongest ch
 
 writeFileSync("KEYWORD_USAGE.md", md);
 console.log("KEYWORD_USAGE.md written");
+
+// SEO gates: exactly one H1 per route, and marked-up FAQ answers must match
+// the visible copy (rich-result requirement). Fails loudly on drift.
+const decodeEntities = (s: string): string =>
+  s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+const clean = (s: string): string => decodeEntities(s.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+
+let failures = 0;
+for (const u of urls) {
+  const html = readFileSync(pages[u], "utf8");
+  const h1Count = [...html.matchAll(/<h1[\s>]/gi)].length;
+  if (h1Count !== 1) {
+    console.error(`H1 gate: ${u} has ${h1Count} <h1> tags (want exactly 1)`);
+    failures++;
+  }
+  // Visible FAQs: <details><summary>Q</summary><p>A</p>.
+  const visible = [...html.matchAll(/<details[\s\S]*?<summary[^>]*>([\s\S]*?)<\/summary>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)].map(
+    (m) => ({ q: clean(m[1]), a: clean(m[2]) }),
+  );
+  // Marked-up FAQs: JSON-LD FAQPage blocks.
+  const marked: { q: string; a: string }[] = [];
+  for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
+    try {
+      const data = JSON.parse(decodeEntities(m[1]));
+      const blocks = Array.isArray(data) ? data : [data];
+      for (const b of blocks) {
+        if (b?.["@type"] !== "FAQPage" || !Array.isArray(b.mainEntity)) continue;
+        for (const e of b.mainEntity) {
+          marked.push({ q: clean(String(e.name ?? "")), a: clean(String(e.acceptedAnswer?.text ?? "")) });
+        }
+      }
+    } catch {
+      console.error(`FAQ gate: ${u} has unparseable JSON-LD`);
+      failures++;
+    }
+  }
+  if (visible.length !== marked.length) {
+    console.error(`FAQ gate: ${u} shows ${visible.length} FAQs but marks up ${marked.length}`);
+    failures++;
+    continue;
+  }
+  for (const v of visible) {
+    const match = marked.find((x) => x.q === v.q);
+    if (!match) {
+      console.error(`FAQ gate: ${u} visible question missing from JSON-LD: "${v.q}"`);
+      failures++;
+    } else if (match.a !== v.a) {
+      console.error(`FAQ gate: ${u} answer drift for "${v.q}"`);
+      failures++;
+    }
+  }
+}
+
+if (failures > 0) {
+  console.error(`SEO gates failed with ${failures} problem(s)`);
+  process.exit(1);
+}
+console.log("SEO gates pass: one H1 per route, FAQ copy matches JSON-LD");

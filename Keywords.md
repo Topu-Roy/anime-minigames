@@ -30,7 +30,7 @@ URL - no two pages target the same query (cannibalization guard).
 | one piece minigames | check  | Hero copy + H1 support                     |
 | best one piece game | >100   | Hero copy; landing + draft pages reinforce |
 
-## P2 - Characters (`/one-piece/draft/characters`): traffic magnet → refers to game
+## P2 - Characters (`/one-piece/characters`): traffic magnet → refers to games
 
 | Keyword                               | Volume | Note                                                             |
 | ------------------------------------- | ------ | ---------------------------------------------------------------- |
@@ -38,7 +38,7 @@ URL - no two pages target the same query (cannibalization guard).
 | strongest one piece characters ranked | <100   | Page title target                                                |
 | imu one piece                         | >10k   | Imu-#1 narrative intro; game page can never target this directly |
 
-## P3 - FAQ + How-to-play (`/one-piece`, `/one-piece/draft/how-to-play`): near-zero competition
+## P3 - FAQ (`/one-piece`): near-zero competition lore questions
 
 | Keyword                               | Volume | Note                                             |
 | ------------------------------------- | ------ | ------------------------------------------------ |
@@ -49,7 +49,7 @@ URL - no two pages target the same query (cannibalization guard).
 | imu vs joy boy                        | check  | Hub FAQ - our 11,392 vs 11,371 gap is the hook   |
 | does zoro have conqueror's haki       | check  | Hub FAQ                                          |
 
-## P4 - Characters (`/one-piece/draft/characters`): single page, name+modifier only
+## P4 - Characters (`/one-piece/characters`): single page, name+modifier only
 
 Never bare `[name] one piece` (Fandom/Wikipedia/Netflix own all ten heads).
 One page, ten anchored sections - no doorway footprint.
@@ -66,6 +66,22 @@ One page, ten anchored sections - no doorway footprint.
 | franky    | does franky have devil fruit, franky cyborg             |
 | brook     | brook devil fruit revive-revive                         |
 | jinbe     | does jinbe have haki, jinbe fish-man karate             |
+
+## P5 - Bounty (`/one-piece/bounty`): crime-path game terms
+
+| Keyword               | Volume | Note                                              |
+| --------------------- | ------ | ------------------------------------------------- |
+| one piece bounty game | check  | Page title target                                 |
+| highest bounty        | check  | Page H1 + hero copy                               |
+| wanted poster         | check  | Poster + finale copy; game owns the playful angle |
+
+## P6 - Blind rank (`/one-piece/blind-rank`): ranking game terms
+
+| Keyword                      | Volume | Note                                |
+| ---------------------------- | ------ | ----------------------------------- |
+| one piece blind ranking game | check  | Page title target                   |
+| blind ranking game           | check  | H1 support + hero copy              |
+| top-10                       | check  | Mechanics copy (locked top-10 list) |
 
 ## Dropped (with reason - do not re-add without new evidence)
 

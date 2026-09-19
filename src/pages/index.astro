@@ -103,6 +103,8 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
   title="Free Anime Minigames - Play in Browser | AnimeMiniGames"
 >
   <NavBar client:load showRestart={false} />
+  <!-- Static JSON-LD mirrors the visible FAQs exactly - scripts/keyword-audit.ts
+  verifies the sync on every run. Update both together. -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -113,7 +115,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What is Anime Mini Games?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A free anime games hub in your browser. Play quick anime minigames with no download and no account, starting with the One Piece draft game and blind ranking."
+            "text": "A free anime games hub in yer browser. Play quick anime minigames with no download and no account - starting with the One Piece draft game and blind ranking, with Naruto, Hunter x Hunter and Jujutsu Kaisen games charted next."
           }
         },
         {
@@ -121,7 +123,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - every game is free forever. No accounts, no paywalls."
+            "text": "Yes - every game is free forever. No accounts, no paywalls. Your draft lives in the browser and vanishes when ye close the tab."
           }
         },
         {
@@ -129,7 +131,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "Which anime game is live right now?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "One Piece: the 8-round draft game with 184 canon-graded characters plus blind top-10 ranking."
+            "text": "One Piece: the 8-round draft game with 184 canon-graded characters plus blind top-10 ranking. Open the One Piece games hub and start drafting in under a minute."
           }
         },
         {
@@ -137,7 +139,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "Which anime are coming next?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Naruto, Hunter x Hunter and Jujutsu Kaisen - each with the same effort as One Piece."
+            "text": "Naruto, Hunter x Hunter and Jujutsu Kaisen - each with the same effort as One Piece: a full draft game, live rankings and character guides. One hub, many crews."
           }
         },
         {
@@ -145,7 +147,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What will the Naruto, HxH and JJK games play like?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Same draft-and-rank formula, new worlds: jutsu, nen types, cursed techniques - then a live rank against the full roster."
+            "text": "Same draft-and-rank formula, new worlds: harvest jutsu and tailed beasts, nen types and conditions, cursed techniques and domains - then rank yer custom build against the full roster of that verse."
           }
         },
         {
@@ -153,7 +155,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "Can I play on my phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes - every game is touch-first and mobile-sized."
+            "text": "Yes - every game is touch-first and mobile-sized. Draft on the bus, argue about the rank everywhere else."
           }
         },
         {
@@ -161,7 +163,7 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           "name": "What does the final rank mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Your custom build is scored by the same feat-graded model as every roster character in that verse."
+            "text": "Yer custom build is scored by the same feat-graded model as every roster character in that verse. A high rank beats canon favorites - rank #1 beats the strongest character alive."
           }
         }
       ]
@@ -248,9 +250,9 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
           </p>
           <p>
             Study before ye sail: the
-            <a class="font-bold text-coral underline" href="/one-piece/draft/characters">184 characters</a>
+            <a class="font-bold text-coral underline" href="/one-piece/characters">184 characters</a>
             break down every donor stat by stat, and the
-            <a class="font-bold text-coral underline" href="/one-piece/draft/how-to-play">how to play guide</a>
+            <a class="font-bold text-coral underline" href="/one-piece/draft#rounds">how to play guide</a>
             teaches rounds, rarity and rerolls in two minutes. That depth - full roster, public numbers, real strategy
             - is what Naruto, Hunter x Hunter and Jujutsu Kaisen each receive next.
           </p>
@@ -349,13 +351,13 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
         </a>
         <a
           class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-          href="/one-piece/draft/how-to-play"
+          href="/one-piece/draft#rounds"
         >
           How to play
         </a>
         <a
           class="rounded-full border-3 border-cocoa bg-white px-4 py-2.5 text-sm font-bold"
-          href="/one-piece/draft/characters"
+          href="/one-piece/characters"
         >
           Characters
         </a>
