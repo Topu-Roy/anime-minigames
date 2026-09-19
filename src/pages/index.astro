@@ -93,8 +93,6 @@ const verses: FranchiseVerse[] = [
   },
 ];
 
-// Alternating tilts keep the hand-placed look.
-const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate-[-0.5deg]"];
 ---
 
 <Layout
@@ -191,11 +189,11 @@ const tilts = ["rotate-[-0.5deg]", "rotate-[0.5deg]", "rotate-[0.5deg]", "rotate
       <section>
         <div class="grid gap-4 md:grid-cols-2">
           {
-            verses.map((verse, index) => (
+            verses.map((verse) => (
               <F2SidewaysCard
                 {...verse}
                 href={verse.live ? "/one-piece" : undefined}
-                tiltClass={tilts[index % tilts.length]}
+                tiltClass=""
               />
             ))
           }
