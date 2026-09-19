@@ -133,6 +133,35 @@ describe("dealOptions", () => {
       expect(offered.some((c) => c.id === "locked")).toBe(false);
     }
   });
+
+  test("excluded ids drop sides but never the continuer", () => {
+    const start = nodes["start"];
+    if (!start) throw new Error("fixture missing");
+    const offered = dealOptions(start, nodes, [], 3, scriptedRng([0.5]), ["side-a", "trunk"]);
+    // Trunk stays findable even when listed; the excluded side rotates out
+    // (two unseen sides remain, enough to fill without fallback).
+    expect(offered.some((c) => c.id === "trunk")).toBe(true);
+    expect(offered.some((c) => c.id === "side-a")).toBe(false);
+  });
+
+  test("picked sins stay buried while unpicked sides remain", () => {
+    const start = nodes["start"];
+    if (!start) throw new Error("fixture missing");
+    // side-a picked, side-b offered before: unseen (side-c) alone can't fill
+    // the deal, so the fallback rotates unpicked sides - never the picked one.
+    const offered = dealOptions(start, nodes, [], 3, scriptedRng([0.5]), ["side-b"], ["side-a"]);
+    expect(offered.some((c) => c.id === "trunk")).toBe(true);
+    expect(offered.some((c) => c.id === "side-a")).toBe(false);
+    expect(offered).toHaveLength(3);
+  });
+
+  test("exhausted sides fall back instead of dealing short", () => {
+    const start = nodes["start"];
+    if (!start) throw new Error("fixture missing");
+    const offered = dealOptions(start, nodes, [], 3, scriptedRng([0.5]), ["side-a", "side-b", "side-c"]);
+    expect(offered).toHaveLength(3);
+    expect(offered.some((c) => c.id === "trunk")).toBe(true);
+  });
 });
 
 describe("computePoster", () => {

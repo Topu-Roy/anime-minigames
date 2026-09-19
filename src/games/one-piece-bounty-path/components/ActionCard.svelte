@@ -21,17 +21,10 @@
   <span class="flex items-center gap-3 font-bold text-cocoa">
     <span
       aria-hidden="true"
-      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border-3 border-cocoa bg-paper font-hand text-2xl"
-    >
-      {index}
-    </span>
-    <span class="min-w-0 flex-1">{choice.label}</span>
-    <span
-      aria-hidden="true"
       class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-cocoa bg-paper text-base"
     >
       {iconFor(choice.label)}
     </span>
-    <span aria-hidden="true" class="shrink-0 text-xl">→</span>
+    <span class="min-w-0 flex-1">{choice.label}</span>
   </span>
 </button>

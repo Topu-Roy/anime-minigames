@@ -72,53 +72,35 @@
   );
 </script>
 
-<div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
+<div class="mx-auto flex w-full max-w-2xl flex-col items-center overflow-x-clip px-4 py-6 sm:px-6 sm:py-8">
   {#if run === null}
-    <div class="flex w-full max-w-6xl flex-col gap-6 md:flex-row md:items-start">
-      <div class="order-1 flex w-full flex-col md:max-w-[58%]">
-        <div class="w-full md:hidden">
-          <LivePoster poster={lobbyPoster} state={lobbyRun} />
-        </div>
-        <div class="flex w-full flex-col gap-3">
-          {#each firstDeal.offered as option, i (option.id)}
-            <ActionCard choice={option} index={i + 1} onPick={pickFirst} />
+    <div class="w-full rounded-3xl border-4 border-cocoa bg-paper p-4 shadow-sticker-lg sm:p-6">
+      <LivePoster poster={lobbyPoster} state={lobbyRun} />
+      <p class="mt-6 text-center font-hand text-2xl text-cocoa">Select an action</p>
+      <div class="mt-3 flex w-full flex-col gap-3">
+        {#each firstDeal.offered as option, i (option.id)}
+          <ActionCard choice={option} index={i + 1} onPick={pickFirst} />
+        {:else}
+          <p class="text-center font-bold text-cocoa/60">Dealing the underworld…</p>
+        {/each}
+      </div>
+    </div>
+  {:else if run.phase === "playing" && node}
+    <div class="w-full rounded-3xl border-4 border-cocoa bg-paper p-4 shadow-sticker-lg sm:p-6">
+      {#if livePoster}
+        <LivePoster poster={livePoster} state={run} />
+      {/if}
+
+      {#key run.nodeId + run.path.length}
+        <p class="mt-6 text-center font-hand text-2xl text-cocoa">Select an action</p>
+        <div class="animate-round mt-3 flex w-full flex-col gap-3">
+          {#each offered as option, i (option.id)}
+            <ActionCard choice={option} index={i + 1} onPick={pick} />
           {:else}
             <p class="text-center font-bold text-cocoa/60">Dealing the underworld…</p>
           {/each}
         </div>
-      </div>
-      <div class="order-2 hidden w-full md:block md:flex-1">
-        <div class="md:sticky md:top-4">
-          <LivePoster poster={lobbyPoster} state={lobbyRun} />
-        </div>
-      </div>
-    </div>
-  {:else if run.phase === "playing" && node}
-    <div class="flex w-full max-w-6xl flex-col gap-6 md:flex-row md:items-start">
-      <div class="order-1 flex w-full flex-col items-center md:max-w-[58%]">
-        {#if livePoster}
-          <div class="mt-4 w-full md:hidden">
-            <LivePoster poster={livePoster} state={run} />
-          </div>
-        {/if}
-
-        {#key run.nodeId + run.path.length}
-          <div class="animate-round mt-6 flex w-full flex-col gap-3">
-            {#each offered as option, i (option.id)}
-              <ActionCard choice={option} index={i + 1} onPick={pick} />
-            {:else}
-              <p class="text-center font-bold text-cocoa/60">Dealing the underworld…</p>
-            {/each}
-          </div>
-        {/key}
-      </div>
-      <div class="order-2 hidden w-full md:block md:flex-1">
-        <div class="md:sticky md:top-4">
-          {#if livePoster}
-            <LivePoster poster={livePoster} state={run} />
-          {/if}
-        </div>
-      </div>
+      {/key}
     </div>
   {:else if poster}
     <PosterReveal onRestart={restart} {poster} state={run} />

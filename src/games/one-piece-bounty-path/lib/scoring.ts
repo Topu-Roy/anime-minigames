@@ -84,12 +84,13 @@ export function shuffle<T>(items: T[], rng: () => number = Math.random): T[] {
 }
 
 /**
- * Deal one round: requirement-gated, unseen-first, then 1 guaranteed continuer
- * (when the node has any) + random fill, order shuffled so the trunk has no tell.
- * Already-picked choice ids are excluded so stub loops can't re-offer the same
- * sin; when unseen options run out the pool falls back to seen ones rather
- * than dealing short. Terminal nodes deal straight random (every pick ends
- * the run by design).
+ * Deal one round: requirement-gated, unseen-sides-first, then 1 guaranteed
+ * continuer (when the node has any) + random fill, order shuffled so the
+ * trunk has no tell. The trunk continuer is never excluded and may repeat
+ * across stub loops. Side options fall back in tiers: unseen first, then
+ * unpicked-but-offered, and only then already-picked sins - so a picked sin
+ * never resurfaces until every side on the node is picked. Terminal nodes
+ * deal straight random (every pick ends the run by design).
  */
 export function dealOptions(
   node: BountyNode,
@@ -97,32 +98,44 @@ export function dealOptions(
   flags: string[],
   count = 3,
   rng: () => number = Math.random,
-  excludedIds: readonly string[] = [],
+  prevOfferedIds: readonly string[] = [],
+  pickedIds: readonly string[] = [],
 ): BountyChoice[] {
   const eligible = node.choices.filter((c) => isChoiceEligible(c, flags));
-  const excluded = new Set(excludedIds);
-  const unseen = eligible.filter((c) => !excluded.has(c.id));
-  // Prefer unseen options, but never deal short when the pool is exhausted.
-  const pool = unseen.length > 0 ? unseen : eligible;
-  if (node.terminal) return shuffle(pool, rng).slice(0, count);
-  const continuers = shuffle(
-    pool.filter((c) => isContinuer(c, nodes)),
-    rng,
-  );
-  const sides = shuffle(
-    pool.filter((c) => !isContinuer(c, nodes)),
-    rng,
-  );
-  const anchor = continuers.slice(0, 1);
-  const fill = [...continuers.slice(1), ...sides].slice(0, Math.max(0, count - anchor.length));
+  const prevOffered = new Set(prevOfferedIds);
+  const picked = new Set(pickedIds);
+  // Trunk stays findable: continuers are never excluded.
+  const continuerPool = eligible.filter((c) => isContinuer(c, nodes));
+  const allSides = eligible.filter((c) => !isContinuer(c, nodes));
+  const unseenSides = allSides.filter((c) => !prevOffered.has(c.id) && !picked.has(c.id));
+  const unpickedSides = allSides.filter((c) => !picked.has(c.id));
+  const shuffledContinuers = shuffle(continuerPool, rng);
+  // Sides needed after continuers fill their share of the deal.
+  const neededSides = shuffledContinuers.length > 0 ? Math.max(0, count - shuffledContinuers.length) : count;
+  // Burn unseen sides only while the pool can fill the deal; otherwise spare
+  // them and rotate unpicked sides so picked sins stay buried longer.
+  const sidePool =
+    unseenSides.length >= neededSides && unseenSides.length > 0
+      ? unseenSides
+      : unpickedSides.length > 0
+        ? unpickedSides
+        : allSides;
+  if (node.terminal) {
+    const pool = [...continuerPool, ...sidePool];
+    const source = pool.length > 0 ? pool : eligible;
+    return shuffle(source, rng).slice(0, count);
+  }
+  const sides = shuffle(sidePool, rng);
+  const anchor = shuffledContinuers.slice(0, 1);
+  const fill = [...shuffledContinuers.slice(1), ...sides].slice(0, Math.max(0, count - anchor.length));
   const dealt = shuffle([...anchor, ...fill], rng);
-  if (dealt.length >= count || pool === eligible) return dealt;
-  // Unseen pool came up short: top up with seen options (ids stay unique).
+  if (dealt.length >= count) return dealt;
+  // Tiny nodes (fewer choices than count): top up preferring unpicked sins.
   const dealtIds = new Set(dealt.map((c) => c.id));
-  const topUp = shuffle(
-    eligible.filter((c) => !dealtIds.has(c.id)),
-    rng,
-  ).slice(0, count - dealt.length);
+  const topUpPool = [...unpickedSides, ...allSides].filter(
+    (c, i, arr) => !dealtIds.has(c.id) && arr.findIndex((x) => x.id === c.id) === i,
+  );
+  const topUp = shuffle(topUpPool, rng).slice(0, count - dealt.length);
   return shuffle([...dealt, ...topUp], rng);
 }
 

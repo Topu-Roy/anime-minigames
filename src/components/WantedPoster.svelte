@@ -33,8 +33,8 @@
     <span aria-hidden="true" class="absolute bottom-0.5 left-1.5 text-xs text-ink">❖</span>
     <span aria-hidden="true" class="absolute right-1.5 bottom-0.5 text-xs text-ink">❖</span>
 
-    <p class="poster-wanted font-poster text-5xl leading-none tracking-[0.08em] text-ink sm:text-4xl">WANTED</p>
-    <p class="mt-0.5 font-poster text-base tracking-[0.3em] text-ink sm:text-sm">DEAD OR ALIVE</p>
+    <p class="poster-wanted font-poster text-4xl leading-none tracking-[0.08em] text-ink sm:text-5xl">WANTED</p>
+    <p class="mt-0.5 font-poster text-sm tracking-[0.3em] text-ink sm:text-base">DEAD OR ALIVE</p>
 
     <div class="relative mx-auto mt-2 overflow-hidden border-3 border-ink">
       <span
@@ -59,11 +59,11 @@
       {/if}
     </div>
 
-    <p class="poster-name mt-2 font-poster text-xl leading-tight tracking-[0.06em] text-ink sm:text-xl">
+    <p class="poster-name mt-2 font-poster text-lg leading-tight tracking-[0.06em] text-ink sm:text-xl">
       {name}
     </p>
 
-    <p class="poster-bounty mt-1 font-poster text-3xl leading-none text-ink sm:text-2xl">
+    <p class="poster-bounty mt-1 font-poster text-2xl leading-none text-ink sm:text-3xl">
       ฿{formatted}-
     </p>
   </div>

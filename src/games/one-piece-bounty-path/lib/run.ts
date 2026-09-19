@@ -28,18 +28,23 @@ export function createRun(treeId: string, startNodeId: string): BountyRunState {
   };
 }
 
-/** Current round's offered options (gated + continuer-guaranteed, no picked repeats). */
+/**
+ * Current round's offered options (gated + continuer-guaranteed).
+ * Side options exclude previously offered sides (passed by the view layer,
+ * one round deep) and deprioritize picked sins, so stub loops rotate fresh
+ * cards instead of cycling the same ones. The trunk continuer is never
+ * excluded and may repeat.
+ */
 export function offerFor(
   nodes: Record<string, BountyNode>,
   state: BountyRunState,
   rng: () => number = Math.random,
+  extraExcludedSideIds: readonly string[] = [],
 ): BountyChoice[] {
   const node = nodes[state.nodeId];
   if (!node) return [];
-  // Exclude already-picked sins so stub loops back to the same node can't
-  // re-offer the identical choice (fallback to seen when pool exhausted).
   const pickedIds = state.path.map((step) => step.choice.id);
-  return dealOptions(node, nodes, state.flags, OFFER_COUNT, rng, pickedIds);
+  return dealOptions(node, nodes, state.flags, OFFER_COUNT, rng, extraExcludedSideIds, pickedIds);
 }
 
 /** Minimal tree shape the first-sin deal needs (matches TreeMeta structurally). */

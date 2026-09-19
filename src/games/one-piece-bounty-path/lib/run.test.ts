@@ -304,6 +304,23 @@ describe("stub loops", () => {
     expect(state.note).toBeNull();
     expect(state.path).toHaveLength(2);
   });
+
+  test("stub loops keep the trunk but rotate offered sides", () => {
+    let state = createRun("sky", PATH_A_START);
+    const firstOffer = offerFor(PATH_A_NODES, state, () => 0.5);
+    expect(firstOffer.some((c) => c.id === "r1-punch")).toBe(true);
+    const sidePick = firstOffer.find((c) => c.id !== "r1-punch");
+    if (!sidePick) throw new Error("expected a side option in the first deal");
+    state = applyPick(PATH_A_NODES, state, sidePick, { roll: 0 });
+    expect(state.nodeId).toBe(PATH_A_START);
+    const prevIds = firstOffer.map((c) => c.id);
+    const secondOffer = offerFor(PATH_A_NODES, state, () => 0.5, prevIds);
+    // Trunk stays findable; previously offered sides rotate out.
+    expect(secondOffer.some((c) => c.id === "r1-punch")).toBe(true);
+    for (const side of secondOffer.filter((c) => c.id !== "r1-punch")) {
+      expect(prevIds).not.toContain(side.id);
+    }
+  });
 });
 
 describe("round budget", () => {

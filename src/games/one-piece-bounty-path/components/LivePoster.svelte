@@ -12,7 +12,7 @@
   } = $props();
 </script>
 
-<div class="w-full md:sticky md:top-4">
+<div class="w-full">
   <WantedPoster bounty={poster.poster} name="Nameless Pirate" />
 
   {#if poster.combos.length > 0}
@@ -24,9 +24,4 @@
       {/each}
     </div>
   {/if}
-
-  <p class="mt-2 text-center text-xs font-bold text-cocoa/60">
-    {state.roundsLeft}
-    {state.roundsLeft === 1 ? "sin" : "sins"} left
-  </p>
 </div>
