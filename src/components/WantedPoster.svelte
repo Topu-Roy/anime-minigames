@@ -19,7 +19,7 @@
     /** Bounty in belly (e.g. 3000000000). */
     bounty: number;
     /** Null renders the faceless mystery mark (explicit opt-out only). */
-    imageURL: string | null;
+    imageURL?: string | null;
     imageAlt?: string;
   } = $props();
 

@@ -18,8 +18,12 @@
   const lobbyRun = createRun("lobby", "lobby");
   const lobbyPoster = computePoster(lobbyRun);
 
+  // Named `run` (not `state`): `$state` rune calls get misparsed by
+  // svelte-check as store subscriptions when a `state` variable is in scope.
+  // Generic args (not annotations): they preserve the union for narrowing
+  // inside $derived closures.
   let treeId = $state<string | null>(null);
-  let state = $state<BountyRunState | null>(null);
+  let run = $state<BountyRunState | null>(null);
   let offered = $state<BountyChoice[]>([]);
   let firstDeal = $state<FirstDeal>(dealFirstSin(treeList));
 
@@ -28,52 +32,54 @@
     if (!owner) return;
     treeId = owner.id;
     const fresh = createRun(owner.id, owner.start);
-    state = applyPick(owner.nodes, fresh, choice);
-    if (state.phase === "playing") {
-      offered = offerFor(owner.nodes, state);
+    run = applyPick(owner.nodes, fresh, choice);
+    if (run.phase === "playing") {
+      offered = offerFor(owner.nodes, run);
     }
   }
 
   const node = $derived.by(() => {
-    if (state === null || treeId === null) return undefined;
-    return TREES[treeId]?.nodes[state.nodeId];
+    if (run === null || treeId === null) return undefined;
+    return TREES[treeId]?.nodes[run.nodeId];
   });
 
   function pick(choice: BountyChoice): void {
-    if (state === null || treeId === null) return;
+    if (run === null || treeId === null) return;
     const meta = TREES[treeId];
     if (!meta) return;
-    state = applyPick(meta.nodes, state, choice);
-    if (state.phase === "playing") {
-      offered = offerFor(meta.nodes, state);
+    // One-round-deep side memory: previously offered sides stay out of the
+    // next deal so stub loops stop cycling the same cards. The trunk
+    // continuer is exempt inside dealOptions and may repeat.
+    const justOfferedIds = offered.map((o) => o.id);
+    run = applyPick(meta.nodes, run, choice);
+    if (run.phase === "playing") {
+      offered = offerFor(meta.nodes, run, Math.random, justOfferedIds);
     }
   }
 
   function restart(): void {
     treeId = null;
-    state = null;
+    run = null;
     offered = [];
     firstDeal = dealFirstSin(treeList);
   }
 
-  const poster = $derived<PosterResult | null>(
-    state !== null && state.phase === "poster" ? computePoster(state) : null,
-  );
+  const poster = $derived<PosterResult | null>(run !== null && run.phase === "poster" ? computePoster(run) : null);
 
   // Live poster prices every pick (cheap math, big feedback).
   const livePoster = $derived<PosterResult | null>(
-    state !== null && state.phase === "playing" ? computePoster(state) : null,
+    run !== null && run.phase === "playing" ? computePoster(run) : null,
   );
 </script>
 
 <div class="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-6 sm:px-6 sm:py-8">
-  {#if state === null}
+  {#if run === null}
     <div class="flex w-full max-w-6xl flex-col gap-6 md:flex-row md:items-start">
-      <div class="order-1 flex w-full flex-col items-center md:max-w-[58%]">
-        <div class="mt-4 w-full md:hidden">
+      <div class="order-1 flex w-full flex-col md:max-w-[58%]">
+        <div class="w-full md:hidden">
           <LivePoster poster={lobbyPoster} state={lobbyRun} />
         </div>
-        <div class="mt-6 flex w-full flex-col gap-3">
+        <div class="flex w-full flex-col gap-3">
           {#each firstDeal.offered as option, i (option.id)}
             <ActionCard choice={option} index={i + 1} onPick={pickFirst} />
           {:else}
@@ -87,16 +93,16 @@
         </div>
       </div>
     </div>
-  {:else if state.phase === "playing" && node}
+  {:else if run.phase === "playing" && node}
     <div class="flex w-full max-w-6xl flex-col gap-6 md:flex-row md:items-start">
       <div class="order-1 flex w-full flex-col items-center md:max-w-[58%]">
         {#if livePoster}
           <div class="mt-4 w-full md:hidden">
-            <LivePoster poster={livePoster} {state} />
+            <LivePoster poster={livePoster} state={run} />
           </div>
         {/if}
 
-        {#key state.nodeId + state.path.length}
+        {#key run.nodeId + run.path.length}
           <div class="animate-round mt-6 flex w-full flex-col gap-3">
             {#each offered as option, i (option.id)}
               <ActionCard choice={option} index={i + 1} onPick={pick} />
@@ -109,12 +115,12 @@
       <div class="order-2 hidden w-full md:block md:flex-1">
         <div class="md:sticky md:top-4">
           {#if livePoster}
-            <LivePoster poster={livePoster} {state} />
+            <LivePoster poster={livePoster} state={run} />
           {/if}
         </div>
       </div>
     </div>
   {:else if poster}
-    <PosterReveal onRestart={restart} {poster} {state} />
+    <PosterReveal onRestart={restart} {poster} state={run} />
   {/if}
 </div>

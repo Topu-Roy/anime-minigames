@@ -1,7 +1,7 @@
 {
   "name": "animeminigames",
   "type": "module",
-  "version": "1.18.1",
+  "version": "1.18.2",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -12,6 +12,7 @@
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "bun test"
@@ -44,5 +45,9 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2",
+    "svelte-check": "^4.7.6"
   }
 }
