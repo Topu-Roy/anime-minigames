@@ -12,10 +12,10 @@ export default defineConfig({
   site: "https://animeminigames.com",
   integrations: [
     svelte(),
-    // Noindexed pages (style previews) stay out of the sitemap - listing
-    // them contradicts their robots directives.
+    // Noindexed pages (style previews, error routes) stay out of the sitemap -
+    // listing them contradicts their robots directives.
     sitemap({
-      filter: (page) => !page.includes("/preview/"),
+      filter: (page) => !page.includes("/preview/") && !page.endsWith("/404/"),
     }),
     // Forward gtag calls from worker to main thread - required for
     // type="text/partytown" GA scripts in Layout.astro.
